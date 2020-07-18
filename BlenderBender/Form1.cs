@@ -1422,6 +1422,30 @@ namespace BlenderBender
         {
             
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.D1)
+            {
+                tabControl1.SelectTab(tabPage4);
+            }
+            else if (e.Control && e.KeyCode == Keys.D2)
+            {
+                tabControl1.SelectTab(tabPage1);
+            }
+            else if (e.Control && e.KeyCode == Keys.D3)
+            {
+                tabControl1.SelectTab(tabPage2);
+            }
+            else if (e.Control && e.KeyCode == Keys.D4)
+            {
+                tabControl1.SelectTab(tabPage3);
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
     public class hwid

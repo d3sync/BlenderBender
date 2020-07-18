@@ -251,7 +251,6 @@ namespace BlenderBender
             this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -286,7 +285,6 @@ namespace BlenderBender
             this.groupBox11.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -720,7 +718,7 @@ namespace BlenderBender
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(320, 23);
             this.button32.TabIndex = 15;
-            this.button32.Text = "Ζήτησε Κατάστημα";
+            this.button32.Text = "&Ζήτησε Κατάστημα";
             this.button32.UseVisualStyleBackColor = true;
             this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
@@ -830,7 +828,7 @@ namespace BlenderBender
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(205, 25);
             this.button6.TabIndex = 11;
-            this.button6.Text = "Τιμολογήθηκε από";
+            this.button6.Text = "&Τιμολογήθηκε από";
             this.toolTip1.SetToolTip(this.button6, "Όνομα υπαλλήλου που δεν έχει ακόμα δικό του admin");
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -873,7 +871,7 @@ namespace BlenderBender
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(163, 23);
             this.button16.TabIndex = 1;
-            this.button16.Text = "Αδυναμία Επικοινωνίας";
+            this.button16.Text = "&Αδυναμία Επικοινωνίας";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -883,7 +881,7 @@ namespace BlenderBender
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(153, 23);
             this.button15.TabIndex = 0;
-            this.button15.Text = "Δεν απαντούσε";
+            this.button15.Text = "&Δεν απαντούσε";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
@@ -980,7 +978,7 @@ namespace BlenderBender
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(145, 47);
             this.button14.TabIndex = 1;
-            this.button14.Text = "Επιτόπου 2ο";
+            this.button14.Text = "&Επιτόπου 2ο";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
@@ -2609,7 +2607,7 @@ namespace BlenderBender
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(63, 43);
             this.button38.TabIndex = 4;
-            this.button38.Text = "Ώρα Τώρα";
+            this.button38.Text = "Ώ&ρα Τώρα";
             this.button38.UseVisualStyleBackColor = true;
             this.button38.Click += new System.EventHandler(this.button33_Click);
             // 
@@ -2617,20 +2615,12 @@ namespace BlenderBender
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(334, 442);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(801, 492);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button38);
             this.Controls.Add(this.button31);
             this.Controls.Add(this.button19);
@@ -2638,11 +2628,13 @@ namespace BlenderBender
             this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "e-Shop Assistant";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -2695,7 +2687,6 @@ namespace BlenderBender
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2922,7 +2913,6 @@ namespace BlenderBender
         private System.Windows.Forms.CheckBox _emailaid;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
