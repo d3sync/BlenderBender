@@ -44,7 +44,6 @@ namespace BlenderBender
             this.label30 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button25 = new System.Windows.Forms.Button();
@@ -242,18 +241,20 @@ namespace BlenderBender
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button19 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button31 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.button40 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -285,6 +286,7 @@ namespace BlenderBender
             this.groupBox11.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -402,15 +404,6 @@ namespace BlenderBender
             this.label25.Size = new System.Drawing.Size(123, 15);
             this.label25.TabIndex = 5;
             this.label25.Text = "Created by d3sync";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(358, 74);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -2554,17 +2547,6 @@ namespace BlenderBender
             this.timer1.Interval = 300;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button19
-            // 
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Image = global::BlenderBender.Properties.Resources.icons8_calculator_32;
-            this.button19.Location = new System.Drawing.Point(81, 426);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(50, 43);
-            this.button19.TabIndex = 2;
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
             // toolTip1
             // 
             this.toolTip1.ShowAlways = true;
@@ -2577,17 +2559,6 @@ namespace BlenderBender
             this.notifyIcon1.Text = "e-Shop Assistant";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
-            // 
-            // button31
-            // 
-            this.button31.Font = new System.Drawing.Font("Mionta", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button31.Location = new System.Drawing.Point(746, 426);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(50, 43);
-            this.button31.TabIndex = 3;
-            this.button31.Text = "H";
-            this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // openFileDialog1
             // 
@@ -2608,6 +2579,7 @@ namespace BlenderBender
             this.button38.Size = new System.Drawing.Size(63, 43);
             this.button38.TabIndex = 4;
             this.button38.Text = "Ώ&ρα Τώρα";
+            this.toolTip1.SetToolTip(this.button38, "Στο πρόχειρο η Ημερομηνία & Ώρα");
             this.button38.UseVisualStyleBackColor = true;
             this.button38.Click += new System.EventHandler(this.button33_Click);
             // 
@@ -2615,12 +2587,69 @@ namespace BlenderBender
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // button40
+            // 
+            this.button40.Font = new System.Drawing.Font("Mionta", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button40.Image = global::BlenderBender.Properties.Resources.icons8_shortcut_48;
+            this.button40.Location = new System.Drawing.Point(695, 426);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(50, 43);
+            this.button40.TabIndex = 6;
+            this.button40.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
+            // 
+            // button39
+            // 
+            this.button39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button39.Image = global::BlenderBender.Properties.Resources.icons8_spiral_bound_booklet_48;
+            this.button39.Location = new System.Drawing.Point(137, 426);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(50, 43);
+            this.button39.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.button39, "Run Notepad");
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
+            // 
+            // button31
+            // 
+            this.button31.Font = new System.Drawing.Font("Mionta", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.Image = global::BlenderBender.Properties.Resources.icons8_ghost_32;
+            this.button31.Location = new System.Drawing.Point(746, 426);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(50, 43);
+            this.button31.TabIndex = 3;
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // button19
+            // 
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Image = global::BlenderBender.Properties.Resources.icons8_calculator_32;
+            this.button19.Location = new System.Drawing.Point(81, 426);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(50, 43);
+            this.button19.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.button19, "Run calculator");
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(358, 74);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(801, 492);
+            this.Controls.Add(this.button40);
+            this.Controls.Add(this.button39);
             this.Controls.Add(this.button38);
             this.Controls.Add(this.button31);
             this.Controls.Add(this.button19);
@@ -2639,7 +2668,6 @@ namespace BlenderBender
             this.statusStrip1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
@@ -2687,6 +2715,7 @@ namespace BlenderBender
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2913,6 +2942,8 @@ namespace BlenderBender
         private System.Windows.Forms.CheckBox _emailaid;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
     }
 }
 

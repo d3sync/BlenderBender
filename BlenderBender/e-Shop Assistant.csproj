@@ -291,6 +291,10 @@
     <Content Include="poppler\poppler-0.68\include\poppler\cpp\poppler-toc.h" />
     <Content Include="poppler\poppler-0.68\include\poppler\cpp\poppler-version.h" />
     <Content Include="poppler\poppler-0.68\bin\zlib1.dll" />
+    <None Include="Resources\icons8-ghost-32.png" />
+    <None Include="Resources\icons8-ghost-48.png" />
+    <None Include="Resources\icons8-shortcut-48.png" />
+    <None Include="Resources\icons8-spiral-bound-booklet-48.png" />
     <None Include="Resources\icons8-calculator-32.png" />
   </ItemGroup>
   <ItemGroup>

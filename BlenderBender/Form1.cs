@@ -1441,10 +1441,49 @@ namespace BlenderBender
             {
                 tabControl1.SelectTab(tabPage3);
             }
+            else if (e.Control && e.KeyCode == Keys.C)
+            {
+                if (tabControl1.SelectedTab == tabPage1)
+                {
+                    button18.PerformClick();
+                }
+                else if (tabControl1.SelectedTab == tabPage2)
+                {
+                    button25.PerformClick();
+                }
+                else if (tabControl1.SelectedTab == tabPage3)
+                {
+                    button4.PerformClick();
+                }
+                else
+                {
+                    return;
+                }
+            }
             else
             {
                 return;
             }
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            Process.Start("notepad.exe");
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ctrl + 1 : Selects Automated Messages Tab\n" +
+                            "Ctrl + 2 : Selects E-mail Tab\n" +
+                            "Ctrl + 3 : Selects Πιστωτικά Tab\n" +
+                            "Ctrl + 4 : Selects Υπολογισμός Χρημάτων Tab\n" +
+                            "Ctrl + C : Clears active tabs inputs" +
+                            "Alt + Δ : Δεν απαντούσε\n" +
+                            "Alt + E : 2ο Μήνυμα για επιτόπου\n" +
+                            "Alt + A : Αδυναμία επικοινωνίας\n" +
+                            "Alt + Ρ : Ημερομηνία και Ώρα τώρα\n" +
+                            "Alt + Τ : Τιμολογήθηκε από ....\n" +
+                            "Alt + Z : Ζήτησε κατάστημα\n", "Shortcuts");
         }
     }
 
