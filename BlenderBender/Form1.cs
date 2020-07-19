@@ -1441,6 +1441,18 @@ namespace BlenderBender
             {
                 tabControl1.SelectTab(tabPage3);
             }
+            else if (e.Control && e.KeyCode == Keys.S)
+            {
+                button3.PerformClick();
+            }
+            else if (e.Control && e.KeyCode == Keys.A)
+            {
+                button1.PerformClick();
+            }
+            else if (e.Control && e.KeyCode == Keys.D)
+            {
+                button2.PerformClick();
+            }
             else if (e.Control && e.KeyCode == Keys.C)
             {
                 if (tabControl1.SelectedTab == tabPage1)
