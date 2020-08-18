@@ -1,8 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BlenderBender.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="_storeArea" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ΡΟΔΟΣ</Value>
+    </Setting>
+    <Setting Name="_storeNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="_storeAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ΚΩΝΣΤΑΝΤΙΝΟΥ ΥΔΡΑΙΟΥ 71, ΤΚ 85133, ΡΟΔΟΣ</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

@@ -206,7 +206,17 @@ namespace BlenderBender
             this.panel1 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this._ppview = new System.Windows.Forms.Button();
+            this._AAp = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this._datePicker = new System.Windows.Forms.DateTimePicker();
+            this.label55 = new System.Windows.Forms.Label();
+            this._txtFrom = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this._storeAddress = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button17 = new System.Windows.Forms.Button();
             this._monitor = new System.Windows.Forms.CheckBox();
@@ -283,6 +293,8 @@ namespace BlenderBender
             this.tabPage10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -2186,6 +2198,7 @@ namespace BlenderBender
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.groupBox3);
             this.tabPage11.Location = new System.Drawing.Point(4, 24);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -2194,8 +2207,96 @@ namespace BlenderBender
             this.tabPage11.Text = "Printing";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this._ppview);
+            this.groupBox3.Controls.Add(this._AAp);
+            this.groupBox3.Controls.Add(this.label56);
+            this.groupBox3.Controls.Add(this.label47);
+            this.groupBox3.Controls.Add(this._datePicker);
+            this.groupBox3.Controls.Add(this.label55);
+            this.groupBox3.Controls.Add(this._txtFrom);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(771, 117);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Αποστολή για Μενίδι";
+            // 
+            // _ppview
+            // 
+            this._ppview.AutoSize = true;
+            this._ppview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._ppview.Location = new System.Drawing.Point(463, 15);
+            this._ppview.Name = "_ppview";
+            this._ppview.Size = new System.Drawing.Size(297, 85);
+            this._ppview.TabIndex = 0;
+            this._ppview.Text = "Αποστολή Προς Μενίδι";
+            this._ppview.UseVisualStyleBackColor = true;
+            this._ppview.Click += new System.EventHandler(this._ppview_Click);
+            // 
+            // _AAp
+            // 
+            this._AAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._AAp.Location = new System.Drawing.Point(238, 17);
+            this._AAp.Name = "_AAp";
+            this._AAp.Size = new System.Drawing.Size(219, 22);
+            this._AAp.TabIndex = 1;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(6, 84);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(176, 16);
+            this.label56.TabIndex = 4;
+            this.label56.Text = "Ημερομηνία Αποστολής:";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(6, 17);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(151, 16);
+            this.label47.TabIndex = 2;
+            this.label47.Text = "Αριθμός Αποστολής:";
+            // 
+            // _datePicker
+            // 
+            this._datePicker.CustomFormat = "dd/MM/yyyy";
+            this._datePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this._datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._datePicker.Location = new System.Drawing.Point(238, 79);
+            this._datePicker.Name = "_datePicker";
+            this._datePicker.Size = new System.Drawing.Size(219, 22);
+            this._datePicker.TabIndex = 6;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(6, 48);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(113, 16);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "Αποστολή από:";
+            // 
+            // _txtFrom
+            // 
+            this._txtFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._txtFrom.Location = new System.Drawing.Point(238, 45);
+            this._txtFrom.Name = "_txtFrom";
+            this._txtFrom.Size = new System.Drawing.Size(219, 22);
+            this._txtFrom.TabIndex = 5;
+            // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this._storeAddress);
+            this.tabPage6.Controls.Add(this.label57);
             this.tabPage6.Controls.Add(this.checkBox3);
             this.tabPage6.Controls.Add(this.button17);
             this.tabPage6.Controls.Add(this._monitor);
@@ -2225,14 +2326,31 @@ namespace BlenderBender
             this.tabPage6.Text = "Settings";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // _storeAddress
+            // 
+            this._storeAddress.Location = new System.Drawing.Point(170, 87);
+            this._storeAddress.Name = "_storeAddress";
+            this._storeAddress.Size = new System.Drawing.Size(342, 21);
+            this._storeAddress.TabIndex = 41;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(3, 90);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(166, 15);
+            this.label57.TabIndex = 0;
+            this.label57.Text = "Διεύθυνση Καταστήματος";
+            // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(265, 229);
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(412, 264);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(156, 19);
+            this.checkBox3.Size = new System.Drawing.Size(143, 17);
             this.checkBox3.TabIndex = 40;
             this.checkBox3.Text = "Hide Announcer Tab";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -2251,7 +2369,7 @@ namespace BlenderBender
             // _monitor
             // 
             this._monitor.AutoSize = true;
-            this._monitor.Location = new System.Drawing.Point(11, 139);
+            this._monitor.Location = new System.Drawing.Point(339, 168);
             this._monitor.Name = "_monitor";
             this._monitor.Size = new System.Drawing.Size(141, 19);
             this._monitor.TabIndex = 38;
@@ -2260,25 +2378,27 @@ namespace BlenderBender
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(118, 227);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(265, 262);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(107, 21);
+            this.textBox5.Size = new System.Drawing.Size(107, 20);
             this.textBox5.TabIndex = 37;
             this.textBox5.Text = "127.0.0.1";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(20, 230);
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(167, 265);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(92, 15);
+            this.label39.Size = new System.Drawing.Size(84, 13);
             this.label39.TabIndex = 36;
             this.label39.Text = "Announcer IP";
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(11, 114);
+            this.checkBox4.Location = new System.Drawing.Point(339, 143);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(214, 19);
             this.checkBox4.TabIndex = 35;
@@ -2292,11 +2412,12 @@ namespace BlenderBender
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(11, 88);
+            this.checkBox2.Location = new System.Drawing.Point(339, 193);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(282, 20);
+            this.checkBox2.Size = new System.Drawing.Size(156, 20);
             this.checkBox2.TabIndex = 34;
-            this.checkBox2.Text = "Replace \".\" with \",\"(Win10 weirdness)";
+            this.checkBox2.Text = "Replace \".\" with \",\"";
+            this.toolTip1.SetToolTip(this.checkBox2, "Windows 10 weirdness");
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // groupBox11
@@ -2304,35 +2425,36 @@ namespace BlenderBender
             this.groupBox11.Controls.Add(this.textBox47);
             this.groupBox11.Controls.Add(this.label36);
             this.groupBox11.Controls.Add(this.checkBox8);
-            this.groupBox11.Location = new System.Drawing.Point(6, 257);
+            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox11.Location = new System.Drawing.Point(6, 281);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(547, 86);
+            this.groupBox11.Size = new System.Drawing.Size(547, 62);
             this.groupBox11.TabIndex = 32;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "E-mail Settings";
             // 
             // textBox47
             // 
-            this.textBox47.Location = new System.Drawing.Point(66, 25);
+            this.textBox47.Location = new System.Drawing.Point(66, 19);
             this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(406, 21);
+            this.textBox47.Size = new System.Drawing.Size(406, 20);
             this.textBox47.TabIndex = 1;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(2, 28);
+            this.label36.Location = new System.Drawing.Point(2, 22);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(58, 15);
+            this.label36.Size = new System.Drawing.Size(52, 13);
             this.label36.TabIndex = 0;
             this.label36.Text = "Address";
             // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(66, 52);
+            this.checkBox8.Location = new System.Drawing.Point(68, 42);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(338, 19);
+            this.checkBox8.Size = new System.Drawing.Size(307, 17);
             this.checkBox8.TabIndex = 33;
             this.checkBox8.Text = "Replace \\r\\n and [space] with %0D%0A and  %20";
             this.checkBox8.UseVisualStyleBackColor = true;
@@ -2709,6 +2831,9 @@ namespace BlenderBender
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -2944,6 +3069,16 @@ namespace BlenderBender
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button39;
         private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button _ppview;
+        private System.Windows.Forms.TextBox _AAp;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox _txtFrom;
+        private System.Windows.Forms.DateTimePicker _datePicker;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox _storeAddress;
+        private System.Windows.Forms.Label label57;
     }
 }
 

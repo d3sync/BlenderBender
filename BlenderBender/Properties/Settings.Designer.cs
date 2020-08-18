@@ -12,7 +12,7 @@ namespace BlenderBender.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,6 +20,42 @@ namespace BlenderBender.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ΡΟΔΟΣ")]
+        public string _storeArea {
+            get {
+                return ((string)(this["_storeArea"]));
+            }
+            set {
+                this["_storeArea"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public string _storeNumber {
+            get {
+                return ((string)(this["_storeNumber"]));
+            }
+            set {
+                this["_storeNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ΚΩΝΣΤΑΝΤΙΝΟΥ ΥΔΡΑΙΟΥ 71, ΤΚ 85133, ΡΟΔΟΣ")]
+        public string _storeAddress {
+            get {
+                return ((string)(this["_storeAddress"]));
+            }
+            set {
+                this["_storeAddress"] = value;
             }
         }
     }

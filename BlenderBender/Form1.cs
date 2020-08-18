@@ -14,7 +14,7 @@ using Microsoft.Win32;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using ControlzEx.Standard;
+//using ControlzEx.Standard;
 using LahoreSocketAsync;
 
 namespace BlenderBender
@@ -78,8 +78,8 @@ namespace BlenderBender
             //e-mail settings disabled
             tabPage7.Visible = false;
             tabPage9.Visible = false;
-            tabPage11.Visible = false;
-            tabControl1.TabPages.Remove(tabPage11);
+            //tabPage11.Visible = false;
+            //tabControl1.TabPages.Remove(tabPage11);
             tabControl1.TabPages.Remove(tabPage7);
             tabControl1.TabPages.Remove(tabPage9);
             var asm = Assembly.GetExecutingAssembly();
@@ -91,6 +91,9 @@ namespace BlenderBender
             {
                 toolStripStatusLabel2.Text = GetLocalIPAddress();
             }
+
+            _txtFrom.Text = Properties.Settings.Default._storeArea;
+            _storeAddress.Text = Properties.Settings.Default._storeAddress;
         }
         private static void HandleTextReceived(object sender, TextReceivedEventArgs trea)
         {
@@ -594,6 +597,10 @@ namespace BlenderBender
             key.SetValue("MAIL_ADDRESS", textBox47.Text);
             key.SetValue("REPLACE_ON_MAIL", checkBox8.Checked.ToString());
             key.Close();
+            Properties.Settings.Default._storeAddress = _storeAddress.Text;
+            Properties.Settings.Default._storeArea = _txtFrom.Text;
+            Properties.Settings.Default.Save();
+            //_txtFrom.Text = _storeAddress.Text;
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
@@ -1496,6 +1503,27 @@ namespace BlenderBender
                             "Alt + Ρ : Ημερομηνία και Ώρα τώρα\n" +
                             "Alt + Τ : Τιμολογήθηκε από ....\n" +
                             "Alt + Z : Ζήτησε κατάστημα\n", "Shortcuts");
+        }
+
+        private void _ppview_Click(object sender, EventArgs e)
+        {
+            var data = new Dictionary<string, string>()
+            {
+                {"addressFrom", _storeAddress.Text },
+                {"addressTo", "ΑΝΕΜΩΝΗΣ 6. ΤΚ 13671, ΑΧΑΡΝΑΙ" },
+                {"storeArea", Properties.Settings.Default._storeArea },
+                {"date", _datePicker.Value.ToString("dd/MM/yyyy") },
+                {"storeTo","Μενίδι" },
+                {"phone",textBox43.Text },
+                {"AA", _AAp.Text },
+            };
+            Form printableForm = new PrintableForm(data);
+            printableForm.Show();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
