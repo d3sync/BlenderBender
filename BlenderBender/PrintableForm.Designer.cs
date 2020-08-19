@@ -66,22 +66,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 58);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(59, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 29);
+            this.label1.Size = new System.Drawing.Size(243, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Αποστολή από";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(781, 538);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(676, 526);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 29);
+            this.label2.Size = new System.Drawing.Size(104, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "Προς:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -89,32 +89,31 @@
             // txtFrom
             // 
             this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFrom.Location = new System.Drawing.Point(245, 58);
+            this.txtFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFrom.Location = new System.Drawing.Point(299, 58);
             this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(136, 28);
+            this.txtFrom.Size = new System.Drawing.Size(136, 37);
             this.txtFrom.TabIndex = 2;
             // 
             // _txtTo
             // 
             this._txtTo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._txtTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._txtTo.Location = new System.Drawing.Point(865, 538);
+            this._txtTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._txtTo.Location = new System.Drawing.Point(785, 526);
             this._txtTo.Name = "_txtTo";
-            this._txtTo.Size = new System.Drawing.Size(123, 28);
+            this._txtTo.Size = new System.Drawing.Size(123, 37);
             this._txtTo.TabIndex = 3;
             this._txtTo.Text = "Μενίδι";
             // 
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(14, 37);
+            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(413, 136);
+            this.richTextBox1.Size = new System.Drawing.Size(498, 119);
             this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "         VFS LOGISTICS SUPPORT A.E.\nΤΑΧΥΜΕΤΑΦΟΡΕΣ ΑΝΤΙΚ. & ΕΓΓΡΑΦΩΝ\nΓΑΡΔΕΝΙΑΣ 30 " +
-    " -  ΑΧΑΡΝΕΣ   Τ.Κ 136 72\nΑΦΜ  998300724   -   ΔΟΥ:  ΦΑΕ ΑΘΗΝΩΝ";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label3
@@ -159,9 +158,10 @@
             // txtAddressTo
             // 
             this.txtAddressTo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddressTo.Location = new System.Drawing.Point(665, 570);
+            this.txtAddressTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddressTo.Location = new System.Drawing.Point(523, 566);
             this.txtAddressTo.Name = "txtAddressTo";
-            this.txtAddressTo.Size = new System.Drawing.Size(416, 28);
+            this.txtAddressTo.Size = new System.Drawing.Size(570, 37);
             this.txtAddressTo.TabIndex = 9;
             this.txtAddressTo.Text = "ΑΝΕΜΩΝΗΣ 6. ΤΚ 13671, ΑΧΑΡΝΑΙ";
             this.txtAddressTo.TextChanged += new System.EventHandler(this.txtAddressTo_TextChanged);
@@ -169,10 +169,10 @@
             // txtAddressFrom
             // 
             this.txtAddressFrom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddressFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddressFrom.Location = new System.Drawing.Point(57, 90);
+            this.txtAddressFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddressFrom.Location = new System.Drawing.Point(66, 102);
             this.txtAddressFrom.Name = "txtAddressFrom";
-            this.txtAddressFrom.Size = new System.Drawing.Size(486, 27);
+            this.txtAddressFrom.Size = new System.Drawing.Size(486, 37);
             this.txtAddressFrom.TabIndex = 10;
             // 
             // pictureBox1
@@ -239,7 +239,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(91, 236);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 203);
+            this.groupBox1.Size = new System.Drawing.Size(510, 171);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "(Σφραγίδα και Υπογραφή)";
@@ -247,10 +247,10 @@
             // _txtPhone
             // 
             this._txtPhone.AutoSize = true;
-            this._txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._txtPhone.Location = new System.Drawing.Point(52, 121);
+            this._txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._txtPhone.Location = new System.Drawing.Point(59, 142);
             this._txtPhone.Name = "_txtPhone";
-            this._txtPhone.Size = new System.Drawing.Size(71, 29);
+            this._txtPhone.Size = new System.Drawing.Size(98, 37);
             this._txtPhone.TabIndex = 13;
             this._txtPhone.Text = "ΤΗΛ.";
             // 
@@ -259,7 +259,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Location = new System.Drawing.Point(12, 18);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 28);
+            this.textBox1.Size = new System.Drawing.Size(156, 37);
             this.textBox1.TabIndex = 14;
             this.textBox1.Text = "ΔΕΜΑΤΑ:";
             // 
@@ -268,17 +268,18 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this._labelNprint);
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(463, 695);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(439, 665);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(299, 70);
+            this.panel2.Size = new System.Drawing.Size(312, 70);
             this.panel2.TabIndex = 15;
             // 
             // _labelNprint
             // 
             this._labelNprint.AutoSize = true;
-            this._labelNprint.Location = new System.Drawing.Point(163, 18);
+            this._labelNprint.Location = new System.Drawing.Point(174, 18);
             this._labelNprint.Name = "_labelNprint";
-            this._labelNprint.Size = new System.Drawing.Size(91, 29);
+            this._labelNprint.Size = new System.Drawing.Size(123, 37);
             this._labelNprint.TabIndex = 16;
             this._labelNprint.Text = "__ / __";
             // 

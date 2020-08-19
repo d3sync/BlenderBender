@@ -124,6 +124,7 @@ namespace BlenderBender
                     printDocument1.Print();
                 }
             }
+            printDocument1.Dispose();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
