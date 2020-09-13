@@ -120,9 +120,15 @@ namespace BlenderBender
             this.label48 = new System.Windows.Forms.Label();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
+            this.cleanServed = new System.Windows.Forms.Button();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this._numPrice = new System.Windows.Forms.TextBox();
+            this._orderName = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
-            this.textBox49 = new System.Windows.Forms.TextBox();
+            this._boxSize = new System.Windows.Forms.ListBox();
+            this._orderCode = new System.Windows.Forms.TextBox();
+            this._announceAid = new System.Windows.Forms.CheckBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label35 = new System.Windows.Forms.Label();
@@ -263,6 +269,7 @@ namespace BlenderBender
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.textBox49 = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -288,6 +295,7 @@ namespace BlenderBender
             this.splitContainer1.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage10.SuspendLayout();
@@ -1285,9 +1293,9 @@ namespace BlenderBender
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.cleanServed);
+            this.tabPage9.Controls.Add(this.groupBox13);
             this.tabPage9.Controls.Add(this.button12);
-            this.tabPage9.Controls.Add(this.button9);
-            this.tabPage9.Controls.Add(this.textBox49);
             this.tabPage9.Controls.Add(this.button5);
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
             this.tabPage9.Name = "tabPage9";
@@ -1296,6 +1304,88 @@ namespace BlenderBender
             this.tabPage9.TabIndex = 12;
             this.tabPage9.Text = "Announce";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // cleanServed
+            // 
+            this.cleanServed.Location = new System.Drawing.Point(276, 344);
+            this.cleanServed.Name = "cleanServed";
+            this.cleanServed.Size = new System.Drawing.Size(501, 44);
+            this.cleanServed.TabIndex = 5;
+            this.cleanServed.Text = "Clean Served";
+            this.cleanServed.UseVisualStyleBackColor = true;
+            this.cleanServed.Click += new System.EventHandler(this.cleanServed_Click);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this._numPrice);
+            this.groupBox13.Controls.Add(this._orderName);
+            this.groupBox13.Controls.Add(this.button9);
+            this.groupBox13.Controls.Add(this._boxSize);
+            this.groupBox13.Controls.Add(this._orderCode);
+            this.groupBox13.Controls.Add(this._announceAid);
+            this.groupBox13.Location = new System.Drawing.Point(121, 6);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(501, 184);
+            this.groupBox13.TabIndex = 4;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Announcer";
+            // 
+            // _numPrice
+            // 
+            this._numPrice.Location = new System.Drawing.Point(6, 96);
+            this._numPrice.Name = "_numPrice";
+            this._numPrice.Size = new System.Drawing.Size(100, 21);
+            this._numPrice.TabIndex = 5;
+            // 
+            // _orderName
+            // 
+            this._orderName.Location = new System.Drawing.Point(6, 69);
+            this._orderName.Name = "_orderName";
+            this._orderName.Size = new System.Drawing.Size(383, 21);
+            this._orderName.TabIndex = 4;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(-1, 147);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(390, 31);
+            this.button9.TabIndex = 2;
+            this.button9.Text = "Αποστολή";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            // 
+            // _boxSize
+            // 
+            this._boxSize.FormattingEnabled = true;
+            this._boxSize.ItemHeight = 15;
+            this._boxSize.Items.AddRange(new object[] {
+            "Μη επιλεγμένο",
+            "Πολύ μικρό",
+            "Μικρό",
+            "Μεσαίο",
+            "Μεγάλο",
+            "Πολύ μεγάλο"});
+            this._boxSize.Location = new System.Drawing.Point(395, 69);
+            this._boxSize.Name = "_boxSize";
+            this._boxSize.Size = new System.Drawing.Size(100, 109);
+            this._boxSize.TabIndex = 2;
+            // 
+            // _orderCode
+            // 
+            this._orderCode.Location = new System.Drawing.Point(6, 45);
+            this._orderCode.Name = "_orderCode";
+            this._orderCode.Size = new System.Drawing.Size(489, 21);
+            this._orderCode.TabIndex = 1;
+            // 
+            // _announceAid
+            // 
+            this._announceAid.AutoSize = true;
+            this._announceAid.Location = new System.Drawing.Point(6, 20);
+            this._announceAid.Name = "_announceAid";
+            this._announceAid.Size = new System.Drawing.Size(71, 19);
+            this._announceAid.TabIndex = 0;
+            this._announceAid.Text = "ClipAid";
+            this._announceAid.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
@@ -1306,26 +1396,6 @@ namespace BlenderBender
             this.button12.Text = "D/C";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(104, 187);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(502, 31);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Αποστολή";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click_1);
-            // 
-            // textBox49
-            // 
-            this.textBox49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox49.Location = new System.Drawing.Point(104, 89);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(502, 29);
-            this.textBox49.TabIndex = 1;
-            this.textBox49.Enter += new System.EventHandler(this.button9_Click_1);
-            this.textBox49.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox49_KeyDown);
             // 
             // button5
             // 
@@ -2345,8 +2415,6 @@ namespace BlenderBender
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.Location = new System.Drawing.Point(412, 264);
             this.checkBox3.Name = "checkBox3";
@@ -2583,6 +2651,7 @@ namespace BlenderBender
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.textBox49);
             this.tabPage7.Controls.Add(this.label40);
             this.tabPage7.Controls.Add(this.textBox7);
             this.tabPage7.Controls.Add(this.groupBox8);
@@ -2764,6 +2833,15 @@ namespace BlenderBender
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
+            // textBox49
+            // 
+            this.textBox49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox49.Location = new System.Drawing.Point(143, 245);
+            this.textBox49.Name = "textBox49";
+            this.textBox49.Size = new System.Drawing.Size(502, 29);
+            this.textBox49.TabIndex = 35;
+            this.textBox49.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2821,7 +2899,8 @@ namespace BlenderBender
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage8.ResumeLayout(false);
@@ -3034,7 +3113,6 @@ namespace BlenderBender
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox49;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label39;
@@ -3079,6 +3157,14 @@ namespace BlenderBender
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox _storeAddress;
         private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TextBox _orderName;
+        private System.Windows.Forms.ListBox _boxSize;
+        private System.Windows.Forms.TextBox _orderCode;
+        private System.Windows.Forms.CheckBox _announceAid;
+        private System.Windows.Forms.TextBox _numPrice;
+        private System.Windows.Forms.Button cleanServed;
+        private System.Windows.Forms.TextBox textBox49;
     }
 }
 

@@ -77,11 +77,11 @@ namespace BlenderBender
             button18_Click(null, null);
             //e-mail settings disabled
             tabPage7.Visible = false;
-            tabPage9.Visible = false;
+            //tabPage9.Visible = false;
             //tabPage11.Visible = false;
             //tabControl1.TabPages.Remove(tabPage11);
             tabControl1.TabPages.Remove(tabPage7);
-            tabControl1.TabPages.Remove(tabPage9);
+            //tabControl1.TabPages.Remove(tabPage9);
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
             var version = string.Format("{0}", fvi.ProductVersion);
@@ -255,6 +255,8 @@ namespace BlenderBender
         public string lastorder = null;
         public string lastemail = null;
         public string lastname = null;
+        public string lastprice = null;
+
         public int _ccounter = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -331,6 +333,67 @@ namespace BlenderBender
                             _emailaid.Checked = false;
                             //Console.WriteLine("it works");
                             this.TopMost = false;
+                        }
+                    }
+                }
+            }
+            if (_announceAid.Checked == true)
+            {
+                var iData = Clipboard.GetDataObject();
+                if ((Clipboard.GetDataObject() != null) && ((string)iData.GetData(DataFormats.Text) != lastclip))
+                {
+                    // Is Data Text?
+                    if (iData.GetDataPresent(DataFormats.Text))
+                    {
+                        string data = (string)iData.GetData(DataFormats.Text);
+                        string gtext = Clipboard.GetText(TextDataFormat.UnicodeText);
+                        //Console.WriteLine(data);
+                        //if ((data.Contains("---")) && (data.Contains("_")))
+                        if (Regex.IsMatch(data, @"^\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$") || Regex.IsMatch(data, @"^\d{3}-\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$"))
+                        {
+                            if (data != lastorder)
+                            {
+                                _orderCode.Text = data;
+                                lastorder = data;
+                                _ccounter += 1;
+                            }
+                        }
+
+                        if (data.Contains("."))
+                        {
+                            if (Regex.IsMatch(data, @"^\d+\.\d{2}$"))
+                            {
+                                if (data != lastprice)
+                                {
+                                    _numPrice.Text = data;
+                                    lastprice = data;
+                                    _ccounter += 1;
+                                }
+                            }
+                        }
+                        if ((!data.Contains("---")) && (!data.Contains("_")) && (!data.Contains("@")))
+                        {
+                            if (Regex.IsMatch(gtext, @"^\w+$"))
+                            {
+                                if (gtext != lastname)
+                                {
+                                    _orderName.Text = gtext;
+                                    lastname = gtext;
+                                    _ccounter += 1;
+                                }
+                            }
+                        }
+                        lastclip = (string)iData.GetData(DataFormats.Text);
+                        if (_ccounter == 3)
+                        {
+                            //this.WindowState = FormWindowState.Normal;
+                            //this.BringToFront();
+                            //this.TopMost = true;
+                            //this.Focus();
+                            _ccounter = 0;
+                            //Console.WriteLine("it works");
+                            //this.TopMost = false;
+                            button9.PerformClick();
                         }
                     }
                 }
@@ -1293,9 +1356,12 @@ namespace BlenderBender
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-            string strInputUser = textBox49.Text;
+            string strInputUser = "ANNOUNCE" + "|" + _orderCode.Text + "|" + _orderName.Text + "|" + _numPrice.Text + "|" + _boxSize.SelectedItem;
             client.SendToServer(strInputUser);
-            textBox49.Text = "";
+            _orderName.Clear();
+            _orderCode.Clear();
+            _numPrice.Text = null;
+            lastclip = null;
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1322,6 +1388,15 @@ namespace BlenderBender
             client.ConnectToServer();
             button5.Text = "Connected!";
             button5.Enabled = false;
+            lastclip = null;
+            _announceAid.Checked = true;
+            lastname = null;
+            lastprice = null;
+            lastorder = null;
+            _orderName.Text = "";
+            _orderCode.Text = "";
+            _numPrice.Text = "";
+            _boxSize.SelectedIndex = 0;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -1329,6 +1404,11 @@ namespace BlenderBender
             client.CloseAndDisconnect();
             button5.Text = "Connect";
             button5.Enabled = true;
+            lastclip = null;
+            _announceAid.Checked = false;
+            lastname = null;
+            lastprice = null;
+            lastorder = null;
         }
 
         private void textBox49_KeyDown(object sender, KeyEventArgs e)
@@ -1524,6 +1604,12 @@ namespace BlenderBender
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cleanServed_Click(object sender, EventArgs e)
+        {
+            string strInputUser = "CLEANSERVED" + "|DONE";
+            client.SendToServer(strInputUser);
         }
     }
 

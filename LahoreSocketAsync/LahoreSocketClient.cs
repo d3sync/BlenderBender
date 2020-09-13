@@ -171,7 +171,7 @@ namespace LahoreSocketAsync
             try
             {
                 StreamReader clientStreamReader = new StreamReader(mClient.GetStream(),Encoding.UTF8);
-                char[] buff = new char[128];
+                char[] buff = new char[512];
                 int readByteCount = 0;
 
                 while(true)
