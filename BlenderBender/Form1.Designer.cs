@@ -249,6 +249,7 @@ namespace BlenderBender
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.button26 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.textBox49 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -269,7 +270,6 @@ namespace BlenderBender
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
-            this.textBox49 = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1757,6 +1757,7 @@ namespace BlenderBender
             this.textBox23.Size = new System.Drawing.Size(100, 21);
             this.textBox23.TabIndex = 15;
             this.textBox23.Text = "0";
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox23.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox23_KeyDown);
             // 
             // textBox22
@@ -1766,6 +1767,7 @@ namespace BlenderBender
             this.textBox22.Size = new System.Drawing.Size(100, 21);
             this.textBox22.TabIndex = 14;
             this.textBox22.Text = "0";
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox22_KeyDown);
             // 
             // textBox21
@@ -1775,6 +1777,7 @@ namespace BlenderBender
             this.textBox21.Size = new System.Drawing.Size(100, 21);
             this.textBox21.TabIndex = 13;
             this.textBox21.Text = "0";
+            this.textBox21.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox21_KeyDown);
             // 
             // textBox20
@@ -1784,6 +1787,7 @@ namespace BlenderBender
             this.textBox20.Size = new System.Drawing.Size(100, 21);
             this.textBox20.TabIndex = 12;
             this.textBox20.Text = "0";
+            this.textBox20.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox20_KeyDown);
             // 
             // textBox19
@@ -1793,6 +1797,7 @@ namespace BlenderBender
             this.textBox19.Size = new System.Drawing.Size(100, 21);
             this.textBox19.TabIndex = 11;
             this.textBox19.Text = "0";
+            this.textBox19.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox19.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox19_KeyDown);
             // 
             // textBox18
@@ -1802,6 +1807,7 @@ namespace BlenderBender
             this.textBox18.Size = new System.Drawing.Size(100, 21);
             this.textBox18.TabIndex = 10;
             this.textBox18.Text = "0";
+            this.textBox18.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox18.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox18_KeyDown);
             // 
             // textBox17
@@ -1811,6 +1817,7 @@ namespace BlenderBender
             this.textBox17.Size = new System.Drawing.Size(100, 21);
             this.textBox17.TabIndex = 9;
             this.textBox17.Text = "0";
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox17.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox17_KeyDown);
             // 
             // textBox16
@@ -1820,6 +1827,7 @@ namespace BlenderBender
             this.textBox16.Size = new System.Drawing.Size(100, 21);
             this.textBox16.TabIndex = 8;
             this.textBox16.Text = "0";
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox16_KeyDown);
             // 
             // textBox15
@@ -1829,6 +1837,7 @@ namespace BlenderBender
             this.textBox15.Size = new System.Drawing.Size(100, 21);
             this.textBox15.TabIndex = 7;
             this.textBox15.Text = "0";
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox15_KeyDown);
             // 
             // textBox14
@@ -1838,6 +1847,7 @@ namespace BlenderBender
             this.textBox14.Size = new System.Drawing.Size(100, 21);
             this.textBox14.TabIndex = 6;
             this.textBox14.Text = "0";
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox14_KeyDown);
             // 
             // textBox13
@@ -1847,6 +1857,7 @@ namespace BlenderBender
             this.textBox13.Size = new System.Drawing.Size(100, 21);
             this.textBox13.TabIndex = 5;
             this.textBox13.Text = "0";
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox13_KeyDown);
             // 
             // textBox12
@@ -1856,6 +1867,7 @@ namespace BlenderBender
             this.textBox12.Size = new System.Drawing.Size(100, 21);
             this.textBox12.TabIndex = 4;
             this.textBox12.Text = "0";
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox12_KeyDown);
             // 
             // textBox11
@@ -1865,6 +1877,7 @@ namespace BlenderBender
             this.textBox11.Size = new System.Drawing.Size(100, 21);
             this.textBox11.TabIndex = 3;
             this.textBox11.Text = "0";
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox11_KeyDown);
             // 
             // textBox10
@@ -1874,6 +1887,7 @@ namespace BlenderBender
             this.textBox10.Size = new System.Drawing.Size(100, 21);
             this.textBox10.TabIndex = 2;
             this.textBox10.Text = "0";
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox10_KeyDown);
             // 
             // textBox9
@@ -1883,6 +1897,7 @@ namespace BlenderBender
             this.textBox9.Size = new System.Drawing.Size(100, 21);
             this.textBox9.TabIndex = 1;
             this.textBox9.Text = "0";
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox9_KeyDown);
             // 
             // label23
@@ -2415,6 +2430,8 @@ namespace BlenderBender
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.Location = new System.Drawing.Point(412, 264);
             this.checkBox3.Name = "checkBox3";
@@ -2666,6 +2683,15 @@ namespace BlenderBender
             this.tabPage7.Text = "hidden";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // textBox49
+            // 
+            this.textBox49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox49.Location = new System.Drawing.Point(143, 245);
+            this.textBox49.Name = "textBox49";
+            this.textBox49.Size = new System.Drawing.Size(502, 29);
+            this.textBox49.TabIndex = 35;
+            this.textBox49.Visible = false;
+            // 
             // label40
             // 
             this.label40.AutoSize = true;
@@ -2832,15 +2858,6 @@ namespace BlenderBender
             this.button31.TabIndex = 3;
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
-            // 
-            // textBox49
-            // 
-            this.textBox49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox49.Location = new System.Drawing.Point(143, 245);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(502, 29);
-            this.textBox49.TabIndex = 35;
-            this.textBox49.Visible = false;
             // 
             // Form1
             // 

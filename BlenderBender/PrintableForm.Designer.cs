@@ -45,22 +45,24 @@
             this.button1 = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._txtPhone = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this._labelNprint = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._txtPhone = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._txtTotal = new System.Windows.Forms.NumericUpDown();
             this._txtCurrent = new System.Windows.Forms.NumericUpDown();
             this._pall = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._txtTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._txtCurrent)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -190,7 +192,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(3, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 34);
             this.button1.TabIndex = 12;
@@ -233,36 +235,6 @@
             this.panel1.TabIndex = 13;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(91, 236);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 171);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "(Σφραγίδα και Υπογραφή)";
-            // 
-            // _txtPhone
-            // 
-            this._txtPhone.AutoSize = true;
-            this._txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._txtPhone.Location = new System.Drawing.Point(59, 142);
-            this._txtPhone.Name = "_txtPhone";
-            this._txtPhone.Size = new System.Drawing.Size(98, 37);
-            this._txtPhone.TabIndex = 13;
-            this._txtPhone.Text = "ΤΗΛ.";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(12, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 37);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Text = "ΔΕΜΑΤΑ:";
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -283,10 +255,40 @@
             this._labelNprint.TabIndex = 16;
             this._labelNprint.Text = "__ / __";
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(12, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(156, 37);
+            this.textBox1.TabIndex = 14;
+            this.textBox1.Text = "ΔΕΜΑΤΑ:";
+            // 
+            // _txtPhone
+            // 
+            this._txtPhone.AutoSize = true;
+            this._txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._txtPhone.Location = new System.Drawing.Point(59, 142);
+            this._txtPhone.Name = "_txtPhone";
+            this._txtPhone.Size = new System.Drawing.Size(98, 37);
+            this._txtPhone.TabIndex = 13;
+            this._txtPhone.Text = "ΤΗΛ.";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(91, 236);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(510, 171);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "(Σφραγίδα και Υπογραφή)";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(204, 17);
+            this.label5.Location = new System.Drawing.Point(195, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 24);
             this.label5.TabIndex = 14;
@@ -295,7 +297,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(415, 17);
+            this.label6.Location = new System.Drawing.Point(406, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 24);
             this.label6.TabIndex = 16;
@@ -303,7 +305,7 @@
             // 
             // _txtTotal
             // 
-            this._txtTotal.Location = new System.Drawing.Point(549, 15);
+            this._txtTotal.Location = new System.Drawing.Point(540, 10);
             this._txtTotal.Name = "_txtTotal";
             this._txtTotal.Size = new System.Drawing.Size(52, 29);
             this._txtTotal.TabIndex = 17;
@@ -311,7 +313,7 @@
             // 
             // _txtCurrent
             // 
-            this._txtCurrent.Location = new System.Drawing.Point(329, 15);
+            this._txtCurrent.Location = new System.Drawing.Point(320, 10);
             this._txtCurrent.Minimum = new decimal(new int[] {
             1,
             0,
@@ -331,25 +333,35 @@
             // 
             this._pall.AutoSize = true;
             this._pall.Enabled = false;
-            this._pall.Location = new System.Drawing.Point(146, 23);
+            this._pall.Location = new System.Drawing.Point(137, 18);
             this._pall.Name = "_pall";
             this._pall.Size = new System.Drawing.Size(15, 14);
             this._pall.TabIndex = 19;
             this._pall.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this._pall);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this._txtCurrent);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this._txtTotal);
+            this.panel3.Location = new System.Drawing.Point(3, -1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1155, 56);
+            this.panel3.TabIndex = 20;
             // 
             // PrintableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1158, 861);
-            this.Controls.Add(this._pall);
-            this.Controls.Add(this._txtCurrent);
-            this.Controls.Add(this._txtTotal);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PrintableForm";
@@ -358,13 +370,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._txtTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._txtCurrent)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -396,5 +409,6 @@
         private System.Windows.Forms.NumericUpDown _txtTotal;
         private System.Windows.Forms.NumericUpDown _txtCurrent;
         private System.Windows.Forms.CheckBox _pall;
+        private System.Windows.Forms.Panel panel3;
     }
 }

@@ -77,11 +77,11 @@ namespace BlenderBender
             button18_Click(null, null);
             //e-mail settings disabled
             tabPage7.Visible = false;
-            //tabPage9.Visible = false;
+            tabPage9.Visible = false;
             //tabPage11.Visible = false;
             //tabControl1.TabPages.Remove(tabPage11);
             tabControl1.TabPages.Remove(tabPage7);
-            //tabControl1.TabPages.Remove(tabPage9);
+            tabControl1.TabPages.Remove(tabPage9);
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
             var version = string.Format("{0}", fvi.ProductVersion);
@@ -1507,7 +1507,8 @@ namespace BlenderBender
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            
+            printDocument1.DefaultPageSettings.Landscape = true;
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -1610,6 +1611,18 @@ namespace BlenderBender
         {
             string strInputUser = "CLEANSERVED" + "|DONE";
             client.SendToServer(strInputUser);
+        }
+
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (Regex.IsMatch(tb.Text, @"^\d+$")) button8.PerformClick();
+            else
+            {
+                tb.Text = "0";
+                MessageBox.Show("Συμπληρώνουμε μόνο ακέραιους αριθμούς!");
+            }
         }
     }
 
