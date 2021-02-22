@@ -270,6 +270,7 @@ namespace BlenderBender
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2283,6 +2284,7 @@ namespace BlenderBender
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.linkLabel1);
             this.tabPage11.Controls.Add(this.groupBox3);
             this.tabPage11.Location = new System.Drawing.Point(4, 24);
             this.tabPage11.Name = "tabPage11";
@@ -2859,6 +2861,17 @@ namespace BlenderBender
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(106, 350);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(496, 15);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Functionality of this tab is being replaced by PrintablesApp click to download";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2928,6 +2941,7 @@ namespace BlenderBender
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage6.ResumeLayout(false);
@@ -3182,6 +3196,7 @@ namespace BlenderBender
         private System.Windows.Forms.TextBox _numPrice;
         private System.Windows.Forms.Button cleanServed;
         private System.Windows.Forms.TextBox textBox49;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

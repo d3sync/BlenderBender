@@ -1624,6 +1624,12 @@ namespace BlenderBender
                 MessageBox.Show("Συμπληρώνουμε μόνο ακέραιους αριθμούς!");
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var website = "http://tools.idle.gr/PrintableApp/publish.htm";
+            System.Diagnostics.Process.Start(website);
+        }
     }
 
     public class hwid
