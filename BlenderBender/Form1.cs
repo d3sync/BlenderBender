@@ -24,13 +24,14 @@ namespace BlenderBender
         public string tod = "καλησπέρα σας.";
         public string tod2 = "καλησπέρα σας.";
         DateClass dtto = new DateClass();
+        private About about;
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
 
         public Form1()
         {
             InitializeComponent();
-
+            about = new About();
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -938,6 +939,11 @@ namespace BlenderBender
         {
             Process.Start("https://www.ghostscript.com/download/gsdnld.html");
             MessageBox.Show($"Visit & Download: https://www.ghostscript.com/download/gsdnld.html");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            about.Show();
         }
     }
 }

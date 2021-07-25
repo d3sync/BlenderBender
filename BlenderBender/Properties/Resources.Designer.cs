@@ -63,6 +63,16 @@ namespace BlenderBender.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap d3_Logo {
+            get {
+                object obj = ResourceManager.GetObject("d3-Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_calculator_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-calculator-32", resourceCulture);

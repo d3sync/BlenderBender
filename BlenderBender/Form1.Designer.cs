@@ -182,6 +182,7 @@ namespace BlenderBender
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
@@ -191,8 +192,10 @@ namespace BlenderBender
             this.label44 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.qualityBox = new System.Windows.Forms.ComboBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -241,9 +244,6 @@ namespace BlenderBender
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.qualityBox = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -404,6 +404,7 @@ namespace BlenderBender
             this.pictureBox1.Size = new System.Drawing.Size(358, 74);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tabPage2
             // 
@@ -1966,6 +1967,17 @@ namespace BlenderBender
             this.tabPage10.Text = "PDF to JPG";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(139, 345);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(105, 15);
+            this.linkLabel2.TabIndex = 1;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Get Ghostscript";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -2073,6 +2085,16 @@ namespace BlenderBender
             this.label46.Text = "Convert PDF to JPG";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button36
+            // 
+            this.button36.Location = new System.Drawing.Point(672, 109);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(95, 47);
+            this.button36.TabIndex = 6;
+            this.button36.Text = "Convert";
+            this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(672, 162);
@@ -2083,15 +2105,29 @@ namespace BlenderBender
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // button36
+            // label39
             // 
-            this.button36.Location = new System.Drawing.Point(672, 109);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(95, 47);
-            this.button36.TabIndex = 6;
-            this.button36.Text = "Convert";
-            this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(3, 159);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(79, 30);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Quality for Ghostscript";
+            // 
+            // qualityBox
+            // 
+            this.qualityBox.FormattingEnabled = true;
+            this.qualityBox.Items.AddRange(new object[] {
+            "100",
+            "150",
+            "200",
+            "250",
+            "300"});
+            this.qualityBox.Location = new System.Drawing.Point(136, 162);
+            this.qualityBox.Name = "qualityBox";
+            this.qualityBox.Size = new System.Drawing.Size(121, 23);
+            this.qualityBox.TabIndex = 11;
+            this.qualityBox.Text = "100";
             // 
             // tabPage11
             // 
@@ -2560,41 +2596,6 @@ namespace BlenderBender
             this.button31.TabIndex = 3;
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(139, 345);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(105, 15);
-            this.linkLabel2.TabIndex = 1;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Get Ghostscript";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(3, 159);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(79, 30);
-            this.label39.TabIndex = 10;
-            this.label39.Text = "Quality for Ghostscript";
-            // 
-            // qualityBox
-            // 
-            this.qualityBox.FormattingEnabled = true;
-            this.qualityBox.Items.AddRange(new object[] {
-            "100",
-            "150",
-            "200",
-            "250",
-            "300"});
-            this.qualityBox.Location = new System.Drawing.Point(136, 162);
-            this.qualityBox.Name = "qualityBox";
-            this.qualityBox.Size = new System.Drawing.Size(121, 23);
-            this.qualityBox.TabIndex = 11;
-            this.qualityBox.Text = "100";
             // 
             // Form1
             // 
