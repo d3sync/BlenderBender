@@ -78,7 +78,7 @@ namespace BlenderBender
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button24 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.currentUser = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -106,12 +106,14 @@ namespace BlenderBender
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.extraUpDown = new System.Windows.Forms.NumericUpDown();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.textBox55 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.textBox54 = new System.Windows.Forms.TextBox();
@@ -119,30 +121,19 @@ namespace BlenderBender
             this.textBox53 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.cleanServed = new System.Windows.Forms.Button();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this._numPrice = new System.Windows.Forms.TextBox();
-            this._orderName = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this._boxSize = new System.Windows.Forms.ListBox();
-            this._orderCode = new System.Windows.Forms.TextBox();
-            this._announceAid = new System.Windows.Forms.CheckBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label35 = new System.Windows.Forms.Label();
             this.textBox45 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.textBox44 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox42 = new System.Windows.Forms.TextBox();
+            this.clrBtn = new System.Windows.Forms.Button();
+            this.textBox81 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.textBox41 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.textBox40 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
+            this.textBox80 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox38 = new System.Windows.Forms.TextBox();
@@ -190,19 +181,8 @@ namespace BlenderBender
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.button27 = new System.Windows.Forms.Button();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.foldertooutput = new System.Windows.Forms.TextBox();
@@ -211,7 +191,10 @@ namespace BlenderBender
             this.label44 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this._ppview = new System.Windows.Forms.Button();
             this._AAp = new System.Windows.Forms.TextBox();
@@ -221,13 +204,11 @@ namespace BlenderBender
             this.label55 = new System.Windows.Forms.Label();
             this._txtFrom = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this._storeAddress = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button17 = new System.Windows.Forms.Button();
             this._monitor = new System.Windows.Forms.CheckBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -248,16 +229,6 @@ namespace BlenderBender
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.button26 = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.textBox49 = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button38 = new System.Windows.Forms.Button();
@@ -270,7 +241,9 @@ namespace BlenderBender
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.qualityBox = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -295,10 +268,9 @@ namespace BlenderBender
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.groupBox13.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -306,8 +278,6 @@ namespace BlenderBender
             this.groupBox3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -483,7 +453,7 @@ namespace BlenderBender
             // button25
             // 
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(215, 301);
+            this.button25.Location = new System.Drawing.Point(215, 276);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(47, 15);
             this.button25.TabIndex = 11;
@@ -504,7 +474,7 @@ namespace BlenderBender
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(17, 288);
+            this.checkBox1.Location = new System.Drawing.Point(17, 263);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(173, 19);
             this.checkBox1.TabIndex = 99;
@@ -518,8 +488,8 @@ namespace BlenderBender
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 2;
-            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox4_KeyDown);
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // textBox2
             // 
@@ -527,14 +497,14 @@ namespace BlenderBender
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 4;
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox2_KeyDown);
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(8, 363);
+            this.button3.Location = new System.Drawing.Point(8, 338);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(254, 23);
+            this.button3.Size = new System.Drawing.Size(254, 48);
             this.button3.TabIndex = 6;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
@@ -545,7 +515,7 @@ namespace BlenderBender
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(8, 312);
+            this.groupBox2.Location = new System.Drawing.Point(8, 287);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(254, 45);
             this.groupBox2.TabIndex = 4;
@@ -591,7 +561,7 @@ namespace BlenderBender
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(256, 21);
             this.textBox3.TabIndex = 1;
-            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox3_KeyDown);
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label3
             // 
@@ -629,7 +599,7 @@ namespace BlenderBender
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(256, 21);
             this.textBox1.TabIndex = 3;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // button2
             // 
@@ -702,14 +672,11 @@ namespace BlenderBender
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Controls.Add(this.tabPage11);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 3);
             this.tabControl1.Name = "tabControl1";
@@ -828,7 +795,7 @@ namespace BlenderBender
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.textBox8);
+            this.groupBox9.Controls.Add(this.currentUser);
             this.groupBox9.Controls.Add(this.button6);
             this.groupBox9.Controls.Add(this.button20);
             this.groupBox9.Location = new System.Drawing.Point(334, 225);
@@ -838,12 +805,13 @@ namespace BlenderBender
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Τιμολόγηση";
             // 
-            // textBox8
+            // currentUser
             // 
-            this.textBox8.Location = new System.Drawing.Point(217, 27);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(208, 21);
-            this.textBox8.TabIndex = 12;
+            this.currentUser.Location = new System.Drawing.Point(217, 27);
+            this.currentUser.Name = "currentUser";
+            this.currentUser.Size = new System.Drawing.Size(208, 21);
+            this.currentUser.TabIndex = 12;
+            this.currentUser.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // button6
             // 
@@ -1082,7 +1050,7 @@ namespace BlenderBender
             // _emailaid
             // 
             this._emailaid.AutoSize = true;
-            this._emailaid.Location = new System.Drawing.Point(17, 8);
+            this._emailaid.Location = new System.Drawing.Point(0, 5);
             this._emailaid.Name = "_emailaid";
             this._emailaid.Size = new System.Drawing.Size(112, 19);
             this._emailaid.TabIndex = 13;
@@ -1092,9 +1060,9 @@ namespace BlenderBender
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(15, 352);
+            this.button28.Location = new System.Drawing.Point(5, 350);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(339, 27);
+            this.button28.Size = new System.Drawing.Size(361, 27);
             this.button28.TabIndex = 12;
             this.button28.Text = "Αυτόματο μήνυμα για Admin";
             this.toolTip1.SetToolTip(this.button28, "Το κείμενο αντιγράφεται αυτόματα στο clipboard αμέσως μετά το πάτημα του \"Constru" +
@@ -1105,7 +1073,7 @@ namespace BlenderBender
             // button18
             // 
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(324, 106);
+            this.button18.Location = new System.Drawing.Point(318, 106);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(32, 32);
             this.button18.TabIndex = 11;
@@ -1117,10 +1085,10 @@ namespace BlenderBender
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(244, 110);
+            this.checkBox6.Location = new System.Drawing.Point(238, 110);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(83, 17);
-            this.checkBox6.TabIndex = 10;
+            this.checkBox6.TabIndex = 5;
             this.checkBox6.Text = "Καλημέρα";
             this.checkBox6.UseVisualStyleBackColor = true;
             this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
@@ -1131,17 +1099,17 @@ namespace BlenderBender
             this.comboBox3.Items.AddRange(new object[] {
             "Αξιότιμε κύριε",
             "Αξιότιμη κυρία"});
-            this.comboBox3.Location = new System.Drawing.Point(37, 106);
+            this.comboBox3.Location = new System.Drawing.Point(31, 106);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(201, 23);
-            this.comboBox3.TabIndex = 9;
+            this.comboBox3.TabIndex = 4;
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("Becker Inline", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(16, 283);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(5, 283);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(339, 61);
+            this.button7.Size = new System.Drawing.Size(361, 61);
             this.button7.TabIndex = 7;
             this.button7.Text = "Construct E-mail";
             this.toolTip1.SetToolTip(this.button7, "Ανοίγει ένα νέο μήνυμα στον προεπιλεγμένο πελάτη ηλεκτρονικού ταχυδρομείου.");
@@ -1150,83 +1118,32 @@ namespace BlenderBender
             // 
             // groupBox12
             // 
-            this.groupBox12.Controls.Add(this.radioButton12);
-            this.groupBox12.Controls.Add(this.radioButton9);
-            this.groupBox12.Controls.Add(this.radioButton8);
-            this.groupBox12.Controls.Add(this.radioButton7);
-            this.groupBox12.Controls.Add(this.radioButton6);
-            this.groupBox12.Controls.Add(this.radioButton5);
-            this.groupBox12.Location = new System.Drawing.Point(16, 139);
+            this.groupBox12.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox12.Location = new System.Drawing.Point(5, 139);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(340, 119);
+            this.groupBox12.Size = new System.Drawing.Size(362, 138);
             this.groupBox12.TabIndex = 6;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Επιλογές";
             // 
-            // radioButton12
+            // flowLayoutPanel1
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(6, 70);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(151, 19);
-            this.radioButton12.TabIndex = 7;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Επικ. για Παράδοση";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            this.radioButton12.CheckedChanged += new System.EventHandler(this.RadioButton12_CheckedChanged);
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(160, 45);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(174, 19);
-            this.radioButton9.TabIndex = 4;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Επικοινωνήστε μαζί μας";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(6, 45);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(149, 19);
-            this.radioButton8.TabIndex = 3;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Υπενθύμιση Service";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(247, 20);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(92, 19);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "1η Service";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(129, 20);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(117, 19);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "2η Ενημέρωση";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton5);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton6);
+            this.flowLayoutPanel1.Controls.Add(this.extraUpDown);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton7);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton8);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton9);
+            this.flowLayoutPanel1.Controls.Add(this.radioButton12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 20);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(356, 112);
+            this.flowLayoutPanel1.TabIndex = 9;
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 20);
+            this.radioButton5.Location = new System.Drawing.Point(3, 3);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(117, 19);
             this.radioButton5.TabIndex = 0;
@@ -1235,17 +1152,92 @@ namespace BlenderBender
             this.radioButton5.UseVisualStyleBackColor = true;
             this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(126, 3);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(117, 19);
+            this.radioButton6.TabIndex = 1;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "2η Ενημέρωση";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
+            // 
+            // extraUpDown
+            // 
+            this.extraUpDown.Location = new System.Drawing.Point(249, 3);
+            this.extraUpDown.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.extraUpDown.Name = "extraUpDown";
+            this.extraUpDown.Size = new System.Drawing.Size(39, 21);
+            this.extraUpDown.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.extraUpDown, "Προσθήκη έξτρα μέρας");
+            this.extraUpDown.ValueChanged += new System.EventHandler(this.extraUpDown_ValueChanged);
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(3, 30);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(92, 19);
+            this.radioButton7.TabIndex = 2;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "1η Service";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(101, 30);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(149, 19);
+            this.radioButton8.TabIndex = 3;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Υπενθύμιση Service";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(3, 55);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(174, 19);
+            this.radioButton9.TabIndex = 4;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "Επικοινωνήστε μαζί μας";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(183, 55);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(151, 19);
+            this.radioButton12.TabIndex = 7;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Επικ. για Παράδοση";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            this.radioButton12.CheckedChanged += new System.EventHandler(this.RadioButton12_CheckedChanged);
+            // 
             // textBox55
             // 
-            this.textBox55.Location = new System.Drawing.Point(128, 80);
+            this.textBox55.Location = new System.Drawing.Point(117, 80);
             this.textBox55.Name = "textBox55";
-            this.textBox55.Size = new System.Drawing.Size(228, 21);
-            this.textBox55.TabIndex = 5;
+            this.textBox55.Size = new System.Drawing.Size(250, 21);
+            this.textBox55.TabIndex = 3;
+            this.textBox55.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(14, 83);
+            this.label50.Location = new System.Drawing.Point(8, 83);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(98, 15);
             this.label50.TabIndex = 4;
@@ -1253,15 +1245,16 @@ namespace BlenderBender
             // 
             // textBox54
             // 
-            this.textBox54.Location = new System.Drawing.Point(128, 51);
+            this.textBox54.Location = new System.Drawing.Point(117, 51);
             this.textBox54.Name = "textBox54";
-            this.textBox54.Size = new System.Drawing.Size(227, 21);
-            this.textBox54.TabIndex = 3;
+            this.textBox54.Size = new System.Drawing.Size(250, 21);
+            this.textBox54.TabIndex = 2;
+            this.textBox54.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(29, 54);
+            this.label49.Location = new System.Drawing.Point(23, 54);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(83, 15);
             this.label49.TabIndex = 2;
@@ -1269,15 +1262,16 @@ namespace BlenderBender
             // 
             // textBox53
             // 
-            this.textBox53.Location = new System.Drawing.Point(128, 24);
+            this.textBox53.Location = new System.Drawing.Point(117, 24);
             this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new System.Drawing.Size(227, 21);
+            this.textBox53.Size = new System.Drawing.Size(250, 21);
             this.textBox53.TabIndex = 1;
+            this.textBox53.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(13, 27);
+            this.label48.Location = new System.Drawing.Point(7, 27);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(99, 15);
             this.label48.TabIndex = 0;
@@ -1292,136 +1286,20 @@ namespace BlenderBender
             this.richTextBox5.TabIndex = 0;
             this.richTextBox5.Text = "";
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.cleanServed);
-            this.tabPage9.Controls.Add(this.groupBox13);
-            this.tabPage9.Controls.Add(this.button12);
-            this.tabPage9.Controls.Add(this.button5);
-            this.tabPage9.Location = new System.Drawing.Point(4, 24);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(780, 394);
-            this.tabPage9.TabIndex = 12;
-            this.tabPage9.Text = "Announce";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // cleanServed
-            // 
-            this.cleanServed.Location = new System.Drawing.Point(276, 344);
-            this.cleanServed.Name = "cleanServed";
-            this.cleanServed.Size = new System.Drawing.Size(501, 44);
-            this.cleanServed.TabIndex = 5;
-            this.cleanServed.Text = "Clean Served";
-            this.cleanServed.UseVisualStyleBackColor = true;
-            this.cleanServed.Click += new System.EventHandler(this.cleanServed_Click);
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this._numPrice);
-            this.groupBox13.Controls.Add(this._orderName);
-            this.groupBox13.Controls.Add(this.button9);
-            this.groupBox13.Controls.Add(this._boxSize);
-            this.groupBox13.Controls.Add(this._orderCode);
-            this.groupBox13.Controls.Add(this._announceAid);
-            this.groupBox13.Location = new System.Drawing.Point(121, 6);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(501, 184);
-            this.groupBox13.TabIndex = 4;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Announcer";
-            // 
-            // _numPrice
-            // 
-            this._numPrice.Location = new System.Drawing.Point(6, 96);
-            this._numPrice.Name = "_numPrice";
-            this._numPrice.Size = new System.Drawing.Size(100, 21);
-            this._numPrice.TabIndex = 5;
-            // 
-            // _orderName
-            // 
-            this._orderName.Location = new System.Drawing.Point(6, 69);
-            this._orderName.Name = "_orderName";
-            this._orderName.Size = new System.Drawing.Size(383, 21);
-            this._orderName.TabIndex = 4;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(-1, 147);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(390, 31);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Αποστολή";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click_1);
-            // 
-            // _boxSize
-            // 
-            this._boxSize.FormattingEnabled = true;
-            this._boxSize.ItemHeight = 15;
-            this._boxSize.Items.AddRange(new object[] {
-            "Μη επιλεγμένο",
-            "Πολύ μικρό",
-            "Μικρό",
-            "Μεσαίο",
-            "Μεγάλο",
-            "Πολύ μεγάλο"});
-            this._boxSize.Location = new System.Drawing.Point(395, 69);
-            this._boxSize.Name = "_boxSize";
-            this._boxSize.Size = new System.Drawing.Size(100, 109);
-            this._boxSize.TabIndex = 2;
-            // 
-            // _orderCode
-            // 
-            this._orderCode.Location = new System.Drawing.Point(6, 45);
-            this._orderCode.Name = "_orderCode";
-            this._orderCode.Size = new System.Drawing.Size(489, 21);
-            this._orderCode.TabIndex = 1;
-            // 
-            // _announceAid
-            // 
-            this._announceAid.AutoSize = true;
-            this._announceAid.Location = new System.Drawing.Point(6, 20);
-            this._announceAid.Name = "_announceAid";
-            this._announceAid.Size = new System.Drawing.Size(71, 19);
-            this._announceAid.TabIndex = 0;
-            this._announceAid.Text = "ClipAid";
-            this._announceAid.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(735, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(42, 45);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "D/C";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(71, 45);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Connect";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label35);
             this.tabPage3.Controls.Add(this.textBox45);
             this.tabPage3.Controls.Add(this.label34);
             this.tabPage3.Controls.Add(this.textBox44);
-            this.tabPage3.Controls.Add(this.button4);
-            this.tabPage3.Controls.Add(this.textBox42);
+            this.tabPage3.Controls.Add(this.clrBtn);
+            this.tabPage3.Controls.Add(this.textBox81);
             this.tabPage3.Controls.Add(this.label29);
             this.tabPage3.Controls.Add(this.textBox41);
             this.tabPage3.Controls.Add(this.label28);
             this.tabPage3.Controls.Add(this.label27);
             this.tabPage3.Controls.Add(this.textBox40);
-            this.tabPage3.Controls.Add(this.textBox39);
+            this.tabPage3.Controls.Add(this.textBox80);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.textBox38);
@@ -1492,8 +1370,10 @@ namespace BlenderBender
             this.textBox45.Location = new System.Drawing.Point(469, 160);
             this.textBox45.Name = "textBox45";
             this.textBox45.Size = new System.Drawing.Size(100, 21);
-            this.textBox45.TabIndex = 33;
+            this.textBox45.TabIndex = 19;
             this.textBox45.Text = "0";
+            this.textBox45.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label34
             // 
@@ -1509,30 +1389,33 @@ namespace BlenderBender
             this.textBox44.Location = new System.Drawing.Point(469, 133);
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(100, 21);
-            this.textBox44.TabIndex = 32;
+            this.textBox44.TabIndex = 18;
             this.textBox44.Text = "0";
-            this.textBox44.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox44_KeyPress);
+            this.textBox44.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox44.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox44.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
-            // button4
+            // clrBtn
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(751, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(26, 23);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "R";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.clrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clrBtn.Location = new System.Drawing.Point(751, 6);
+            this.clrBtn.Name = "clrBtn";
+            this.clrBtn.Size = new System.Drawing.Size(26, 23);
+            this.clrBtn.TabIndex = 54;
+            this.clrBtn.Text = "R";
+            this.clrBtn.UseVisualStyleBackColor = true;
+            this.clrBtn.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox42
+            // textBox81
             // 
-            this.textBox42.Location = new System.Drawing.Point(469, 210);
-            this.textBox42.Name = "textBox42";
-            this.textBox42.ReadOnly = true;
-            this.textBox42.Size = new System.Drawing.Size(100, 21);
-            this.textBox42.TabIndex = 800;
-            this.textBox42.TabStop = false;
-            this.textBox42.Text = "0";
+            this.textBox81.Location = new System.Drawing.Point(469, 210);
+            this.textBox81.Name = "textBox81";
+            this.textBox81.ReadOnly = true;
+            this.textBox81.Size = new System.Drawing.Size(100, 21);
+            this.textBox81.TabIndex = 21;
+            this.textBox81.TabStop = false;
+            this.textBox81.Text = "0";
+            this.textBox81.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label29
             // 
@@ -1550,9 +1433,11 @@ namespace BlenderBender
             this.textBox41.Location = new System.Drawing.Point(469, 104);
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new System.Drawing.Size(100, 21);
-            this.textBox41.TabIndex = 31;
+            this.textBox41.TabIndex = 17;
             this.textBox41.Text = "0";
-            this.textBox41.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox41_KeyPress);
+            this.textBox41.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox41.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox41.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // label28
             // 
@@ -1580,20 +1465,23 @@ namespace BlenderBender
             this.textBox40.Location = new System.Drawing.Point(469, 76);
             this.textBox40.Name = "textBox40";
             this.textBox40.Size = new System.Drawing.Size(100, 21);
-            this.textBox40.TabIndex = 700;
+            this.textBox40.TabIndex = 16;
             this.textBox40.Text = "0";
-            this.textBox40.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox40_KeyPress);
+            this.textBox40.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox40.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox40.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
-            // textBox39
+            // textBox80
             // 
-            this.textBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox39.Location = new System.Drawing.Point(469, 22);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.ReadOnly = true;
-            this.textBox39.Size = new System.Drawing.Size(100, 31);
-            this.textBox39.TabIndex = 700;
-            this.textBox39.TabStop = false;
-            this.textBox39.Text = "0";
+            this.textBox80.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox80.Location = new System.Drawing.Point(469, 22);
+            this.textBox80.Name = "textBox80";
+            this.textBox80.ReadOnly = true;
+            this.textBox80.Size = new System.Drawing.Size(100, 31);
+            this.textBox80.TabIndex = 20;
+            this.textBox80.TabStop = false;
+            this.textBox80.Text = "0";
+            this.textBox80.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // button8
             // 
@@ -1601,7 +1489,7 @@ namespace BlenderBender
             this.button8.Location = new System.Drawing.Point(392, 244);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(274, 42);
-            this.button8.TabIndex = 16;
+            this.button8.TabIndex = 20;
             this.button8.Text = "Υπολογισμός";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -1624,6 +1512,7 @@ namespace BlenderBender
             this.textBox38.Size = new System.Drawing.Size(100, 21);
             this.textBox38.TabIndex = 603;
             this.textBox38.TabStop = false;
+            this.textBox38.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox37
             // 
@@ -1633,6 +1522,7 @@ namespace BlenderBender
             this.textBox37.Size = new System.Drawing.Size(100, 21);
             this.textBox37.TabIndex = 602;
             this.textBox37.TabStop = false;
+            this.textBox37.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox36
             // 
@@ -1642,6 +1532,7 @@ namespace BlenderBender
             this.textBox36.Size = new System.Drawing.Size(100, 21);
             this.textBox36.TabIndex = 601;
             this.textBox36.TabStop = false;
+            this.textBox36.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox35
             // 
@@ -1651,6 +1542,7 @@ namespace BlenderBender
             this.textBox35.Size = new System.Drawing.Size(100, 21);
             this.textBox35.TabIndex = 600;
             this.textBox35.TabStop = false;
+            this.textBox35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox34
             // 
@@ -1660,6 +1552,7 @@ namespace BlenderBender
             this.textBox34.Size = new System.Drawing.Size(100, 21);
             this.textBox34.TabIndex = 559;
             this.textBox34.TabStop = false;
+            this.textBox34.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox33
             // 
@@ -1669,6 +1562,7 @@ namespace BlenderBender
             this.textBox33.Size = new System.Drawing.Size(100, 21);
             this.textBox33.TabIndex = 558;
             this.textBox33.TabStop = false;
+            this.textBox33.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox32
             // 
@@ -1678,6 +1572,7 @@ namespace BlenderBender
             this.textBox32.Size = new System.Drawing.Size(100, 21);
             this.textBox32.TabIndex = 557;
             this.textBox32.TabStop = false;
+            this.textBox32.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox31
             // 
@@ -1687,6 +1582,7 @@ namespace BlenderBender
             this.textBox31.Size = new System.Drawing.Size(100, 21);
             this.textBox31.TabIndex = 556;
             this.textBox31.TabStop = false;
+            this.textBox31.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox30
             // 
@@ -1696,6 +1592,7 @@ namespace BlenderBender
             this.textBox30.Size = new System.Drawing.Size(100, 21);
             this.textBox30.TabIndex = 555;
             this.textBox30.TabStop = false;
+            this.textBox30.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox29
             // 
@@ -1705,6 +1602,7 @@ namespace BlenderBender
             this.textBox29.Size = new System.Drawing.Size(100, 21);
             this.textBox29.TabIndex = 542;
             this.textBox29.TabStop = false;
+            this.textBox29.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox28
             // 
@@ -1714,6 +1612,7 @@ namespace BlenderBender
             this.textBox28.Size = new System.Drawing.Size(100, 21);
             this.textBox28.TabIndex = 504;
             this.textBox28.TabStop = false;
+            this.textBox28.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox27
             // 
@@ -1723,6 +1622,7 @@ namespace BlenderBender
             this.textBox27.Size = new System.Drawing.Size(100, 21);
             this.textBox27.TabIndex = 503;
             this.textBox27.TabStop = false;
+            this.textBox27.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox26
             // 
@@ -1732,6 +1632,7 @@ namespace BlenderBender
             this.textBox26.Size = new System.Drawing.Size(100, 21);
             this.textBox26.TabIndex = 502;
             this.textBox26.TabStop = false;
+            this.textBox26.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox25
             // 
@@ -1741,6 +1642,7 @@ namespace BlenderBender
             this.textBox25.Size = new System.Drawing.Size(100, 21);
             this.textBox25.TabIndex = 501;
             this.textBox25.TabStop = false;
+            this.textBox25.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox24
             // 
@@ -1750,6 +1652,7 @@ namespace BlenderBender
             this.textBox24.Size = new System.Drawing.Size(100, 21);
             this.textBox24.TabIndex = 500;
             this.textBox24.TabStop = false;
+            this.textBox24.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox23
             // 
@@ -1759,7 +1662,7 @@ namespace BlenderBender
             this.textBox23.TabIndex = 15;
             this.textBox23.Text = "0";
             this.textBox23.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox23.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox23_KeyDown);
+            this.textBox23.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox22
             // 
@@ -1769,7 +1672,7 @@ namespace BlenderBender
             this.textBox22.TabIndex = 14;
             this.textBox22.Text = "0";
             this.textBox22.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox22_KeyDown);
+            this.textBox22.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox21
             // 
@@ -1779,7 +1682,7 @@ namespace BlenderBender
             this.textBox21.TabIndex = 13;
             this.textBox21.Text = "0";
             this.textBox21.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox21_KeyDown);
+            this.textBox21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox20
             // 
@@ -1789,7 +1692,7 @@ namespace BlenderBender
             this.textBox20.TabIndex = 12;
             this.textBox20.Text = "0";
             this.textBox20.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox20_KeyDown);
+            this.textBox20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox19
             // 
@@ -1799,7 +1702,7 @@ namespace BlenderBender
             this.textBox19.TabIndex = 11;
             this.textBox19.Text = "0";
             this.textBox19.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox19.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox19_KeyDown);
+            this.textBox19.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox18
             // 
@@ -1809,7 +1712,7 @@ namespace BlenderBender
             this.textBox18.TabIndex = 10;
             this.textBox18.Text = "0";
             this.textBox18.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox18.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox18_KeyDown);
+            this.textBox18.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox17
             // 
@@ -1819,7 +1722,7 @@ namespace BlenderBender
             this.textBox17.TabIndex = 9;
             this.textBox17.Text = "0";
             this.textBox17.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox17.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox17_KeyDown);
+            this.textBox17.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox16
             // 
@@ -1829,7 +1732,7 @@ namespace BlenderBender
             this.textBox16.TabIndex = 8;
             this.textBox16.Text = "0";
             this.textBox16.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox16_KeyDown);
+            this.textBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox15
             // 
@@ -1839,7 +1742,7 @@ namespace BlenderBender
             this.textBox15.TabIndex = 7;
             this.textBox15.Text = "0";
             this.textBox15.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox15_KeyDown);
+            this.textBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox14
             // 
@@ -1849,7 +1752,7 @@ namespace BlenderBender
             this.textBox14.TabIndex = 6;
             this.textBox14.Text = "0";
             this.textBox14.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox14_KeyDown);
+            this.textBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox13
             // 
@@ -1859,7 +1762,7 @@ namespace BlenderBender
             this.textBox13.TabIndex = 5;
             this.textBox13.Text = "0";
             this.textBox13.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox13_KeyDown);
+            this.textBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox12
             // 
@@ -1869,7 +1772,7 @@ namespace BlenderBender
             this.textBox12.TabIndex = 4;
             this.textBox12.Text = "0";
             this.textBox12.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox12_KeyDown);
+            this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox11
             // 
@@ -1879,7 +1782,7 @@ namespace BlenderBender
             this.textBox11.TabIndex = 3;
             this.textBox11.Text = "0";
             this.textBox11.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox11_KeyDown);
+            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox10
             // 
@@ -1889,7 +1792,7 @@ namespace BlenderBender
             this.textBox10.TabIndex = 2;
             this.textBox10.Text = "0";
             this.textBox10.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox10_KeyDown);
+            this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox9
             // 
@@ -1899,7 +1802,7 @@ namespace BlenderBender
             this.textBox9.TabIndex = 1;
             this.textBox9.Text = "0";
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox9_KeyDown);
+            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label23
             // 
@@ -2051,116 +1954,9 @@ namespace BlenderBender
             this.label9.TabIndex = 0;
             this.label9.Text = "500";
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.label54);
-            this.tabPage8.Controls.Add(this.label53);
-            this.tabPage8.Controls.Add(this.label52);
-            this.tabPage8.Controls.Add(this.button30);
-            this.tabPage8.Controls.Add(this.button29);
-            this.tabPage8.Controls.Add(this.richTextBox9);
-            this.tabPage8.Controls.Add(this.button27);
-            this.tabPage8.Controls.Add(this.richTextBox8);
-            this.tabPage8.Controls.Add(this.richTextBox7);
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(780, 394);
-            this.tabPage8.TabIndex = 11;
-            this.tabPage8.Text = "Compare";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.BackColor = System.Drawing.Color.LightCoral;
-            this.label54.Location = new System.Drawing.Point(749, 249);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(0, 15);
-            this.label54.TabIndex = 21;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.LightCoral;
-            this.label53.Location = new System.Drawing.Point(749, 135);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(0, 15);
-            this.label53.TabIndex = 20;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.BackColor = System.Drawing.Color.LightCoral;
-            this.label52.Location = new System.Drawing.Point(749, 37);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(0, 15);
-            this.label52.TabIndex = 19;
-            // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(203, 349);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(254, 23);
-            this.button30.TabIndex = 5;
-            this.button30.Text = "Δημιουργία λίστας μοναδικών τιμών";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
-            // 
-            // button29
-            // 
-            this.button29.Location = new System.Drawing.Point(664, 349);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(108, 23);
-            this.button29.TabIndex = 4;
-            this.button29.Text = "Πώς δουλεύει;";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // richTextBox9
-            // 
-            this.richTextBox9.DetectUrls = false;
-            this.richTextBox9.Location = new System.Drawing.Point(0, 192);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.ReadOnly = true;
-            this.richTextBox9.Size = new System.Drawing.Size(735, 151);
-            this.richTextBox9.TabIndex = 3;
-            this.richTextBox9.Text = "";
-            this.richTextBox9.WordWrap = false;
-            this.richTextBox9.TextChanged += new System.EventHandler(this.richTextBox9_TextChanged);
-            // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(23, 349);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(174, 23);
-            this.button27.TabIndex = 2;
-            this.button27.Text = "Σύγκριση Γραμμών";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
-            // 
-            // richTextBox8
-            // 
-            this.richTextBox8.Location = new System.Drawing.Point(0, 95);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(735, 91);
-            this.richTextBox8.TabIndex = 1;
-            this.richTextBox8.Text = "";
-            this.richTextBox8.TextChanged += new System.EventHandler(this.richTextBox8_TextChanged);
-            this.richTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox8_KeyDown);
-            // 
-            // richTextBox7
-            // 
-            this.richTextBox7.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(735, 89);
-            this.richTextBox7.TabIndex = 0;
-            this.richTextBox7.Text = "";
-            this.richTextBox7.TextChanged += new System.EventHandler(this.richTextBox7_TextChanged);
-            this.richTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox7_KeyDown);
-            // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.linkLabel2);
             this.tabPage10.Controls.Add(this.tableLayoutPanel1);
             this.tabPage10.Location = new System.Drawing.Point(4, 24);
             this.tabPage10.Name = "tabPage10";
@@ -2176,7 +1972,6 @@ namespace BlenderBender
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.88042F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.11958F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel1.Controls.Add(this.button36, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.button35, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.button34, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.foldertooutput, 1, 2);
@@ -2184,30 +1979,26 @@ namespace BlenderBender
             this.tableLayoutPanel1.Controls.Add(this.label45, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label44, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button36, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.button4, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label39, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.qualityBox, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 58);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 280);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // button36
-            // 
-            this.button36.Location = new System.Drawing.Point(672, 116);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(95, 108);
-            this.button36.TabIndex = 6;
-            this.button36.Text = "Convert";
-            this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
             // button35
             // 
             this.button35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button35.Location = new System.Drawing.Point(672, 79);
+            this.button35.Location = new System.Drawing.Point(672, 61);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(95, 23);
             this.button35.TabIndex = 4;
@@ -2218,9 +2009,9 @@ namespace BlenderBender
             // button34
             // 
             this.button34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button34.Location = new System.Drawing.Point(672, 44);
+            this.button34.Location = new System.Drawing.Point(672, 34);
             this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(95, 23);
+            this.button34.Size = new System.Drawing.Size(95, 21);
             this.button34.TabIndex = 2;
             this.button34.Text = "Browse";
             this.button34.UseVisualStyleBackColor = true;
@@ -2229,7 +2020,7 @@ namespace BlenderBender
             // foldertooutput
             // 
             this.foldertooutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foldertooutput.Location = new System.Drawing.Point(136, 79);
+            this.foldertooutput.Location = new System.Drawing.Point(136, 61);
             this.foldertooutput.Name = "foldertooutput";
             this.foldertooutput.ReadOnly = true;
             this.foldertooutput.Size = new System.Drawing.Size(530, 21);
@@ -2238,7 +2029,7 @@ namespace BlenderBender
             // filetoconvert
             // 
             this.filetoconvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filetoconvert.Location = new System.Drawing.Point(136, 44);
+            this.filetoconvert.Location = new System.Drawing.Point(136, 34);
             this.filetoconvert.Name = "filetoconvert";
             this.filetoconvert.ReadOnly = true;
             this.filetoconvert.Size = new System.Drawing.Size(530, 21);
@@ -2248,7 +2039,7 @@ namespace BlenderBender
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(3, 76);
+            this.label45.Location = new System.Drawing.Point(3, 58);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(111, 18);
             this.label45.TabIndex = 3;
@@ -2258,7 +2049,7 @@ namespace BlenderBender
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(3, 41);
+            this.label44.Location = new System.Drawing.Point(3, 31);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(119, 18);
             this.label44.TabIndex = 0;
@@ -2269,7 +2060,7 @@ namespace BlenderBender
             this.panel1.Controls.Add(this.label46);
             this.panel1.Location = new System.Drawing.Point(136, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(529, 35);
+            this.panel1.Size = new System.Drawing.Size(529, 25);
             this.panel1.TabIndex = 8;
             // 
             // label46
@@ -2281,6 +2072,26 @@ namespace BlenderBender
             this.label46.TabIndex = 7;
             this.label46.Text = "Convert PDF to JPG";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(672, 162);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 65);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Convert w/ GhostScript";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // button36
+            // 
+            this.button36.Location = new System.Drawing.Point(672, 109);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(95, 47);
+            this.button36.TabIndex = 6;
+            this.button36.Text = "Convert";
+            this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
             // tabPage11
             // 
@@ -2294,6 +2105,17 @@ namespace BlenderBender
             this.tabPage11.Text = "Printing";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(106, 350);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(504, 15);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Functionality of this tab has been replaced by PrintablesApp click to download";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this._ppview);
@@ -2303,6 +2125,7 @@ namespace BlenderBender
             this.groupBox3.Controls.Add(this._datePicker);
             this.groupBox3.Controls.Add(this.label55);
             this.groupBox3.Controls.Add(this._txtFrom);
+            this.groupBox3.Enabled = false;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -2382,13 +2205,11 @@ namespace BlenderBender
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.checkBox7);
             this.tabPage6.Controls.Add(this._storeAddress);
             this.tabPage6.Controls.Add(this.label57);
-            this.tabPage6.Controls.Add(this.checkBox3);
             this.tabPage6.Controls.Add(this.button17);
             this.tabPage6.Controls.Add(this._monitor);
-            this.tabPage6.Controls.Add(this.textBox5);
-            this.tabPage6.Controls.Add(this.label39);
             this.tabPage6.Controls.Add(this.checkBox4);
             this.tabPage6.Controls.Add(this.checkBox2);
             this.tabPage6.Controls.Add(this.groupBox11);
@@ -2413,6 +2234,19 @@ namespace BlenderBender
             this.tabPage6.Text = "Settings";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Checked = true;
+            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox7.Location = new System.Drawing.Point(339, 220);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(186, 19);
+            this.checkBox7.TabIndex = 42;
+            this.checkBox7.Text = "Legacy Printing Disabled";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            // 
             // _storeAddress
             // 
             this._storeAddress.Location = new System.Drawing.Point(170, 87);
@@ -2428,20 +2262,6 @@ namespace BlenderBender
             this.label57.Size = new System.Drawing.Size(166, 15);
             this.label57.TabIndex = 0;
             this.label57.Text = "Διεύθυνση Καταστήματος";
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(412, 264);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(143, 17);
-            this.checkBox3.TabIndex = 40;
-            this.checkBox3.Text = "Hide Announcer Tab";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // button17
             // 
@@ -2462,25 +2282,6 @@ namespace BlenderBender
             this._monitor.TabIndex = 38;
             this._monitor.Text = "Clipboard monitor";
             this._monitor.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(265, 262);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(107, 20);
-            this.textBox5.TabIndex = 37;
-            this.textBox5.Text = "127.0.0.1";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(167, 265);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(84, 13);
-            this.label39.TabIndex = 36;
-            this.label39.Text = "Announcer IP";
             // 
             // checkBox4
             // 
@@ -2668,107 +2469,6 @@ namespace BlenderBender
             this.button26.UseVisualStyleBackColor = true;
             this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.textBox49);
-            this.tabPage7.Controls.Add(this.label40);
-            this.tabPage7.Controls.Add(this.textBox7);
-            this.tabPage7.Controls.Add(this.groupBox8);
-            this.tabPage7.Controls.Add(this.dateTimePicker1);
-            this.tabPage7.Controls.Add(this.dateTimePicker2);
-            this.tabPage7.Controls.Add(this.richTextBox10);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(780, 394);
-            this.tabPage7.TabIndex = 10;
-            this.tabPage7.Text = "hidden";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // textBox49
-            // 
-            this.textBox49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox49.Location = new System.Drawing.Point(143, 245);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(502, 29);
-            this.textBox49.TabIndex = 35;
-            this.textBox49.Visible = false;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Enabled = false;
-            this.label40.Location = new System.Drawing.Point(136, 190);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(111, 15);
-            this.label40.TabIndex = 34;
-            this.label40.Text = "1o sms PLUS4U";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(251, 187);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(394, 21);
-            this.textBox7.TabIndex = 33;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.button23);
-            this.groupBox8.Controls.Add(this.button22);
-            this.groupBox8.Location = new System.Drawing.Point(21, 72);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(442, 59);
-            this.groupBox8.TabIndex = 32;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "PLUS4U";
-            // 
-            // button23
-            // 
-            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.Location = new System.Drawing.Point(6, 13);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(205, 38);
-            this.button23.TabIndex = 3;
-            this.button23.Text = "1η Ενημέρωση";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // button22
-            // 
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.Location = new System.Drawing.Point(229, 13);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(207, 38);
-            this.button22.TabIndex = 2;
-            this.button22.Text = "Υπενθύμιση";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(335, 6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(305, 21);
-            this.dateTimePicker1.TabIndex = 31;
-            this.dateTimePicker1.Visible = false;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(6, 6);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(305, 21);
-            this.dateTimePicker2.TabIndex = 30;
-            this.dateTimePicker2.Visible = false;
-            // 
-            // richTextBox10
-            // 
-            this.richTextBox10.Location = new System.Drawing.Point(0, 33);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(774, 23);
-            this.richTextBox10.TabIndex = 27;
-            this.richTextBox10.Text = "";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -2841,7 +2541,7 @@ namespace BlenderBender
             // 
             // button40
             // 
-            this.button40.Font = new System.Drawing.Font("Mionta", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button40.Image = global::BlenderBender.Properties.Resources.icons8_shortcut_48;
             this.button40.Location = new System.Drawing.Point(695, 426);
             this.button40.Name = "button40";
@@ -2852,7 +2552,7 @@ namespace BlenderBender
             // 
             // button31
             // 
-            this.button31.Font = new System.Drawing.Font("Mionta", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button31.Image = global::BlenderBender.Properties.Resources.icons8_ghost_32;
             this.button31.Location = new System.Drawing.Point(746, 426);
             this.button31.Name = "button31";
@@ -2861,16 +2561,40 @@ namespace BlenderBender
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
-            // linkLabel1
+            // linkLabel2
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(106, 350);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(496, 15);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Functionality of this tab is being replaced by PrintablesApp click to download";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(139, 345);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(105, 15);
+            this.linkLabel2.TabIndex = 1;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Get Ghostscript";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(3, 159);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(79, 30);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Quality for Ghostscript";
+            // 
+            // qualityBox
+            // 
+            this.qualityBox.FormattingEnabled = true;
+            this.qualityBox.Items.AddRange(new object[] {
+            "100",
+            "150",
+            "200",
+            "250",
+            "300"});
+            this.qualityBox.Location = new System.Drawing.Point(136, 162);
+            this.qualityBox.Name = "qualityBox";
+            this.qualityBox.Size = new System.Drawing.Size(121, 23);
+            this.qualityBox.TabIndex = 11;
+            this.qualityBox.Text = "100";
             // 
             // Form1
             // 
@@ -2927,15 +2651,13 @@ namespace BlenderBender
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -2948,9 +2670,6 @@ namespace BlenderBender
             this.tabPage6.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3007,45 +2726,48 @@ namespace BlenderBender
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox39;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox textBox34;
+        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox textBox38;
+        private System.Windows.Forms.TextBox textBox40;
+        private System.Windows.Forms.TextBox textBox41;
+        private System.Windows.Forms.TextBox textBox43;
+        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.TextBox textBox45;
+        private System.Windows.Forms.TextBox textBox80;
+        private System.Windows.Forms.TextBox textBox81;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox40;
-        private System.Windows.Forms.TextBox textBox42;
+        private System.Windows.Forms.Label label27;     
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button clrBtn;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -3058,10 +2780,8 @@ namespace BlenderBender
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox45;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.Label label35;     
+        private System.Windows.Forms.Label label34;      
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
@@ -3078,15 +2798,14 @@ namespace BlenderBender
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox currentUser;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox48;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox46;
-        private System.Windows.Forms.TextBox textBox43;
+        private System.Windows.Forms.TextBox textBox46;      
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.TextBox textBox47;
         private System.Windows.Forms.Label label36;
@@ -3109,44 +2828,21 @@ namespace BlenderBender
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.RichTextBox richTextBox8;
-        private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.RichTextBox richTextBox9;
-        private System.Windows.Forms.RichTextBox richTextBox10;
         private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.CheckBox _monitor;
         private System.Windows.Forms.RichTextBox richTextBox6;
@@ -3168,9 +2864,6 @@ namespace BlenderBender
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.CheckBox _emailaid;
@@ -3188,15 +2881,14 @@ namespace BlenderBender
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox _storeAddress;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.TextBox _orderName;
-        private System.Windows.Forms.ListBox _boxSize;
-        private System.Windows.Forms.TextBox _orderCode;
-        private System.Windows.Forms.CheckBox _announceAid;
-        private System.Windows.Forms.TextBox _numPrice;
-        private System.Windows.Forms.Button cleanServed;
-        private System.Windows.Forms.TextBox textBox49;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.NumericUpDown extraUpDown;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox qualityBox;
     }
 }
 

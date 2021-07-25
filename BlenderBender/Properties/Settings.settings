@@ -11,5 +11,8 @@
     <Setting Name="_storeAddress" Type="System.String" Scope="User">
       <Value Profile="(Default)">ΚΩΝΣΤΑΝΤΙΝΟΥ ΥΔΡΑΙΟΥ 71, ΤΚ 85133, ΡΟΔΟΣ</Value>
     </Setting>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
