@@ -92,6 +92,12 @@ namespace BlenderBender
             return _user;
 
         }
+
+        public string DateTimeNUser()
+        {
+            return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({ CurrentUser()}";
+        }
+
         public static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -396,7 +402,7 @@ namespace BlenderBender
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Αποτυχία 1ου SMS - Ενημερώθηκε μέσω τηλεφώνου {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+            Clipboard.SetText($"**Αποτυχία 1ου SMS - Ενημερώθηκε μέσω τηλεφώνου {DateTimeNUser()}");
             notifier("Αποτυχία 1ου [Κλήση]");
         }
 
@@ -414,7 +420,7 @@ namespace BlenderBender
             }
             string doh = dtto.DateTo("excludeSunday", extra);
 
-            Clipboard.SetText($"**2η Ενημέρωση μέσω τηλεφώνου {DateTime.Now.ToString("dd/MM HH:mm")} ότι θα παραμείνει μέχρι και {doh}-({CurrentUser()})");
+            Clipboard.SetText($"**2η Ενημέρωση μέσω τηλεφώνου {DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
             notifier("Τηλεφωνική Υπενθύμιση");
         }
 
@@ -462,13 +468,13 @@ namespace BlenderBender
 
         private void button15_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Δεν απαντούσε {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+            Clipboard.SetText($"**Δεν απαντούσε {DateTimeNUser()}");
             notifier("Δεν απαντούσε");
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Αδυναμία Επικοινωνίας {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+            Clipboard.SetText($"**Αδυναμία Επικοινωνίας {DateTimeNUser()}");
             notifier("Αδυναμία Επικοινωνίας");
         }
 
@@ -654,21 +660,21 @@ namespace BlenderBender
         private void button28_Click(object sender, EventArgs e)
         {
             if (radioButton5.Checked)
-                Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTimeNUser()}");
             if (radioButton6.Checked)
             {
                 int extra = (int)extraUpDown.Value;
                 string doh = dtto.DateTo("excludeSunday", extra);
-                Clipboard.SetText($"**Αποστάλθηκε 2o E-mail {DateTime.Now.ToString("dd/MM HH:mm")} ότι θα παραμείνει μέχρι και {doh}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποστάλθηκε 2o E-mail {DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
             }
             if (radioButton7.Checked)
-                Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTimeNUser()}");
             if (radioButton8.Checked)
-                Clipboard.SetText($"**Αποστάλθηκε E-mail υπενθύμισης {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποστάλθηκε E-mail υπενθύμισης {DateTimeNUser()}");
             if (radioButton9.Checked)
-                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
             if (radioButton12.Checked)
-                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
         }
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
@@ -719,7 +725,7 @@ namespace BlenderBender
 
         private void button32_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Ζήτησε να παραλάβει απ το κατάστημα. {DateTime.Now.ToString("dd/MM HH:mm")}-({CurrentUser()})");
+            Clipboard.SetText($"**Ζήτησε να παραλάβει απ το κατάστημα. {DateTimeNUser()}");
             notifier("Παραλαβή Επιτόπου");
         }
 
@@ -734,7 +740,7 @@ namespace BlenderBender
             {
                 dt = "Αδυναμία ενημέρωσης";
             }
-            Clipboard.SetText($"~~{dt} {DateTime.Now.ToString("dd/MM HH:mm")} {listBox1.SelectedItem.ToString()}-({CurrentUser()}) ~~");
+            Clipboard.SetText($"~~{dt} {DateTimeNUser()} {listBox1.SelectedItem.ToString()} ~~");
         }
 
         private void button33_Click(object sender, EventArgs e)
