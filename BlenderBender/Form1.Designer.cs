@@ -1373,7 +1373,6 @@ namespace BlenderBender
             this.textBox45.Size = new System.Drawing.Size(100, 21);
             this.textBox45.TabIndex = 19;
             this.textBox45.Text = "0";
-            this.textBox45.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label34
@@ -1392,7 +1391,6 @@ namespace BlenderBender
             this.textBox44.Size = new System.Drawing.Size(100, 21);
             this.textBox44.TabIndex = 18;
             this.textBox44.Text = "0";
-            this.textBox44.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox44.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.textBox44.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
@@ -1436,7 +1434,6 @@ namespace BlenderBender
             this.textBox41.Size = new System.Drawing.Size(100, 21);
             this.textBox41.TabIndex = 17;
             this.textBox41.Text = "0";
-            this.textBox41.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox41.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.textBox41.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
@@ -1468,7 +1465,6 @@ namespace BlenderBender
             this.textBox40.Size = new System.Drawing.Size(100, 21);
             this.textBox40.TabIndex = 16;
             this.textBox40.Text = "0";
-            this.textBox40.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             this.textBox40.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.textBox40.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 

@@ -95,7 +95,9 @@ namespace BlenderBender
 
         public string DateTimeNUser()
         {
-            return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({ CurrentUser()}";
+            string _userc = CurrentUser();
+            if (_userc == "") { _userc = "Άγνωστος Χειριστής"; }
+            return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({_userc})";
         }
 
         public static string GetLocalIPAddress()
@@ -460,7 +462,7 @@ namespace BlenderBender
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
             Clipboard.SetText(
-                $"**Ζήτησε να παραμείνει στο κατάστημα μέχρι και {dateTimePicker3.Value.ToString("dddd dd/MM")}-({CurrentUser()})**");
+                $"**Ζήτησε να παραμείνει στο κατάστημα μέχρι και {dateTimePicker3.Value.ToString("dddd dd/MM")}({CurrentUser()})**");
             if (hold != 1)
                 if (dateTimePicker3.Value != DateTime.Now)
                     countdown = 100;
