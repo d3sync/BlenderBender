@@ -95,6 +95,7 @@ namespace BlenderBender
             this.button10 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.signChk = new System.Windows.Forms.CheckBox();
             this._emailaid = new System.Windows.Forms.CheckBox();
             this.button28 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
@@ -110,6 +111,7 @@ namespace BlenderBender
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textBox55 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.textBox54 = new System.Windows.Forms.TextBox();
@@ -178,7 +180,26 @@ namespace BlenderBender
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this._storeAddress = new System.Windows.Forms.TextBox();
@@ -214,9 +235,12 @@ namespace BlenderBender
             this.button40 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.signChk = new System.Windows.Forms.CheckBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.filemonitor = new System.Windows.Forms.CheckBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -243,9 +267,12 @@ namespace BlenderBender
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -255,10 +282,9 @@ namespace BlenderBender
             this.toolStripProgressBar1,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 732);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 475);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1278, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(852, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -266,19 +292,19 @@ namespace BlenderBender
             // 
             this.toolStripProgressBar1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(150, 24);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 17);
             this.toolStripProgressBar1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(179, 25);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(179, 25);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // tabPage5
@@ -291,11 +317,10 @@ namespace BlenderBender
             this.tabPage5.Controls.Add(this.label30);
             this.tabPage5.Controls.Add(this.label26);
             this.tabPage5.Controls.Add(this.label25);
-            this.tabPage5.Location = new System.Drawing.Point(4, 31);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage5.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(780, 394);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -303,40 +328,36 @@ namespace BlenderBender
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(9, 575);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Location = new System.Drawing.Point(6, 374);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(75, 22);
+            this.label31.Size = new System.Drawing.Size(55, 15);
             this.label31.TabIndex = 16;
             this.label31.Text = "label31";
             // 
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(1084, 552);
-            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Location = new System.Drawing.Point(723, 359);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(0, 22);
+            this.label51.Size = new System.Drawing.Size(0, 15);
             this.label51.TabIndex = 15;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(788, 575);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Location = new System.Drawing.Point(525, 374);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(177, 22);
+            this.label33.Size = new System.Drawing.Size(126, 15);
             this.label33.TabIndex = 13;
             this.label33.Text = "https://tools.idle.gr";
             // 
             // richTextBox4
             // 
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox4.Location = new System.Drawing.Point(14, 8);
-            this.richTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBox4.Location = new System.Drawing.Point(9, 5);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
-            this.richTextBox4.Size = new System.Drawing.Size(1142, 122);
+            this.richTextBox4.Size = new System.Drawing.Size(763, 81);
             this.richTextBox4.TabIndex = 12;
             this.richTextBox4.Text = resources.GetString("richTextBox4.Text");
             // 
@@ -344,21 +365,20 @@ namespace BlenderBender
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(1042, 575);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Location = new System.Drawing.Point(695, 374);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(116, 25);
+            this.label30.Size = new System.Drawing.Size(79, 16);
             this.label30.TabIndex = 8;
             this.label30.Text = "..::d3sync*";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label26.Location = new System.Drawing.Point(1000, 143);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Location = new System.Drawing.Point(667, 93);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(170, 22);
+            this.label26.Size = new System.Drawing.Size(117, 15);
             this.label26.TabIndex = 6;
             this.label26.Text = "Version 0.2 BETA";
             // 
@@ -366,21 +386,19 @@ namespace BlenderBender
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label25.Location = new System.Drawing.Point(1000, 103);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Location = new System.Drawing.Point(667, 67);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(177, 22);
+            this.label25.Size = new System.Drawing.Size(123, 15);
             this.label25.TabIndex = 5;
             this.label25.Text = "Created by d3sync";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.splitContainer2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(780, 394);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Πιστωτικά";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -388,8 +406,7 @@ namespace BlenderBender
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(4, 5);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -411,18 +428,16 @@ namespace BlenderBender
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer2.Size = new System.Drawing.Size(1166, 604);
-            this.splitContainer2.SplitterDistance = 405;
-            this.splitContainer2.SplitterWidth = 6;
+            this.splitContainer2.Size = new System.Drawing.Size(774, 388);
+            this.splitContainer2.SplitterDistance = 268;
             this.splitContainer2.TabIndex = 0;
             // 
             // button25
             // 
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(322, 425);
-            this.button25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button25.Location = new System.Drawing.Point(215, 276);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(70, 23);
+            this.button25.Size = new System.Drawing.Size(47, 15);
             this.button25.TabIndex = 11;
             this.button25.Text = "CLEAR";
             this.button25.UseVisualStyleBackColor = true;
@@ -431,10 +446,9 @@ namespace BlenderBender
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(138, 246);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox5.Location = new System.Drawing.Point(92, 160);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(200, 26);
+            this.checkBox5.Size = new System.Drawing.Size(143, 19);
             this.checkBox5.TabIndex = 5;
             this.checkBox5.Text = "Μέρος Πιστωτικού";
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -442,10 +456,9 @@ namespace BlenderBender
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(26, 405);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox1.Location = new System.Drawing.Point(17, 263);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(244, 26);
+            this.checkBox1.Size = new System.Drawing.Size(173, 19);
             this.checkBox1.TabIndex = 99;
             this.checkBox1.Text = "Εκπλήρωση με μετρητά";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -453,30 +466,27 @@ namespace BlenderBender
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(202, 94);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox4.Location = new System.Drawing.Point(135, 61);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 28);
+            this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 2;
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(202, 205);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox2.Location = new System.Drawing.Point(135, 133);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 28);
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 4;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 520);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button3.Location = new System.Drawing.Point(8, 338);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(381, 74);
+            this.button3.Size = new System.Drawing.Size(254, 48);
             this.button3.TabIndex = 6;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
@@ -487,11 +497,9 @@ namespace BlenderBender
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(12, 442);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Location = new System.Drawing.Point(8, 287);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(381, 69);
+            this.groupBox2.Size = new System.Drawing.Size(254, 45);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Διαφορά";
@@ -499,10 +507,9 @@ namespace BlenderBender
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(190, 29);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton4.Location = new System.Drawing.Point(127, 19);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(91, 26);
+            this.radioButton4.Size = new System.Drawing.Size(64, 19);
             this.radioButton4.TabIndex = 1;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Κάρτα";
@@ -512,10 +519,9 @@ namespace BlenderBender
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(9, 29);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton3.Location = new System.Drawing.Point(6, 19);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(113, 26);
+            this.radioButton3.Size = new System.Drawing.Size(80, 19);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Μετρητά";
@@ -525,19 +531,17 @@ namespace BlenderBender
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 95);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(11, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 22);
+            this.label4.Size = new System.Drawing.Size(112, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Ποσό Παραγγελίας";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(9, 38);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox3.Location = new System.Drawing.Point(6, 25);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(382, 28);
+            this.textBox3.Size = new System.Drawing.Size(256, 21);
             this.textBox3.TabIndex = 1;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
@@ -545,10 +549,9 @@ namespace BlenderBender
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(14, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(339, 22);
+            this.label3.Size = new System.Drawing.Size(242, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Παραγγελία Εκπλήρωσης Πιστωτικού";
             // 
@@ -556,10 +559,9 @@ namespace BlenderBender
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 206);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(11, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 22);
+            this.label2.Size = new System.Drawing.Size(101, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ποσό Πιστωτικού";
             // 
@@ -567,19 +569,17 @@ namespace BlenderBender
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 131);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(50, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 22);
+            this.label1.Size = new System.Drawing.Size(158, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Παραγγελία Πιστωτικού";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 155);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Location = new System.Drawing.Point(6, 101);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(382, 28);
+            this.textBox1.Size = new System.Drawing.Size(256, 21);
             this.textBox1.TabIndex = 3;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
@@ -591,28 +591,27 @@ namespace BlenderBender
             this.flowLayoutPanel2.Controls.Add(this.label7);
             this.flowLayoutPanel2.Controls.Add(this.richTextBox2);
             this.flowLayoutPanel2.Controls.Add(this.button2);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(740, 597);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(493, 388);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(186, 22);
+            this.label6.Size = new System.Drawing.Size(131, 15);
             this.label6.TabIndex = 0;
             this.label6.Text = "Κείμενο Πιστωτικού";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(4, 27);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 18);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(666, 106);
+            this.richTextBox1.Size = new System.Drawing.Size(445, 70);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = "";
@@ -623,10 +622,9 @@ namespace BlenderBender
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(4, 143);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(3, 94);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(668, 131);
+            this.button1.Size = new System.Drawing.Size(445, 85);
             this.button1.TabIndex = 2;
             this.button1.Text = "Αντιγραφή Κειμένου Πιστωτικού";
             this.button1.UseVisualStyleBackColor = false;
@@ -635,24 +633,21 @@ namespace BlenderBender
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 279);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(3, 182);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(202, 22);
+            this.label7.Size = new System.Drawing.Size(143, 15);
             this.label7.TabIndex = 3;
             this.label7.Text = "Κείμενο Παραγγελίας";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(4, 306);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBox2.Location = new System.Drawing.Point(3, 200);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(666, 104);
+            this.richTextBox2.Size = new System.Drawing.Size(445, 69);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.TabStop = false;
             this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // button2
             // 
@@ -660,10 +655,9 @@ namespace BlenderBender
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(4, 420);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(3, 275);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(670, 131);
+            this.button2.Size = new System.Drawing.Size(447, 85);
             this.button2.TabIndex = 5;
             this.button2.Text = "Αντιγραφή Κειμένου Παραγγελίας";
             this.button2.UseVisualStyleBackColor = false;
@@ -679,11 +673,10 @@ namespace BlenderBender
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(18, 5);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabControl1.Location = new System.Drawing.Point(12, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1182, 649);
+            this.tabControl1.Size = new System.Drawing.Size(788, 422);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage4
@@ -695,21 +688,19 @@ namespace BlenderBender
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 31);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage4.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(780, 394);
             this.tabPage4.TabIndex = 8;
             this.tabPage4.Text = "Automated Messages";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // button32
             // 
-            this.button32.Location = new System.Drawing.Point(9, 541);
-            this.button32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button32.Location = new System.Drawing.Point(6, 352);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(480, 35);
+            this.button32.Size = new System.Drawing.Size(320, 23);
             this.button32.TabIndex = 15;
             this.button32.Text = "&Ζήτησε Κατάστημα";
             this.button32.UseVisualStyleBackColor = true;
@@ -718,11 +709,9 @@ namespace BlenderBender
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.button24);
-            this.groupBox10.Location = new System.Drawing.Point(9, 103);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox10.Location = new System.Drawing.Point(6, 67);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox10.Size = new System.Drawing.Size(480, 86);
+            this.groupBox10.Size = new System.Drawing.Size(320, 56);
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "E-SHOP/PLUS4U";
@@ -730,10 +719,9 @@ namespace BlenderBender
             // button24
             // 
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.Location = new System.Drawing.Point(9, 28);
-            this.button24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button24.Location = new System.Drawing.Point(6, 18);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(462, 40);
+            this.button24.Size = new System.Drawing.Size(308, 26);
             this.button24.TabIndex = 3;
             this.button24.Text = "1η Ενημέρωση SMS";
             this.button24.UseVisualStyleBackColor = true;
@@ -744,30 +732,26 @@ namespace BlenderBender
             this.groupBox9.Controls.Add(this.currentUser);
             this.groupBox9.Controls.Add(this.button6);
             this.groupBox9.Controls.Add(this.button20);
-            this.groupBox9.Location = new System.Drawing.Point(501, 91);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox9.Location = new System.Drawing.Point(334, 59);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox9.Size = new System.Drawing.Size(663, 151);
+            this.groupBox9.Size = new System.Drawing.Size(442, 98);
             this.groupBox9.TabIndex = 11;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Τιμολόγηση";
             // 
             // currentUser
             // 
-            this.currentUser.Location = new System.Drawing.Point(326, 42);
-            this.currentUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.currentUser.Location = new System.Drawing.Point(217, 27);
             this.currentUser.Name = "currentUser";
-            this.currentUser.Size = new System.Drawing.Size(310, 28);
+            this.currentUser.Size = new System.Drawing.Size(208, 21);
             this.currentUser.TabIndex = 12;
             this.currentUser.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(9, 38);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button6.Location = new System.Drawing.Point(6, 25);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(308, 38);
+            this.button6.Size = new System.Drawing.Size(205, 25);
             this.button6.TabIndex = 11;
             this.button6.Text = "&Τιμολογήθηκε από";
             this.toolTip1.SetToolTip(this.button6, "Όνομα υπαλλήλου που δεν έχει ακόμα δικό του admin");
@@ -776,10 +760,9 @@ namespace BlenderBender
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(9, 106);
-            this.button20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button20.Location = new System.Drawing.Point(6, 69);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(648, 35);
+            this.button20.Size = new System.Drawing.Size(432, 23);
             this.button20.TabIndex = 10;
             this.button20.Text = "Άρθρο 39α";
             this.button20.UseVisualStyleBackColor = true;
@@ -790,21 +773,18 @@ namespace BlenderBender
             this.groupBox6.Controls.Add(this.button33);
             this.groupBox6.Controls.Add(this.button16);
             this.groupBox6.Controls.Add(this.button15);
-            this.groupBox6.Location = new System.Drawing.Point(501, 9);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox6.Location = new System.Drawing.Point(334, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox6.Size = new System.Drawing.Size(660, 78);
+            this.groupBox6.Size = new System.Drawing.Size(440, 51);
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ΔΑ / ΑΕ";
             // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(248, 29);
-            this.button33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button33.Location = new System.Drawing.Point(165, 19);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(150, 35);
+            this.button33.Size = new System.Drawing.Size(100, 23);
             this.button33.TabIndex = 2;
             this.button33.Text = "Ώρα ";
             this.button33.UseVisualStyleBackColor = true;
@@ -812,10 +792,9 @@ namespace BlenderBender
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(406, 29);
-            this.button16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button16.Location = new System.Drawing.Point(271, 19);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(244, 35);
+            this.button16.Size = new System.Drawing.Size(163, 23);
             this.button16.TabIndex = 1;
             this.button16.Text = "&Αδυναμία Επικοινωνίας";
             this.button16.UseVisualStyleBackColor = true;
@@ -823,10 +802,9 @@ namespace BlenderBender
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(9, 29);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button15.Location = new System.Drawing.Point(6, 19);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(230, 35);
+            this.button15.Size = new System.Drawing.Size(153, 23);
             this.button15.TabIndex = 0;
             this.button15.Text = "&Δεν απαντούσε";
             this.button15.UseVisualStyleBackColor = true;
@@ -835,21 +813,18 @@ namespace BlenderBender
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dateTimePicker3);
-            this.groupBox5.Location = new System.Drawing.Point(9, 445);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox5.Location = new System.Drawing.Point(6, 289);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox5.Size = new System.Drawing.Size(480, 86);
+            this.groupBox5.Size = new System.Drawing.Size(320, 56);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Να παραμείνει μέχρι:";
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(9, 31);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateTimePicker3.Location = new System.Drawing.Point(6, 20);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(456, 28);
+            this.dateTimePicker3.Size = new System.Drawing.Size(305, 21);
             this.dateTimePicker3.TabIndex = 6;
             this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
@@ -861,11 +836,9 @@ namespace BlenderBender
             this.groupBox4.Controls.Add(this.button21);
             this.groupBox4.Controls.Add(this.label32);
             this.groupBox4.Controls.Add(this.button14);
-            this.groupBox4.Location = new System.Drawing.Point(9, 191);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Location = new System.Drawing.Point(6, 124);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(480, 244);
+            this.groupBox4.Size = new System.Drawing.Size(320, 159);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "2ο SMS";
@@ -873,10 +846,9 @@ namespace BlenderBender
             // checkBox11
             // 
             this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(269, 52);
-            this.checkBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox11.Location = new System.Drawing.Point(179, 34);
             this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(91, 26);
+            this.checkBox11.Size = new System.Drawing.Size(66, 19);
             this.checkBox11.TabIndex = 6;
             this.checkBox11.Text = "Βιβλίο";
             this.checkBox11.UseVisualStyleBackColor = true;
@@ -885,10 +857,9 @@ namespace BlenderBender
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(139, 52);
-            this.checkBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox10.Location = new System.Drawing.Point(93, 34);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(122, 26);
+            this.checkBox10.Size = new System.Drawing.Size(87, 19);
             this.checkBox10.TabIndex = 5;
             this.checkBox10.Text = "+2 Μέρες";
             this.checkBox10.UseVisualStyleBackColor = true;
@@ -896,10 +867,9 @@ namespace BlenderBender
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(9, 52);
-            this.checkBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox9.Location = new System.Drawing.Point(6, 34);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(112, 26);
+            this.checkBox9.Size = new System.Drawing.Size(81, 19);
             this.checkBox9.TabIndex = 4;
             this.checkBox9.Text = "+1 Μέρα";
             this.toolTip1.SetToolTip(this.checkBox9, "Προσθέτη μία μέρα");
@@ -908,10 +878,9 @@ namespace BlenderBender
             // button21
             // 
             this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.Location = new System.Drawing.Point(244, 155);
-            this.button21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button21.Location = new System.Drawing.Point(163, 101);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(222, 72);
+            this.button21.Size = new System.Drawing.Size(148, 47);
             this.button21.TabIndex = 3;
             this.button21.Text = "ESHOP 2ο";
             this.button21.UseVisualStyleBackColor = true;
@@ -921,20 +890,18 @@ namespace BlenderBender
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(87, 18);
-            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Location = new System.Drawing.Point(58, 12);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(273, 29);
+            this.label32.Size = new System.Drawing.Size(188, 20);
             this.label32.TabIndex = 2;
             this.label32.Text = "Date Will Appear Here";
             // 
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(9, 155);
-            this.button14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button14.Location = new System.Drawing.Point(6, 101);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(218, 72);
+            this.button14.Size = new System.Drawing.Size(145, 47);
             this.button14.TabIndex = 1;
             this.button14.Text = "&Επιτόπου 2ο";
             this.button14.UseVisualStyleBackColor = true;
@@ -944,11 +911,9 @@ namespace BlenderBender
             // 
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
-            this.groupBox1.Location = new System.Drawing.Point(9, 9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(480, 105);
+            this.groupBox1.Size = new System.Drawing.Size(320, 68);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Αποτυχία SMS";
@@ -956,10 +921,9 @@ namespace BlenderBender
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(249, 26);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button11.Location = new System.Drawing.Point(166, 17);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(222, 63);
+            this.button11.Size = new System.Drawing.Size(148, 41);
             this.button11.TabIndex = 3;
             this.button11.Text = "2η Τηλεφωνική υπενθύμιση";
             this.button11.UseVisualStyleBackColor = true;
@@ -968,10 +932,9 @@ namespace BlenderBender
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(9, 26);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button10.Location = new System.Drawing.Point(6, 17);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(222, 63);
+            this.button10.Size = new System.Drawing.Size(148, 41);
             this.button10.TabIndex = 2;
             this.button10.Text = "Αποτυχία 1ου SMS -> Tηλέφωνο";
             this.button10.UseVisualStyleBackColor = true;
@@ -980,11 +943,10 @@ namespace BlenderBender
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.splitContainer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(780, 394);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "E-mail";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -992,8 +954,7 @@ namespace BlenderBender
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 5);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1017,18 +978,27 @@ namespace BlenderBender
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox5);
-            this.splitContainer1.Size = new System.Drawing.Size(1166, 604);
-            this.splitContainer1.SplitterDistance = 557;
-            this.splitContainer1.SplitterWidth = 6;
+            this.splitContainer1.Size = new System.Drawing.Size(774, 388);
+            this.splitContainer1.SplitterDistance = 369;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // signChk
+            // 
+            this.signChk.AutoSize = true;
+            this.signChk.Location = new System.Drawing.Point(238, 125);
+            this.signChk.Margin = new System.Windows.Forms.Padding(2);
+            this.signChk.Name = "signChk";
+            this.signChk.Size = new System.Drawing.Size(92, 19);
+            this.signChk.TabIndex = 14;
+            this.signChk.Text = "Υπογραφή";
+            this.signChk.UseVisualStyleBackColor = true;
             // 
             // _emailaid
             // 
             this._emailaid.AutoSize = true;
-            this._emailaid.Location = new System.Drawing.Point(0, 8);
-            this._emailaid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._emailaid.Location = new System.Drawing.Point(0, 5);
             this._emailaid.Name = "_emailaid";
-            this._emailaid.Size = new System.Drawing.Size(157, 26);
+            this._emailaid.Size = new System.Drawing.Size(112, 19);
             this._emailaid.TabIndex = 13;
             this._emailaid.Text = "Clipboard Aid";
             this._emailaid.UseVisualStyleBackColor = true;
@@ -1036,10 +1006,9 @@ namespace BlenderBender
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(8, 538);
-            this.button28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button28.Location = new System.Drawing.Point(5, 350);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(542, 42);
+            this.button28.Size = new System.Drawing.Size(361, 27);
             this.button28.TabIndex = 12;
             this.button28.Text = "Αυτόματο μήνυμα για Admin";
             this.toolTip1.SetToolTip(this.button28, "Το κείμενο αντιγράφεται αυτόματα στο clipboard αμέσως μετά το πάτημα του \"Constru" +
@@ -1050,10 +1019,9 @@ namespace BlenderBender
             // button18
             // 
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(501, 161);
-            this.button18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button18.Location = new System.Drawing.Point(334, 105);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(48, 49);
+            this.button18.Size = new System.Drawing.Size(32, 32);
             this.button18.TabIndex = 11;
             this.button18.Text = "C";
             this.button18.UseVisualStyleBackColor = true;
@@ -1063,10 +1031,9 @@ namespace BlenderBender
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(357, 169);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox6.Location = new System.Drawing.Point(238, 110);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(116, 24);
+            this.checkBox6.Size = new System.Drawing.Size(83, 17);
             this.checkBox6.TabIndex = 5;
             this.checkBox6.Text = "Καλημέρα";
             this.checkBox6.UseVisualStyleBackColor = true;
@@ -1078,19 +1045,17 @@ namespace BlenderBender
             this.comboBox3.Items.AddRange(new object[] {
             "Αξιότιμε κύριε",
             "Αξιότιμη κυρία"});
-            this.comboBox3.Location = new System.Drawing.Point(46, 163);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBox3.Location = new System.Drawing.Point(31, 106);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(300, 30);
+            this.comboBox3.Size = new System.Drawing.Size(201, 23);
             this.comboBox3.TabIndex = 4;
             // 
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(8, 435);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button7.Location = new System.Drawing.Point(5, 283);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(542, 94);
+            this.button7.Size = new System.Drawing.Size(361, 61);
             this.button7.TabIndex = 7;
             this.button7.Text = "Construct E-mail";
             this.toolTip1.SetToolTip(this.button7, "Ανοίγει ένα νέο μήνυμα στον προεπιλεγμένο πελάτη ηλεκτρονικού ταχυδρομείου.");
@@ -1100,11 +1065,9 @@ namespace BlenderBender
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox12.Location = new System.Drawing.Point(8, 214);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox12.Location = new System.Drawing.Point(5, 139);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox12.Size = new System.Drawing.Size(543, 212);
+            this.groupBox12.Size = new System.Drawing.Size(362, 138);
             this.groupBox12.TabIndex = 6;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Επιλογές";
@@ -1119,19 +1082,17 @@ namespace BlenderBender
             this.flowLayoutPanel1.Controls.Add(this.radioButton9);
             this.flowLayoutPanel1.Controls.Add(this.radioButton12);
             this.flowLayoutPanel1.Controls.Add(this.radioButton1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 31);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(534, 172);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(356, 112);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(4, 5);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton5.Location = new System.Drawing.Point(3, 3);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(164, 26);
+            this.radioButton5.Size = new System.Drawing.Size(117, 19);
             this.radioButton5.TabIndex = 0;
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "1η Ενημέρωση";
@@ -1141,10 +1102,9 @@ namespace BlenderBender
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(176, 5);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton6.Location = new System.Drawing.Point(126, 3);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(164, 26);
+            this.radioButton6.Size = new System.Drawing.Size(117, 19);
             this.radioButton6.TabIndex = 1;
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "2η Ενημέρωση";
@@ -1153,15 +1113,14 @@ namespace BlenderBender
             // 
             // extraUpDown
             // 
-            this.extraUpDown.Location = new System.Drawing.Point(348, 5);
-            this.extraUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.extraUpDown.Location = new System.Drawing.Point(249, 3);
             this.extraUpDown.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.extraUpDown.Name = "extraUpDown";
-            this.extraUpDown.Size = new System.Drawing.Size(58, 28);
+            this.extraUpDown.Size = new System.Drawing.Size(39, 21);
             this.extraUpDown.TabIndex = 8;
             this.toolTip1.SetToolTip(this.extraUpDown, "Προσθήκη έξτρα μέρας");
             this.extraUpDown.ValueChanged += new System.EventHandler(this.extraUpDown_ValueChanged);
@@ -1169,10 +1128,9 @@ namespace BlenderBender
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(4, 43);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton7.Location = new System.Drawing.Point(3, 30);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(130, 26);
+            this.radioButton7.Size = new System.Drawing.Size(92, 19);
             this.radioButton7.TabIndex = 2;
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "1η Service";
@@ -1182,10 +1140,9 @@ namespace BlenderBender
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(142, 43);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton8.Location = new System.Drawing.Point(101, 30);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(212, 26);
+            this.radioButton8.Size = new System.Drawing.Size(149, 19);
             this.radioButton8.TabIndex = 3;
             this.radioButton8.TabStop = true;
             this.radioButton8.Text = "Υπενθύμιση Service";
@@ -1195,10 +1152,9 @@ namespace BlenderBender
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(4, 79);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton9.Location = new System.Drawing.Point(3, 55);
             this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(247, 26);
+            this.radioButton9.Size = new System.Drawing.Size(174, 19);
             this.radioButton9.TabIndex = 4;
             this.radioButton9.TabStop = true;
             this.radioButton9.Text = "Επικοινωνήστε μαζί μας";
@@ -1208,80 +1164,85 @@ namespace BlenderBender
             // radioButton12
             // 
             this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(259, 79);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButton12.Location = new System.Drawing.Point(183, 55);
             this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(210, 26);
+            this.radioButton12.Size = new System.Drawing.Size(151, 19);
             this.radioButton12.TabIndex = 7;
             this.radioButton12.TabStop = true;
             this.radioButton12.Text = "Επικ. για Παράδοση";
             this.radioButton12.UseVisualStyleBackColor = true;
             this.radioButton12.CheckedChanged += new System.EventHandler(this.RadioButton12_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(2, 79);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(168, 19);
+            this.radioButton1.TabIndex = 9;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Αναμονή διευκρινίσεων";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // textBox55
             // 
-            this.textBox55.Location = new System.Drawing.Point(176, 123);
-            this.textBox55.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox55.Location = new System.Drawing.Point(117, 80);
             this.textBox55.Name = "textBox55";
-            this.textBox55.Size = new System.Drawing.Size(373, 28);
+            this.textBox55.Size = new System.Drawing.Size(250, 21);
             this.textBox55.TabIndex = 3;
             this.textBox55.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(12, 128);
-            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label50.Location = new System.Drawing.Point(8, 83);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(141, 22);
+            this.label50.Size = new System.Drawing.Size(98, 15);
             this.label50.TabIndex = 4;
             this.label50.Text = "Όνομα Πελάτη";
             // 
             // textBox54
             // 
-            this.textBox54.Location = new System.Drawing.Point(176, 78);
-            this.textBox54.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox54.Location = new System.Drawing.Point(117, 51);
             this.textBox54.Name = "textBox54";
-            this.textBox54.Size = new System.Drawing.Size(373, 28);
+            this.textBox54.Size = new System.Drawing.Size(250, 21);
             this.textBox54.TabIndex = 2;
             this.textBox54.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(34, 83);
-            this.label49.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label49.Location = new System.Drawing.Point(23, 54);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(115, 22);
+            this.label49.Size = new System.Drawing.Size(83, 15);
             this.label49.TabIndex = 2;
             this.label49.Text = "Παραγγελία";
             // 
             // textBox53
             // 
-            this.textBox53.Location = new System.Drawing.Point(176, 37);
-            this.textBox53.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox53.Location = new System.Drawing.Point(117, 24);
             this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new System.Drawing.Size(373, 28);
+            this.textBox53.Size = new System.Drawing.Size(250, 21);
             this.textBox53.TabIndex = 1;
             this.textBox53.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(10, 42);
-            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label48.Location = new System.Drawing.Point(7, 27);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(138, 22);
+            this.label48.Size = new System.Drawing.Size(99, 15);
             this.label48.TabIndex = 0;
             this.label48.Text = "Ε-mail Πελάτη";
             // 
             // richTextBox5
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(9, 9);
-            this.richTextBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBox5.Location = new System.Drawing.Point(6, 6);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.ReadOnly = true;
-            this.richTextBox5.Size = new System.Drawing.Size(571, 573);
+            this.richTextBox5.Size = new System.Drawing.Size(382, 374);
             this.richTextBox5.TabIndex = 0;
             this.richTextBox5.Text = "";
             // 
@@ -1346,11 +1307,10 @@ namespace BlenderBender
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage3.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(780, 394);
             this.tabPage3.TabIndex = 7;
             this.tabPage3.Text = "Υπολογισμός Χρημάτων";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1358,20 +1318,18 @@ namespace BlenderBender
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(609, 251);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Location = new System.Drawing.Point(406, 163);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(56, 22);
+            this.label35.Size = new System.Drawing.Size(40, 15);
             this.label35.TabIndex = 58;
             this.label35.Text = "Κάβα";
             this.toolTip1.SetToolTip(this.label35, "Το χρηματικό ποσό που παίρνει ο οδηγός απ το μικρό ταμείο κάθε μέρα.");
             // 
             // textBox45
             // 
-            this.textBox45.Location = new System.Drawing.Point(704, 246);
-            this.textBox45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox45.Location = new System.Drawing.Point(469, 160);
             this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(148, 28);
+            this.textBox45.Size = new System.Drawing.Size(100, 21);
             this.textBox45.TabIndex = 19;
             this.textBox45.Text = "0";
             this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
@@ -1379,19 +1337,17 @@ namespace BlenderBender
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(471, 209);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Location = new System.Drawing.Point(314, 136);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(185, 22);
+            this.label34.Size = new System.Drawing.Size(132, 15);
             this.label34.TabIndex = 56;
             this.label34.Text = "e-fresh Παραδόσεις";
             // 
             // textBox44
             // 
-            this.textBox44.Location = new System.Drawing.Point(704, 205);
-            this.textBox44.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox44.Location = new System.Drawing.Point(469, 133);
             this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(148, 28);
+            this.textBox44.Size = new System.Drawing.Size(100, 21);
             this.textBox44.TabIndex = 18;
             this.textBox44.Text = "0";
             this.textBox44.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
@@ -1400,10 +1356,9 @@ namespace BlenderBender
             // clrBtn
             // 
             this.clrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clrBtn.Location = new System.Drawing.Point(1126, 9);
-            this.clrBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.clrBtn.Location = new System.Drawing.Point(751, 6);
             this.clrBtn.Name = "clrBtn";
-            this.clrBtn.Size = new System.Drawing.Size(39, 35);
+            this.clrBtn.Size = new System.Drawing.Size(26, 23);
             this.clrBtn.TabIndex = 54;
             this.clrBtn.Text = "R";
             this.clrBtn.UseVisualStyleBackColor = true;
@@ -1411,11 +1366,10 @@ namespace BlenderBender
             // 
             // textBox81
             // 
-            this.textBox81.Location = new System.Drawing.Point(704, 323);
-            this.textBox81.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox81.Location = new System.Drawing.Point(469, 210);
             this.textBox81.Name = "textBox81";
             this.textBox81.ReadOnly = true;
-            this.textBox81.Size = new System.Drawing.Size(148, 28);
+            this.textBox81.Size = new System.Drawing.Size(100, 21);
             this.textBox81.TabIndex = 21;
             this.textBox81.TabStop = false;
             this.textBox81.Text = "0";
@@ -1425,20 +1379,18 @@ namespace BlenderBender
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(548, 323);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Location = new System.Drawing.Point(365, 210);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(122, 29);
+            this.label29.Size = new System.Drawing.Size(81, 20);
             this.label29.TabIndex = 52;
             this.label29.Text = "Διαφορά ";
             this.toolTip1.SetToolTip(this.label29, "Εάν είναι μείον τότε σημαίνει οτι λείπουν χρήματα απ το ταμείο του οδηγού.");
             // 
             // textBox41
             // 
-            this.textBox41.Location = new System.Drawing.Point(704, 160);
-            this.textBox41.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox41.Location = new System.Drawing.Point(469, 104);
             this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(148, 28);
+            this.textBox41.Size = new System.Drawing.Size(100, 21);
             this.textBox41.TabIndex = 17;
             this.textBox41.Text = "0";
             this.textBox41.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
@@ -1448,10 +1400,9 @@ namespace BlenderBender
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(416, 162);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Location = new System.Drawing.Point(277, 105);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(260, 29);
+            this.label28.Size = new System.Drawing.Size(168, 18);
             this.label28.TabIndex = 50;
             this.label28.Text = "Σύνολο Παραδόσεων";
             // 
@@ -1459,20 +1410,18 @@ namespace BlenderBender
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(579, 122);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Location = new System.Drawing.Point(386, 79);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(92, 29);
+            this.label27.Size = new System.Drawing.Size(59, 18);
             this.label27.TabIndex = 49;
             this.label27.Text = "Έξοδα";
             this.toolTip1.SetToolTip(this.label27, "Έξοδα που είχε ο οδηγός.");
             // 
             // textBox40
             // 
-            this.textBox40.Location = new System.Drawing.Point(704, 117);
-            this.textBox40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox40.Location = new System.Drawing.Point(469, 76);
             this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(148, 28);
+            this.textBox40.Size = new System.Drawing.Size(100, 21);
             this.textBox40.TabIndex = 16;
             this.textBox40.Text = "0";
             this.textBox40.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
@@ -1481,11 +1430,10 @@ namespace BlenderBender
             // textBox80
             // 
             this.textBox80.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox80.Location = new System.Drawing.Point(704, 34);
-            this.textBox80.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox80.Location = new System.Drawing.Point(469, 22);
             this.textBox80.Name = "textBox80";
             this.textBox80.ReadOnly = true;
-            this.textBox80.Size = new System.Drawing.Size(148, 43);
+            this.textBox80.Size = new System.Drawing.Size(100, 31);
             this.textBox80.TabIndex = 20;
             this.textBox80.TabStop = false;
             this.textBox80.Text = "0";
@@ -1494,10 +1442,9 @@ namespace BlenderBender
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(588, 375);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button8.Location = new System.Drawing.Point(392, 244);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(411, 65);
+            this.button8.Size = new System.Drawing.Size(274, 42);
             this.button8.TabIndex = 20;
             this.button8.Text = "Υπολογισμός";
             this.button8.UseVisualStyleBackColor = true;
@@ -1507,184 +1454,167 @@ namespace BlenderBender
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(412, 37);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(275, 24);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(134, 37);
+            this.label24.Size = new System.Drawing.Size(89, 25);
             this.label24.TabIndex = 45;
             this.label24.Text = "Σύνολο";
             // 
             // textBox38
             // 
-            this.textBox38.Location = new System.Drawing.Point(230, 563);
-            this.textBox38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox38.Location = new System.Drawing.Point(153, 366);
             this.textBox38.Name = "textBox38";
             this.textBox38.ReadOnly = true;
-            this.textBox38.Size = new System.Drawing.Size(148, 28);
+            this.textBox38.Size = new System.Drawing.Size(100, 21);
             this.textBox38.TabIndex = 603;
             this.textBox38.TabStop = false;
             this.textBox38.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox37
             // 
-            this.textBox37.Location = new System.Drawing.Point(230, 523);
-            this.textBox37.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox37.Location = new System.Drawing.Point(153, 340);
             this.textBox37.Name = "textBox37";
             this.textBox37.ReadOnly = true;
-            this.textBox37.Size = new System.Drawing.Size(148, 28);
+            this.textBox37.Size = new System.Drawing.Size(100, 21);
             this.textBox37.TabIndex = 602;
             this.textBox37.TabStop = false;
             this.textBox37.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox36
             // 
-            this.textBox36.Location = new System.Drawing.Point(230, 483);
-            this.textBox36.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox36.Location = new System.Drawing.Point(153, 314);
             this.textBox36.Name = "textBox36";
             this.textBox36.ReadOnly = true;
-            this.textBox36.Size = new System.Drawing.Size(148, 28);
+            this.textBox36.Size = new System.Drawing.Size(100, 21);
             this.textBox36.TabIndex = 601;
             this.textBox36.TabStop = false;
             this.textBox36.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox35
             // 
-            this.textBox35.Location = new System.Drawing.Point(230, 443);
-            this.textBox35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox35.Location = new System.Drawing.Point(153, 288);
             this.textBox35.Name = "textBox35";
             this.textBox35.ReadOnly = true;
-            this.textBox35.Size = new System.Drawing.Size(148, 28);
+            this.textBox35.Size = new System.Drawing.Size(100, 21);
             this.textBox35.TabIndex = 600;
             this.textBox35.TabStop = false;
             this.textBox35.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox34
             // 
-            this.textBox34.Location = new System.Drawing.Point(230, 403);
-            this.textBox34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox34.Location = new System.Drawing.Point(153, 262);
             this.textBox34.Name = "textBox34";
             this.textBox34.ReadOnly = true;
-            this.textBox34.Size = new System.Drawing.Size(148, 28);
+            this.textBox34.Size = new System.Drawing.Size(100, 21);
             this.textBox34.TabIndex = 559;
             this.textBox34.TabStop = false;
             this.textBox34.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox33
             // 
-            this.textBox33.Location = new System.Drawing.Point(230, 363);
-            this.textBox33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox33.Location = new System.Drawing.Point(153, 236);
             this.textBox33.Name = "textBox33";
             this.textBox33.ReadOnly = true;
-            this.textBox33.Size = new System.Drawing.Size(148, 28);
+            this.textBox33.Size = new System.Drawing.Size(100, 21);
             this.textBox33.TabIndex = 558;
             this.textBox33.TabStop = false;
             this.textBox33.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox32
             // 
-            this.textBox32.Location = new System.Drawing.Point(230, 323);
-            this.textBox32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox32.Location = new System.Drawing.Point(153, 210);
             this.textBox32.Name = "textBox32";
             this.textBox32.ReadOnly = true;
-            this.textBox32.Size = new System.Drawing.Size(148, 28);
+            this.textBox32.Size = new System.Drawing.Size(100, 21);
             this.textBox32.TabIndex = 557;
             this.textBox32.TabStop = false;
             this.textBox32.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox31
             // 
-            this.textBox31.Location = new System.Drawing.Point(230, 285);
-            this.textBox31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox31.Location = new System.Drawing.Point(153, 185);
             this.textBox31.Name = "textBox31";
             this.textBox31.ReadOnly = true;
-            this.textBox31.Size = new System.Drawing.Size(148, 28);
+            this.textBox31.Size = new System.Drawing.Size(100, 21);
             this.textBox31.TabIndex = 556;
             this.textBox31.TabStop = false;
             this.textBox31.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(230, 243);
-            this.textBox30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox30.Location = new System.Drawing.Point(153, 158);
             this.textBox30.Name = "textBox30";
             this.textBox30.ReadOnly = true;
-            this.textBox30.Size = new System.Drawing.Size(148, 28);
+            this.textBox30.Size = new System.Drawing.Size(100, 21);
             this.textBox30.TabIndex = 555;
             this.textBox30.TabStop = false;
             this.textBox30.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox29
             // 
-            this.textBox29.Location = new System.Drawing.Point(230, 205);
-            this.textBox29.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox29.Location = new System.Drawing.Point(153, 133);
             this.textBox29.Name = "textBox29";
             this.textBox29.ReadOnly = true;
-            this.textBox29.Size = new System.Drawing.Size(148, 28);
+            this.textBox29.Size = new System.Drawing.Size(100, 21);
             this.textBox29.TabIndex = 542;
             this.textBox29.TabStop = false;
             this.textBox29.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox28
             // 
-            this.textBox28.Location = new System.Drawing.Point(230, 165);
-            this.textBox28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox28.Location = new System.Drawing.Point(153, 107);
             this.textBox28.Name = "textBox28";
             this.textBox28.ReadOnly = true;
-            this.textBox28.Size = new System.Drawing.Size(148, 28);
+            this.textBox28.Size = new System.Drawing.Size(100, 21);
             this.textBox28.TabIndex = 504;
             this.textBox28.TabStop = false;
             this.textBox28.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox27
             // 
-            this.textBox27.Location = new System.Drawing.Point(230, 123);
-            this.textBox27.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox27.Location = new System.Drawing.Point(153, 80);
             this.textBox27.Name = "textBox27";
             this.textBox27.ReadOnly = true;
-            this.textBox27.Size = new System.Drawing.Size(148, 28);
+            this.textBox27.Size = new System.Drawing.Size(100, 21);
             this.textBox27.TabIndex = 503;
             this.textBox27.TabStop = false;
             this.textBox27.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox26
             // 
-            this.textBox26.Location = new System.Drawing.Point(230, 85);
-            this.textBox26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox26.Location = new System.Drawing.Point(153, 55);
             this.textBox26.Name = "textBox26";
             this.textBox26.ReadOnly = true;
-            this.textBox26.Size = new System.Drawing.Size(148, 28);
+            this.textBox26.Size = new System.Drawing.Size(100, 21);
             this.textBox26.TabIndex = 502;
             this.textBox26.TabStop = false;
             this.textBox26.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox25
             // 
-            this.textBox25.Location = new System.Drawing.Point(230, 45);
-            this.textBox25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox25.Location = new System.Drawing.Point(153, 29);
             this.textBox25.Name = "textBox25";
             this.textBox25.ReadOnly = true;
-            this.textBox25.Size = new System.Drawing.Size(148, 28);
+            this.textBox25.Size = new System.Drawing.Size(100, 21);
             this.textBox25.TabIndex = 501;
             this.textBox25.TabStop = false;
             this.textBox25.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox24
             // 
-            this.textBox24.Location = new System.Drawing.Point(230, 5);
-            this.textBox24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox24.Location = new System.Drawing.Point(153, 3);
             this.textBox24.Name = "textBox24";
             this.textBox24.ReadOnly = true;
-            this.textBox24.Size = new System.Drawing.Size(148, 28);
+            this.textBox24.Size = new System.Drawing.Size(100, 21);
             this.textBox24.TabIndex = 500;
             this.textBox24.TabStop = false;
             this.textBox24.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBox23
             // 
-            this.textBox23.Location = new System.Drawing.Point(70, 563);
-            this.textBox23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox23.Location = new System.Drawing.Point(47, 366);
             this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(148, 28);
+            this.textBox23.Size = new System.Drawing.Size(100, 21);
             this.textBox23.TabIndex = 15;
             this.textBox23.Text = "0";
             this.textBox23.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1692,10 +1622,9 @@ namespace BlenderBender
             // 
             // textBox22
             // 
-            this.textBox22.Location = new System.Drawing.Point(70, 523);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox22.Location = new System.Drawing.Point(47, 340);
             this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(148, 28);
+            this.textBox22.Size = new System.Drawing.Size(100, 21);
             this.textBox22.TabIndex = 14;
             this.textBox22.Text = "0";
             this.textBox22.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1703,10 +1632,9 @@ namespace BlenderBender
             // 
             // textBox21
             // 
-            this.textBox21.Location = new System.Drawing.Point(70, 483);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox21.Location = new System.Drawing.Point(47, 314);
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(148, 28);
+            this.textBox21.Size = new System.Drawing.Size(100, 21);
             this.textBox21.TabIndex = 13;
             this.textBox21.Text = "0";
             this.textBox21.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1714,10 +1642,9 @@ namespace BlenderBender
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(70, 443);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox20.Location = new System.Drawing.Point(47, 288);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(148, 28);
+            this.textBox20.Size = new System.Drawing.Size(100, 21);
             this.textBox20.TabIndex = 12;
             this.textBox20.Text = "0";
             this.textBox20.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1725,10 +1652,9 @@ namespace BlenderBender
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(70, 403);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox19.Location = new System.Drawing.Point(47, 262);
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(148, 28);
+            this.textBox19.Size = new System.Drawing.Size(100, 21);
             this.textBox19.TabIndex = 11;
             this.textBox19.Text = "0";
             this.textBox19.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1736,10 +1662,9 @@ namespace BlenderBender
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(70, 363);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox18.Location = new System.Drawing.Point(47, 236);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(148, 28);
+            this.textBox18.Size = new System.Drawing.Size(100, 21);
             this.textBox18.TabIndex = 10;
             this.textBox18.Text = "0";
             this.textBox18.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1747,10 +1672,9 @@ namespace BlenderBender
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(70, 323);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox17.Location = new System.Drawing.Point(47, 210);
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(148, 28);
+            this.textBox17.Size = new System.Drawing.Size(100, 21);
             this.textBox17.TabIndex = 9;
             this.textBox17.Text = "0";
             this.textBox17.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1758,10 +1682,9 @@ namespace BlenderBender
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(70, 283);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox16.Location = new System.Drawing.Point(47, 184);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(148, 28);
+            this.textBox16.Size = new System.Drawing.Size(100, 21);
             this.textBox16.TabIndex = 8;
             this.textBox16.Text = "0";
             this.textBox16.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1769,10 +1692,9 @@ namespace BlenderBender
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(70, 243);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox15.Location = new System.Drawing.Point(47, 158);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(148, 28);
+            this.textBox15.Size = new System.Drawing.Size(100, 21);
             this.textBox15.TabIndex = 7;
             this.textBox15.Text = "0";
             this.textBox15.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1780,10 +1702,9 @@ namespace BlenderBender
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(70, 203);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox14.Location = new System.Drawing.Point(47, 132);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(148, 28);
+            this.textBox14.Size = new System.Drawing.Size(100, 21);
             this.textBox14.TabIndex = 6;
             this.textBox14.Text = "0";
             this.textBox14.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1791,10 +1712,9 @@ namespace BlenderBender
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(70, 163);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox13.Location = new System.Drawing.Point(47, 106);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(148, 28);
+            this.textBox13.Size = new System.Drawing.Size(100, 21);
             this.textBox13.TabIndex = 5;
             this.textBox13.Text = "0";
             this.textBox13.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1802,10 +1722,9 @@ namespace BlenderBender
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(70, 123);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox12.Location = new System.Drawing.Point(47, 80);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(148, 28);
+            this.textBox12.Size = new System.Drawing.Size(100, 21);
             this.textBox12.TabIndex = 4;
             this.textBox12.Text = "0";
             this.textBox12.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1813,10 +1732,9 @@ namespace BlenderBender
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(70, 83);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox11.Location = new System.Drawing.Point(47, 54);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(148, 28);
+            this.textBox11.Size = new System.Drawing.Size(100, 21);
             this.textBox11.TabIndex = 3;
             this.textBox11.Text = "0";
             this.textBox11.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1824,10 +1742,9 @@ namespace BlenderBender
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(70, 43);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox10.Location = new System.Drawing.Point(47, 28);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(148, 28);
+            this.textBox10.Size = new System.Drawing.Size(100, 21);
             this.textBox10.TabIndex = 2;
             this.textBox10.Text = "0";
             this.textBox10.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1835,10 +1752,9 @@ namespace BlenderBender
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(70, 3);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox9.Location = new System.Drawing.Point(47, 2);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(148, 28);
+            this.textBox9.Size = new System.Drawing.Size(100, 21);
             this.textBox9.TabIndex = 1;
             this.textBox9.Text = "0";
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -1848,10 +1764,9 @@ namespace BlenderBender
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(9, 565);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(6, 367);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 25);
+            this.label23.Size = new System.Drawing.Size(36, 16);
             this.label23.TabIndex = 14;
             this.label23.Text = "0,01";
             // 
@@ -1859,10 +1774,9 @@ namespace BlenderBender
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(9, 525);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(6, 341);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 25);
+            this.label22.Size = new System.Drawing.Size(36, 16);
             this.label22.TabIndex = 13;
             this.label22.Text = "0,02";
             // 
@@ -1870,10 +1784,9 @@ namespace BlenderBender
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(9, 485);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(6, 315);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 25);
+            this.label21.Size = new System.Drawing.Size(36, 16);
             this.label21.TabIndex = 12;
             this.label21.Text = "0,05";
             // 
@@ -1881,10 +1794,9 @@ namespace BlenderBender
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(9, 445);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(6, 289);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 25);
+            this.label20.Size = new System.Drawing.Size(36, 16);
             this.label20.TabIndex = 11;
             this.label20.Text = "0,10";
             // 
@@ -1892,10 +1804,9 @@ namespace BlenderBender
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(9, 405);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(6, 263);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 25);
+            this.label19.Size = new System.Drawing.Size(36, 16);
             this.label19.TabIndex = 10;
             this.label19.Text = "0,20";
             // 
@@ -1903,10 +1814,9 @@ namespace BlenderBender
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 365);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(6, 237);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 25);
+            this.label18.Size = new System.Drawing.Size(36, 16);
             this.label18.TabIndex = 9;
             this.label18.Text = "0,50";
             // 
@@ -1914,10 +1824,9 @@ namespace BlenderBender
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(9, 325);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(6, 211);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 25);
+            this.label17.Size = new System.Drawing.Size(16, 16);
             this.label17.TabIndex = 8;
             this.label17.Text = "1";
             // 
@@ -1925,10 +1834,9 @@ namespace BlenderBender
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(9, 285);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(6, 185);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 25);
+            this.label16.Size = new System.Drawing.Size(16, 16);
             this.label16.TabIndex = 7;
             this.label16.Text = "2";
             // 
@@ -1936,10 +1844,9 @@ namespace BlenderBender
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(9, 245);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(6, 159);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 25);
+            this.label15.Size = new System.Drawing.Size(16, 16);
             this.label15.TabIndex = 6;
             this.label15.Text = "5";
             // 
@@ -1947,10 +1854,9 @@ namespace BlenderBender
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 205);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(6, 133);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 25);
+            this.label14.Size = new System.Drawing.Size(24, 16);
             this.label14.TabIndex = 5;
             this.label14.Text = "10";
             // 
@@ -1958,10 +1864,9 @@ namespace BlenderBender
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 165);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(6, 107);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 25);
+            this.label13.Size = new System.Drawing.Size(24, 16);
             this.label13.TabIndex = 4;
             this.label13.Text = "20";
             // 
@@ -1969,10 +1874,9 @@ namespace BlenderBender
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(9, 125);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(6, 81);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 25);
+            this.label12.Size = new System.Drawing.Size(24, 16);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -1980,10 +1884,9 @@ namespace BlenderBender
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 85);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(6, 55);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 25);
+            this.label11.Size = new System.Drawing.Size(32, 16);
             this.label11.TabIndex = 2;
             this.label11.Text = "100";
             // 
@@ -1991,10 +1894,9 @@ namespace BlenderBender
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 45);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(6, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 25);
+            this.label10.Size = new System.Drawing.Size(32, 16);
             this.label10.TabIndex = 1;
             this.label10.Text = "200";
             // 
@@ -2002,22 +1904,165 @@ namespace BlenderBender
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 5);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(6, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 25);
+            this.label9.Size = new System.Drawing.Size(32, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "500";
             // 
             // tabPage7
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 31);
+            this.tabPage7.Controls.Add(this.filemonitor);
+            this.tabPage7.Controls.Add(this.button5);
+            this.tabPage7.Controls.Add(this.label40);
+            this.tabPage7.Controls.Add(this.listView1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage7.Size = new System.Drawing.Size(780, 394);
             this.tabPage7.TabIndex = 10;
-            this.tabPage7.Text = "Unused";
+            this.tabPage7.Text = "File Monitor";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(434, 33);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(341, 23);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Browse";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(431, 15);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(101, 15);
+            this.label40.TabIndex = 1;
+            this.label40.Text = "Monitor Folder";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(5, 5);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(423, 384);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 210;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Location";
+            this.columnHeader2.Width = 5;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Action";
+            this.columnHeader3.Width = 90;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Old Name";
+            this.columnHeader4.Width = 120;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem3,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 82);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Rename";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Enabled = false;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem4.Text = "Auto - Rename";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem5.Text = "Ταυτότητα";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem6.Text = "Έξοδο Καταστήματος";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem7.Text = "Ticket Compliments";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Enabled = false;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem3.Text = "Move file...";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem2.Text = "Remove from list";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // tabPage6
             // 
@@ -2041,28 +2086,38 @@ namespace BlenderBender
             this.tabPage6.Controls.Add(this.label8);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.textBox6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 31);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1174, 614);
+            this.tabPage6.Size = new System.Drawing.Size(780, 394);
             this.tabPage6.TabIndex = 9;
             this.tabPage6.Text = "Settings";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(5, 133);
+            this.richTextBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(767, 144);
+            this.richTextBox3.TabIndex = 44;
+            this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
+            // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(5, 172);
+            this.label39.Location = new System.Drawing.Point(3, 112);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(206, 22);
+            this.label39.Size = new System.Drawing.Size(146, 15);
             this.label39.TabIndex = 43;
             this.label39.Text = "Ημέρες για Βιβλίο 2 +";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(255, 170);
+            this.numericUpDown1.Location = new System.Drawing.Point(170, 110);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(217, 28);
+            this.numericUpDown1.Size = new System.Drawing.Size(145, 21);
             this.numericUpDown1.TabIndex = 42;
             this.numericUpDown1.Value = new decimal(new int[] {
             5,
@@ -2072,20 +2127,18 @@ namespace BlenderBender
             // 
             // _storeAddress
             // 
-            this._storeAddress.Location = new System.Drawing.Point(255, 134);
-            this._storeAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this._storeAddress.Location = new System.Drawing.Point(170, 87);
             this._storeAddress.Name = "_storeAddress";
-            this._storeAddress.Size = new System.Drawing.Size(511, 28);
+            this._storeAddress.Size = new System.Drawing.Size(342, 21);
             this._storeAddress.TabIndex = 41;
             this._storeAddress.Visible = false;
             // 
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(4, 138);
-            this.label57.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label57.Location = new System.Drawing.Point(3, 90);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(240, 22);
+            this.label57.Size = new System.Drawing.Size(166, 15);
             this.label57.TabIndex = 0;
             this.label57.Text = "Διεύθυνση Καταστήματος";
             this.label57.Visible = false;
@@ -2093,10 +2146,9 @@ namespace BlenderBender
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(857, 16);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox4.Location = new System.Drawing.Point(571, 10);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(300, 26);
+            this.checkBox4.Size = new System.Drawing.Size(214, 19);
             this.checkBox4.TabIndex = 35;
             this.checkBox4.Text = "Μήνυμα Διαφοράς(Πιστωτικά)";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -2108,10 +2160,9 @@ namespace BlenderBender
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(857, 42);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox2.Location = new System.Drawing.Point(571, 27);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(216, 29);
+            this.checkBox2.Size = new System.Drawing.Size(156, 20);
             this.checkBox2.TabIndex = 34;
             this.checkBox2.Text = "Replace \".\" with \",\"";
             this.toolTip1.SetToolTip(this.checkBox2, "Windows 10 weirdness");
@@ -2123,50 +2174,44 @@ namespace BlenderBender
             this.groupBox11.Controls.Add(this.label36);
             this.groupBox11.Controls.Add(this.checkBox8);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox11.Location = new System.Drawing.Point(9, 432);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox11.Location = new System.Drawing.Point(6, 281);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox11.Size = new System.Drawing.Size(820, 95);
+            this.groupBox11.Size = new System.Drawing.Size(547, 62);
             this.groupBox11.TabIndex = 32;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "E-mail Settings";
             // 
             // textBox47
             // 
-            this.textBox47.Location = new System.Drawing.Point(99, 29);
-            this.textBox47.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox47.Location = new System.Drawing.Point(66, 19);
             this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(607, 26);
+            this.textBox47.Size = new System.Drawing.Size(406, 20);
             this.textBox47.TabIndex = 1;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(3, 34);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Location = new System.Drawing.Point(2, 22);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(78, 20);
+            this.label36.Size = new System.Drawing.Size(52, 13);
             this.label36.TabIndex = 0;
             this.label36.Text = "Address";
             // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(102, 65);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBox8.Location = new System.Drawing.Point(68, 42);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(450, 24);
+            this.checkBox8.Size = new System.Drawing.Size(307, 17);
             this.checkBox8.TabIndex = 33;
             this.checkBox8.Text = "Replace \\r\\n and [space] with %0D%0A and  %20";
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(9, 537);
-            this.button13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button13.Location = new System.Drawing.Point(6, 349);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(820, 55);
+            this.button13.Size = new System.Drawing.Size(547, 36);
             this.button13.TabIndex = 31;
             this.button13.Text = "Save";
             this.button13.UseVisualStyleBackColor = true;
@@ -2174,56 +2219,50 @@ namespace BlenderBender
             // 
             // textBox48
             // 
-            this.textBox48.Location = new System.Drawing.Point(255, 94);
-            this.textBox48.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox48.Location = new System.Drawing.Point(170, 61);
             this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(511, 28);
+            this.textBox48.Size = new System.Drawing.Size(342, 21);
             this.textBox48.TabIndex = 30;
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(4, 98);
-            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Location = new System.Drawing.Point(3, 64);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(232, 22);
+            this.label43.Size = new System.Drawing.Size(161, 15);
             this.label43.TabIndex = 29;
             this.label43.Text = "Ονομασία Καταστήματος";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(458, 54);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label38.Location = new System.Drawing.Point(305, 35);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(56, 22);
+            this.label38.Size = new System.Drawing.Size(40, 15);
             this.label38.TabIndex = 28;
             this.label38.Text = "Κάβα";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(4, 54);
-            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Location = new System.Drawing.Point(3, 35);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(45, 22);
+            this.label37.Size = new System.Drawing.Size(31, 15);
             this.label37.TabIndex = 27;
             this.label37.Text = "Tel.";
             // 
             // textBox46
             // 
-            this.textBox46.Location = new System.Drawing.Point(526, 49);
-            this.textBox46.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox46.Location = new System.Drawing.Point(351, 32);
             this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(240, 28);
+            this.textBox46.Size = new System.Drawing.Size(161, 21);
             this.textBox46.TabIndex = 26;
             // 
             // textBox43
             // 
-            this.textBox43.Location = new System.Drawing.Point(177, 49);
-            this.textBox43.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox43.Location = new System.Drawing.Point(118, 32);
             this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(270, 28);
+            this.textBox43.Size = new System.Drawing.Size(181, 21);
             this.textBox43.TabIndex = 25;
             this.textBox43.Text = "2115000500";
             // 
@@ -2231,48 +2270,43 @@ namespace BlenderBender
             // 
             this.label42.AutoSize = true;
             this.label42.BackColor = System.Drawing.Color.LightCoral;
-            this.label42.Location = new System.Drawing.Point(783, 58);
-            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Location = new System.Drawing.Point(522, 38);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(0, 22);
+            this.label42.Size = new System.Drawing.Size(0, 15);
             this.label42.TabIndex = 24;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.BackColor = System.Drawing.Color.LightCoral;
-            this.label41.Location = new System.Drawing.Point(909, 255);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Location = new System.Drawing.Point(606, 166);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(0, 22);
+            this.label41.Size = new System.Drawing.Size(0, 15);
             this.label41.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.LightCoral;
-            this.label8.Location = new System.Drawing.Point(783, 17);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(522, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 22);
+            this.label8.Size = new System.Drawing.Size(0, 15);
             this.label8.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 17);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(3, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 22);
+            this.label5.Size = new System.Drawing.Size(109, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "1o sms E-SHOP";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(177, 11);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox6.Location = new System.Drawing.Point(118, 7);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(589, 28);
+            this.textBox6.Size = new System.Drawing.Size(394, 21);
             this.textBox6.TabIndex = 5;
             this.textBox6.Text = "Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ. ΜΠΟΡΕΙΤΕ ΝΑ ΠΕΡΑΣΕΤΕ ΝΑ ΤΗΝ ΠΑΡΑΛΑΒΕΤΕ";
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
@@ -2291,10 +2325,9 @@ namespace BlenderBender
             // button38
             // 
             this.button38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button38.Location = new System.Drawing.Point(18, 655);
-            this.button38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button38.Location = new System.Drawing.Point(12, 426);
             this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(94, 66);
+            this.button38.Size = new System.Drawing.Size(63, 43);
             this.button38.TabIndex = 4;
             this.button38.Text = "Ώ&ρα Τώρα";
             this.toolTip1.SetToolTip(this.button38, "Ημερομηνία & Ώρα");
@@ -2305,10 +2338,9 @@ namespace BlenderBender
             // 
             this.button39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button39.Image = global::BlenderBender.Properties.Resources.icons8_spiral_bound_booklet_48;
-            this.button39.Location = new System.Drawing.Point(206, 655);
-            this.button39.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button39.Location = new System.Drawing.Point(137, 426);
             this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(75, 66);
+            this.button39.Size = new System.Drawing.Size(50, 43);
             this.button39.TabIndex = 5;
             this.toolTip1.SetToolTip(this.button39, "Run Notepad");
             this.button39.UseVisualStyleBackColor = true;
@@ -2318,10 +2350,9 @@ namespace BlenderBender
             // 
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.Image = global::BlenderBender.Properties.Resources.icons8_calculator_32;
-            this.button19.Location = new System.Drawing.Point(122, 655);
-            this.button19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button19.Location = new System.Drawing.Point(81, 426);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 66);
+            this.button19.Size = new System.Drawing.Size(50, 43);
             this.button19.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button19, "Run calculator");
             this.button19.UseVisualStyleBackColor = true;
@@ -2354,10 +2385,9 @@ namespace BlenderBender
             // 
             this.button40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button40.Image = global::BlenderBender.Properties.Resources.icons8_shortcut_48;
-            this.button40.Location = new System.Drawing.Point(1042, 655);
-            this.button40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button40.Location = new System.Drawing.Point(695, 426);
             this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(75, 66);
+            this.button40.Size = new System.Drawing.Size(50, 43);
             this.button40.TabIndex = 6;
             this.button40.UseVisualStyleBackColor = true;
             this.button40.Click += new System.EventHandler(this.button40_Click);
@@ -2366,10 +2396,9 @@ namespace BlenderBender
             // 
             this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button31.Image = global::BlenderBender.Properties.Resources.icons8_ghost_32;
-            this.button31.Location = new System.Drawing.Point(1119, 655);
-            this.button31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button31.Location = new System.Drawing.Point(746, 426);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(75, 66);
+            this.button31.Size = new System.Drawing.Size(50, 43);
             this.button31.TabIndex = 3;
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
@@ -2377,50 +2406,64 @@ namespace BlenderBender
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(288, 655);
+            this.button4.Location = new System.Drawing.Point(192, 426);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 66);
+            this.button4.Size = new System.Drawing.Size(50, 43);
             this.button4.TabIndex = 47;
             this.button4.Text = "Clip Tool";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // radioButton1
+            // fileSystemWatcher1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 113);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(240, 26);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Αναμονή διευκρινίσεων";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.IncludeSubdirectories = true;
+            this.fileSystemWatcher1.Path = "C:\\Users\\d3sync\\Documents\\Documents";
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            this.fileSystemWatcher1.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Created);
+            this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
+            this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
-            // richTextBox3
+            // filemonitor
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(8, 204);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(1149, 220);
-            this.richTextBox3.TabIndex = 44;
-            this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
+            this.filemonitor.AutoSize = true;
+            this.filemonitor.Checked = true;
+            this.filemonitor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.filemonitor.Location = new System.Drawing.Point(434, 62);
+            this.filemonitor.Name = "filemonitor";
+            this.filemonitor.Size = new System.Drawing.Size(103, 19);
+            this.filemonitor.TabIndex = 3;
+            this.filemonitor.Text = "File Monitor";
+            this.filemonitor.UseVisualStyleBackColor = true;
+            this.filemonitor.CheckedChanged += new System.EventHandler(this.filemonitor_CheckedChanged);
             // 
-            // signChk
+            // toolStripSeparator4
             // 
-            this.signChk.AutoSize = true;
-            this.signChk.Location = new System.Drawing.Point(357, 192);
-            this.signChk.Name = "signChk";
-            this.signChk.Size = new System.Drawing.Size(128, 26);
-            this.signChk.TabIndex = 14;
-            this.signChk.Text = "Υπογραφή";
-            this.signChk.UseVisualStyleBackColor = true;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(187, 6);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Enabled = false;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem8.Text = "Manual - Rename";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem9.Text = "Μετονομασία";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1278, 764);
+            this.ClientSize = new System.Drawing.Size(852, 497);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button40);
             this.Controls.Add(this.button39);
@@ -2432,12 +2475,11 @@ namespace BlenderBender
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1300, 820);
+            this.MaximumSize = new System.Drawing.Size(872, 547);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "e-Shop Assistant - Legacy (WinXP edition)";
+            this.Text = "e-Shop Assistant - Legacy";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.statusStrip1.ResumeLayout(false);
@@ -2476,11 +2518,15 @@ namespace BlenderBender
             ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2673,6 +2719,30 @@ namespace BlenderBender
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.CheckBox signChk;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.CheckBox filemonitor;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

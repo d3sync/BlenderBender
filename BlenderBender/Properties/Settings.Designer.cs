@@ -96,5 +96,29 @@ namespace BlenderBender.Properties {
                 this["Signature"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string monitorfolder {
+            get {
+                return ((string)(this["monitorfolder"]));
+            }
+            set {
+                this["monitorfolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool filemonitor {
+            get {
+                return ((bool)(this["filemonitor"]));
+            }
+            set {
+                this["filemonitor"] = value;
+            }
+        }
     }
 }

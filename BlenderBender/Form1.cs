@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
@@ -30,6 +31,9 @@ namespace BlenderBender
         {
             InitializeComponent();
             about = new About();
+            fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked = Properties.Settings.Default.filemonitor;
+            label40.Text = Properties.Settings.Default.monitorfolder;
+            fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -64,8 +68,8 @@ namespace BlenderBender
             currentUser.Text = Properties.Settings.Default.User;
             numericUpDown1.Value = Properties.Settings.Default.BookDays;
             richTextBox3.Text = Properties.Settings.Default.Signature;
-            tabPage7.Visible = false;
-            tabControl1.TabPages.Remove(tabPage7);
+            tabPage7.Visible = true;
+            //tabControl1.TabPages.Remove(tabPage7);
 
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
@@ -90,7 +94,6 @@ namespace BlenderBender
                 _user = Properties.Settings.Default.User;
             }
             return _user;
-
         }
 
         public string DateTimeNUser()
@@ -822,16 +825,6 @@ namespace BlenderBender
             secondEmail();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            about.Show();
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click_1(object sender, EventArgs e)
         {
             tada = new Cliptool();
@@ -844,6 +837,108 @@ namespace BlenderBender
                 emailmsg =
                     $"\r\nΗ παραγγελία σας βρίσκεται σε αναμονή διευκρινίσεων. Παρακαλούμε όπως επικοινωνήσετε μαζί μας στo τηλέφωνo {textBox43.Text}.\r\n";
             button28.Enabled = true;
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
+            //listView1.Items.Add(new ListViewItem(new string[] { "skata", "test", "patates" }));
+            //listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
+        }
+
+        private void fileSystemWatcher1_Created(object sender, System.IO.FileSystemEventArgs e)
+        {
+            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
+        }
+
+        private void fileSystemWatcher1_Deleted(object sender, System.IO.FileSystemEventArgs e)
+        {
+            //listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
+        }
+
+        private void fileSystemWatcher1_Renamed(object sender, System.IO.RenamedEventArgs e)
+        {
+            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString(), e.OldName }));
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            //Rename Tautotita
+            if (listView1.SelectedItems[0].SubItems[1] != null)
+            {
+                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\IDENTITY - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+                listView1.SelectedItems[0].Remove();
+            }
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems[0].SubItems[1] != null)
+            {
+                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
+                listView1.SelectedItems[0].Remove();
+            }
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems[0].SubItems[1] != null)
+            {
+                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\TICKET COMPLIMENTS - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+                listView1.SelectedItems[0].Remove();
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems[0].SubItems[1] != null)
+            {
+                listView1.SelectedItems[0].Remove();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Properties.Settings.Default.monitorfolder = folderBrowserDialog1.SelectedPath;
+                Properties.Settings.Default.Save();
+                label40.Text = Properties.Settings.Default.monitorfolder;
+                fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
+            }
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+            about.Show();
+        }
+
+        private void filemonitor_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.filemonitor = fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
+            var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+            saveFileDialog1.FileName = $"Αρχείο - {DateTime.Now.ToString("ddMMyyyyhhmmss")}";
+            saveFileDialog1.DefaultExt = extension;
+            var result = saveFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text, saveFileDialog1.FileName);
+                listView1.SelectedItems[0].Remove();
+            }
+            else
+            {
+                MessageBox.Show("Not implemented yet");
+            }
         }
     }
 }
