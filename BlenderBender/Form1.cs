@@ -1,7 +1,5 @@
-﻿using ImageMagick;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Net;
@@ -27,7 +25,7 @@ namespace BlenderBender
         private About about;
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
-
+        Cliptool tada;
         public Form1()
         {
             InitializeComponent();
@@ -64,8 +62,10 @@ namespace BlenderBender
                 key.Close();
             }
             currentUser.Text = Properties.Settings.Default.User;
-            //tabPage7.Visible = false;
-            //tabControl1.TabPages.Remove(tabPage7);
+            numericUpDown1.Value = Properties.Settings.Default.BookDays;
+            richTextBox3.Text = Properties.Settings.Default.Signature;
+            tabPage7.Visible = false;
+            tabControl1.TabPages.Remove(tabPage7);
 
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
@@ -77,7 +77,7 @@ namespace BlenderBender
                 toolStripStatusLabel2.Text = GetLocalIPAddress();
             }
 
-            _txtFrom.Text = Properties.Settings.Default._storeArea;
+            //_txtFrom.Text = Properties.Settings.Default._storeArea;
             _storeAddress.Text = Properties.Settings.Default._storeAddress;
         }
         public int countdown { get; private set; }
@@ -232,19 +232,7 @@ namespace BlenderBender
             //toolStripProgressBar1.Value = i++;
             //if (i >= 100) { i = 0; }
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
-            if (_monitor.Checked == true)
-            {
-                var iData = Clipboard.GetDataObject();
-                if ((Clipboard.GetDataObject() != null) && ((string)iData.GetData(DataFormats.Text) != lastclip))
-                {
-                    // Is Data Text?
-                    if (iData.GetDataPresent(DataFormats.Text))
-                    {
-                        richTextBox6.Text += (string)iData.GetData(DataFormats.Text) + "\r\n";
-                        lastclip = (string)iData.GetData(DataFormats.Text);
-                    }
-                }
-            }
+
             if (_emailaid.Checked == true)
             {
                 var iData = Clipboard.GetDataObject();
@@ -336,12 +324,12 @@ namespace BlenderBender
             if (textBox15.Text != "") textBox30.Text = "" + 5 * int.Parse(textBox15.Text);
             if (textBox16.Text != "") textBox31.Text = "" + 2 * int.Parse(textBox16.Text);
             if (textBox17.Text != "") textBox32.Text = "" + 1 * int.Parse(textBox17.Text);
-            if (textBox18.Text != "") textBox33.Text = "" + 0.50 * double.Parse(textBox18.Text, nStyles,cCulture);
-            if (textBox19.Text != "") textBox34.Text = "" + 0.20 * double.Parse(textBox19.Text, nStyles,cCulture);
-            if (textBox20.Text != "") textBox35.Text = "" + 0.10 * double.Parse(textBox20.Text, nStyles,cCulture);
-            if (textBox21.Text != "") textBox36.Text = "" + 0.05 * double.Parse(textBox21.Text, nStyles,cCulture);
-            if (textBox22.Text != "") textBox37.Text = "" + 0.02 * double.Parse(textBox22.Text, nStyles,cCulture);
-            if (textBox23.Text != "") textBox38.Text = "" + 0.01 * double.Parse(textBox23.Text, nStyles,cCulture);
+            if (textBox18.Text != "") textBox33.Text = "" + 0.50 * double.Parse(textBox18.Text, nStyles, cCulture);
+            if (textBox19.Text != "") textBox34.Text = "" + 0.20 * double.Parse(textBox19.Text, nStyles, cCulture);
+            if (textBox20.Text != "") textBox35.Text = "" + 0.10 * double.Parse(textBox20.Text, nStyles, cCulture);
+            if (textBox21.Text != "") textBox36.Text = "" + 0.05 * double.Parse(textBox21.Text, nStyles, cCulture);
+            if (textBox22.Text != "") textBox37.Text = "" + 0.02 * double.Parse(textBox22.Text, nStyles, cCulture);
+            if (textBox23.Text != "") textBox38.Text = "" + 0.01 * double.Parse(textBox23.Text, nStyles, cCulture);
             sum = double.Parse(textBox24.Text, nStyles, cCulture)
                   + double.Parse(textBox25.Text, nStyles, cCulture)
                   + double.Parse(textBox26.Text, nStyles, cCulture)
@@ -425,13 +413,12 @@ namespace BlenderBender
             Clipboard.SetText($"**2η Ενημέρωση μέσω τηλεφώνου {DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
             notifier("Τηλεφωνική Υπενθύμιση");
         }
-
         private void button14_Click(object sender, EventArgs e) // Button 2o EPITOPOU
         {
-            int extra = 0;
+            int extra = 0;            
             if (checkBox11.Checked)
             {
-                extra += 5;
+                extra += (int)numericUpDown1.Value;
             }
             else
             {
@@ -439,7 +426,7 @@ namespace BlenderBender
                 if (checkBox10.Checked) extra += 2;
             }
             label32.Text = dtto.DateTo("excludeSunday", extra);
-            Clipboard.SetText($"ΣΑΣ ΕΝΗΜΕΡΩΝΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΘΑ ΠΑΡΑΜΕΙΝΕΙ ΣΤΟ ΚΑΤΑΣΤΗΜΑ ΜΑΣ ΕΩΣ {label32.Text.ToUpper()}. ΤΗΛ.: {textBox43.Text}. ΕΥΧΑΡΙΣΤΟΥΜΕ");
+            Clipboard.SetText($"{textBox48.Text} - ΣΑΣ ΕΝΗΜΕΡΩΝΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΘΑ ΠΑΡΑΜΕΙΝΕΙ ΣΤΟ ΚΑΤΑΣΤΗΜΑ ΜΑΣ ΕΩΣ {label32.Text.ToUpper()}. ΕΥΧΑΡΙΣΤΟΥΜΕ");
             notifier("2ο ΕΠΙΤΟΠΟΥ");
         }
 
@@ -454,7 +441,9 @@ namespace BlenderBender
             key.SetValue("REPLACE_ON_MAIL", checkBox8.Checked.ToString());
             key.Close();
             Properties.Settings.Default._storeAddress = _storeAddress.Text;
-            Properties.Settings.Default._storeArea = _txtFrom.Text;
+            Properties.Settings.Default.BookDays = numericUpDown1.Value;
+            Properties.Settings.Default.Signature = richTextBox3.Text;
+            //Properties.Settings.Default._storeArea = _txtFrom.Text;
             Properties.Settings.Default.Save();
             //_txtFrom.Text = _storeAddress.Text;
         }
@@ -514,7 +503,7 @@ namespace BlenderBender
             }
             label32.Text = dtto.DateTo("excludeSunday", extra);
             Clipboard.SetText(
-                $"ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}. ΤΗΛ.: {textBox43.Text}.");
+                $"{textBox48.Text} - ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}. ΤΗΛ.: {textBox43.Text}.");
             notifier("2ο ESHOP");
         }
 
@@ -537,21 +526,6 @@ namespace BlenderBender
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = richTextBox1.Text = richTextBox2.Text = "";
         }
 
-        private void button26_Click(object sender, EventArgs e)
-        {
-            var iData = Clipboard.GetDataObject();
-
-            // Is Data Text?
-
-            if (iData.GetDataPresent(DataFormats.Text))
-            {
-                richTextBox6.Text += (string)iData.GetData(DataFormats.Text) + "\r\n";
-            }
-            else
-            {
-                richTextBox6.Text += "Data not found.\r\n";
-            }
-        }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
@@ -605,7 +579,9 @@ namespace BlenderBender
         {
             if (textBox47.Text != "")
             {
+                if (signChk.Checked) emailmsg += Properties.Settings.Default.Signature;
                 var message = comboBox3.Text + " " + textBox55.Text + " " + tod2 + " " + emailmsg;
+                System.Console.WriteLine(message);
                 if (checkBox8.Checked)
                 {
                     message = message.Replace("\r\n", "%0D%0A");
@@ -647,7 +623,7 @@ namespace BlenderBender
         {
             if (radioButton9.Checked)
                 emailmsg =
-                    $"\r\nΠαρακαλούμε όπως επικοινωνήσετε μαζί μας στα τηλέφωνα {textBox43.Text}\r\n ή στο 211 5000 500.\r\n";
+                    $"\r\nΠαρακαλούμε όπως επικοινωνήσετε μαζί μας στo τηλέφωνo {textBox43.Text}.\r\n";
             button28.Enabled = true;
         }
 
@@ -675,6 +651,8 @@ namespace BlenderBender
                 Clipboard.SetText($"**Αποστάλθηκε E-mail υπενθύμισης {DateTimeNUser()}");
             if (radioButton9.Checked)
                 Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
+            if (radioButton1.Checked)
+                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας (διευκρινίσεις). {DateTimeNUser()}");
             if (radioButton12.Checked)
                 Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
         }
@@ -720,10 +698,6 @@ namespace BlenderBender
                 checkBox9.Enabled = checkBox10.Enabled = true;
             }
         }
-        private void button17_Click_1(object sender, EventArgs e)
-        {
-            richTextBox6.Text = "";
-        }
 
         private void button32_Click(object sender, EventArgs e)
         {
@@ -731,52 +705,10 @@ namespace BlenderBender
             notifier("Παραλαβή Επιτόπου");
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            string dt = null;
-            if (radioButton1.Checked)
-            {
-                dt = "Ο πελάτης ενημερώθηκε";
-            }
-            if (radioButton2.Checked)
-            {
-                dt = "Αδυναμία ενημέρωσης";
-            }
-            Clipboard.SetText($"~~{dt} {DateTimeNUser()} {listBox1.SelectedItem.ToString()} ~~");
-        }
-
         private void button33_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(DateTime.Now.ToString("dd/MM HH:mm"));
         }
-
-        private void button34_Click(object sender, EventArgs e)
-        {
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                string file = openFileDialog1.FileName;
-                filetoconvert.Text = file;
-            }
-        }
-
-        private void button35_Click(object sender, EventArgs e)
-        {
-            DialogResult result = folderBrowserDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                string file = folderBrowserDialog1.SelectedPath;
-                foldertooutput.Text = file;
-            }
-        }
-
-        private void button36_Click(object sender, EventArgs e)
-        {
-            string path = String.Format("{0}\\poppler\\poppler-0.68\\bin\\pdftocairo.exe", Environment.CurrentDirectory);
-            string tnow = DateTime.Now.ToString("ddMMyy.HH.mm");
-            Process.Start(@path, "-jpeg \"" + filetoconvert.Text + "\" \"" + foldertooutput.Text + "/outputimage" + tnow + "\"");
-        }
-
         private void _emailaid_CheckedChanged(object sender, EventArgs e)
         {
             Clipboard.Clear();
@@ -806,6 +738,10 @@ namespace BlenderBender
             else if (e.Control && e.KeyCode == Keys.D4)
             {
                 tabControl1.SelectTab(tabPage3);
+            }
+            else if (e.Control && e.KeyCode == Keys.D5)
+            {
+                tabControl1.SelectTab(tabPage7);
             }
             else if (e.Control && e.KeyCode == Keys.S)
             {
@@ -864,21 +800,6 @@ namespace BlenderBender
                             "Alt + Z : Ζήτησε κατάστημα\n", "Shortcuts");
         }
 
-        private void _ppview_Click(object sender, EventArgs e)
-        {
-            var data = new Dictionary<string, string>()
-            {
-                {"addressFrom", _storeAddress.Text },
-                {"addressTo", "ΑΝΕΜΩΝΗΣ 6. ΤΚ 13671, ΑΧΑΡΝΑΙ" },
-                {"storeArea", Properties.Settings.Default._storeArea },
-                {"date", _datePicker.Value.ToString("dd/MM/yyyy") },
-                {"storeTo","Μενίδι" },
-                {"phone",textBox43.Text },
-                {"AA", _AAp.Text },
-            };
-            Form printableForm = new PrintableForm(data);
-            printableForm.Show();
-        }
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -888,17 +809,6 @@ namespace BlenderBender
                 tb.Text = "0";
                 MessageBox.Show("Συμπληρώνουμε μόνο ακέραιους αριθμούς!");
             }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var website = "http://tools.idle.gr/PrintableApp/publish.htm";
-            Process.Start(website);
-        }
-
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
-        {
-            groupBox3.Enabled = !checkBox7.Checked;
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -912,46 +822,28 @@ namespace BlenderBender
             secondEmail();
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            string tnow = DateTime.Now.ToString("ddMMyy.HH.mm");
-            //filetoconvert.Text
-            //foldertooutput.Text + "/outputimage" + tnow + "\"");
-            string output = $"{foldertooutput.Text}/outputimage{tnow}.jpg";
-            MagickAnyCPU.CacheDirectory = Environment.CurrentDirectory;
-            var settings = new MagickReadSettings();
-            // Settings the density to 300 dpi will create an image with a better quality
-            settings.Density = new Density(qualityBox.SelectedItem.ToString());
-            using (var images = new MagickImageCollection())
-            {
-                // Add all the pages of the pdf file to the collection
-                images.Read(filetoconvert.Text, settings);
-
-                // Create new image that appends all the pages horizontally
-                //using (var horizontal = images.AppendHorizontally())
-                //{
-                //    // Save result as a png
-                //    horizontal.Write("Snakeware.horizontal.png");
-                //}
-
-                // Create new image that appends all the pages vertically
-                using (var vertical = images.AppendVertically())
-                {
-                    // Save result as a png
-                    vertical.Write(output);
-                }
-            }
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://www.ghostscript.com/download/gsdnld.html");
-            MessageBox.Show($"Visit & Download: https://www.ghostscript.com/download/gsdnld.html");
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             about.Show();
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            tada = new Cliptool();
+            tada.Show();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+                emailmsg =
+                    $"\r\nΗ παραγγελία σας βρίσκεται σε αναμονή διευκρινίσεων. Παρακαλούμε όπως επικοινωνήσετε μαζί μας στo τηλέφωνo {textBox43.Text}.\r\n";
+            button28.Enabled = true;
         }
     }
 }

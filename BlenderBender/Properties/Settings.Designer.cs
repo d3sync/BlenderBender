@@ -70,5 +70,31 @@ namespace BlenderBender.Properties {
                 this["User"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public decimal BookDays {
+            get {
+                return ((decimal)(this["BookDays"]));
+            }
+            set {
+                this["BookDays"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Στη διάθεσή σας για οποιαδήποτε διευκρίνιση.%0D%0AΣας ευχαριστώ.%0D%0AΜε εκτίμηση" +
+            ",%0D%0A%0D%0AΑλέξανδρος Πατσούρος%0D%0AΚατάστημα Ελληνικού%0D%0AE-SHOP.GR%0D%0AΤ" +
+            ":2115000500 | Ε:elliniko@e-shop.gr | Ι:www.eshop.gr%0D%0A")]
+        public string Signature {
+            get {
+                return ((string)(this["Signature"]));
+            }
+            set {
+                this["Signature"] = value;
+            }
+        }
     }
 }

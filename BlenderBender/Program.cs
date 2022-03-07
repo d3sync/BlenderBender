@@ -11,7 +11,7 @@ namespace BlenderBender
         /// </summary>
         [STAThread]
 
-        
+
         private static void Main()
         {
 

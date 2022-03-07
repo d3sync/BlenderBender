@@ -14,5 +14,11 @@
     <Setting Name="User" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="BookDays" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="Signature" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Στη διάθεσή σας για οποιαδήποτε διευκρίνιση.%0D%0AΣας ευχαριστώ.%0D%0AΜε εκτίμηση,%0D%0A%0D%0AΑλέξανδρος Πατσούρος%0D%0AΚατάστημα Ελληνικού%0D%0AE-SHOP.GR%0D%0AΤ:2115000500 | Ε:elliniko@e-shop.gr | Ι:www.eshop.gr%0D%0A</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
