@@ -124,11 +124,11 @@
     <value>Εαν κάποιος έχει ιδέες για λειτουργίες που θα εξυπηρετούσαν την καθημερινή λειτουργία του καταστήματος μπορείτε να μου τις στείλει μέσω e-mail στο alex@idle.gr 
 (Για να γίνει σωστό Copy/Paste θα πρέπει στο βοήθημα να είναι η γλώσσα γυρισμένη στα ελληνικά όπως και στο Admin.)</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>220, 17</value>
-  </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1039, 17</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>220, 17</value>
   </metadata>
   <data name="richTextBox3.Text" xml:space="preserve">
     <value>Στη διάθεσή σας για οποιαδήποτε διευκρίνιση.%0D%0AΣας ευχαριστώ.%0D%0AΜε εκτίμηση,%0D%0A%0D%0AΑλέξανδρος Πατσούρος%0D%0AΚατάστημα Ελληνικού%0D%0AE-SHOP.GR%0D%0AΤ:2115000500 | Ε:elliniko@e-shop.gr | Ι:www.eshop.gr%0D%0A</value>

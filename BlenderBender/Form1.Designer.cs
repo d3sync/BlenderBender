@@ -2429,8 +2429,6 @@ namespace BlenderBender
             // filemonitor
             // 
             this.filemonitor.AutoSize = true;
-            this.filemonitor.Checked = true;
-            this.filemonitor.CheckState = System.Windows.Forms.CheckState.Checked;
             this.filemonitor.Location = new System.Drawing.Point(434, 62);
             this.filemonitor.Name = "filemonitor";
             this.filemonitor.Size = new System.Drawing.Size(103, 19);
