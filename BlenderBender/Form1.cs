@@ -940,5 +940,62 @@ namespace BlenderBender
                 MessageBox.Show("Not implemented yet");
             }
         }
+
+        private void CopyPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(listView1.SelectedItems[0].SubItems[1].Text);
+        }
+
+        private void toolStripSeparator4_Click(object sender, EventArgs e)
+        {
+            var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+            File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΑΠΟΔΕΙΞΗ ΠΡΟΕΙΣΠΡΑΞΗΣ - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+            listView1.SelectedItems[0].Remove();
+        }
+
+        private void MoveFile(string dstName)
+        {
+            var directory = fileSystemWatcher1.Path + $"\\{dstName} {DateTime.Now.ToString("MMMM yyyy")}";
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            var filename = Path.GetFileName(listView1.SelectedItems[0].SubItems[1].Text);
+            File.Move(listView1.SelectedItems[0].SubItems[1].Text, Path.Combine(directory, filename));
+            listView1.SelectedItems[0].Remove();
+        }
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            //ejoda
+            MoveFile("ΕΞΟΔΑ");
+        }
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            //Ticket Compliments
+            MoveFile("ΔΙΑΤΑΚΤΙΚΕΣ");
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            //PERSONELL
+            MoveFile("ΠΡΟΣΩΠΙΚΟ");
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            //ΤΑΥΤΟΤΗΤΕΣ
+            MoveFile("ΤΑΥΤΟΤΗΤΕΣ");
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            //ΑΠΟΔ ΠΡΟΕΙΣΠΡΑΞΗΣ
+            MoveFile("ΑΠΟΔ ΠΡΟΕΙΣΠΡΑΞΗΣ");
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            Process.Start(fileSystemWatcher1.Path);
+        }
     }
 }
