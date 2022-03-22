@@ -999,5 +999,20 @@ namespace BlenderBender
         {
             Process.Start(fileSystemWatcher1.Path);
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+            $"**Επιθυμεί παράδοση {dateTimePicker1.Value.ToString("dddd dd/MM")}({CurrentUser()})**");
+            if (hold != 1)
+                if (dateTimePicker1.Value != DateTime.Now)
+                    countdown = 100;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText($"**ΔΑ {DateTimeNUser()}");
+            notifier("Δεν απαντούσε");
+        }
     }
 }
