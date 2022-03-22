@@ -189,6 +189,7 @@ namespace BlenderBender
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -198,7 +199,6 @@ namespace BlenderBender
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -248,7 +248,7 @@ namespace BlenderBender
             this.button4 = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -2011,7 +2011,14 @@ namespace BlenderBender
             this.toolStripSeparator2,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 126);
+            // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(239, 22);
+            this.toolStripMenuItem16.Text = "Άνοιγμα θέσης αρχείου";
+            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
             // CopyPathToolStripMenuItem
             // 
@@ -2034,8 +2041,8 @@ namespace BlenderBender
             this.toolStripMenuItem6,
             this.toolStripMenuItem7,
             this.toolStripMenuItem15,
-            this.toolStripSeparator4,
             this.toolStripMenuItem8,
+            this.toolStripSeparator1,
             this.toolStripMenuItem9});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
@@ -2079,12 +2086,6 @@ namespace BlenderBender
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
             this.toolStripMenuItem15.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem15.Text = "Απόδειξη Προείσπραξης";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(202, 6);
-            this.toolStripSeparator4.Click += new System.EventHandler(this.toolStripSeparator4_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -2521,12 +2522,10 @@ namespace BlenderBender
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
             this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
-            // toolStripMenuItem16
+            // toolStripSeparator1
             // 
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(239, 22);
-            this.toolStripMenuItem16.Text = "Άνοιγμα θέσης αρχείου";
-            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
             // 
             // Form1
             // 
@@ -2808,7 +2807,6 @@ namespace BlenderBender
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.CheckBox filemonitor;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
@@ -2821,6 +2819,7 @@ namespace BlenderBender
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

@@ -506,7 +506,7 @@ namespace BlenderBender
             }
             label32.Text = dtto.DateTo("excludeSunday", extra);
             Clipboard.SetText(
-                $"{textBox48.Text} - ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}. ΤΗΛ.: {textBox43.Text}.");
+                $"{textBox48.Text} - ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}.");
             notifier("2ο ESHOP");
         }
 
@@ -924,20 +924,22 @@ namespace BlenderBender
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
-            var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-            saveFileDialog1.FileName = $"Αρχείο - {DateTime.Now.ToString("ddMMyyyyhhmmss")}";
-            saveFileDialog1.DefaultExt = extension;
-            var result = saveFileDialog1.ShowDialog();
+            if ((listView1.SelectedItems[0].SubItems[1].Text != "") || (listView1.SelectedItems[0].SubItems[1].Text != null))
+            {
 
-            if (result == DialogResult.OK)
-            {
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, saveFileDialog1.FileName);
-                listView1.SelectedItems[0].Remove();
-            }
-            else
-            {
-                MessageBox.Show("Not implemented yet");
+                saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
+                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                saveFileDialog1.FileName = $"Αρχείο - {DateTime.Now.ToString("ddMMyyyyhhmmss")}";
+                saveFileDialog1.DefaultExt = extension;
+                saveFileDialog1.AddExtension = true;
+                saveFileDialog1.Filter = $"{extension}|{extension}|*.*|(*.*)";
+                var result = saveFileDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    File.Move(listView1.SelectedItems[0].SubItems[1].Text, saveFileDialog1.FileName);
+                    listView1.SelectedItems[0].Remove();
+                }
             }
         }
 
