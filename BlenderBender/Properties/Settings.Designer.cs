@@ -120,5 +120,17 @@ namespace BlenderBender.Properties {
                 this["filemonitor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string admVersion {
+            get {
+                return ((string)(this["admVersion"]));
+            }
+            set {
+                this["admVersion"] = value;
+            }
+        }
     }
 }

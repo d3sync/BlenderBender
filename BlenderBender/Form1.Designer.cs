@@ -37,6 +37,12 @@ namespace BlenderBender
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.rtbInfo = new System.Windows.Forms.RichTextBox();
+            this.BtnUpFold = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.admVersionLBL = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -70,6 +76,14 @@ namespace BlenderBender
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button21 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button24 = new System.Windows.Forms.Button();
@@ -87,7 +101,6 @@ namespace BlenderBender
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.button21 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -200,6 +213,7 @@ namespace BlenderBender
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
@@ -248,11 +262,8 @@ namespace BlenderBender
             this.button4 = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label44 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button22 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -264,6 +275,7 @@ namespace BlenderBender
             this.flowLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -285,7 +297,7 @@ namespace BlenderBender
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -323,6 +335,7 @@ namespace BlenderBender
             // tabPage5
             // 
             this.tabPage5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage5.Controls.Add(this.panel1);
             this.tabPage5.Controls.Add(this.label31);
             this.tabPage5.Controls.Add(this.label51);
             this.tabPage5.Controls.Add(this.label33);
@@ -337,6 +350,61 @@ namespace BlenderBender
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // rtbInfo
+            // 
+            this.rtbInfo.Location = new System.Drawing.Point(311, 59);
+            this.rtbInfo.Name = "rtbInfo";
+            this.rtbInfo.Size = new System.Drawing.Size(357, 115);
+            this.rtbInfo.TabIndex = 22;
+            this.rtbInfo.Text = "";
+            // 
+            // BtnUpFold
+            // 
+            this.BtnUpFold.Location = new System.Drawing.Point(36, 23);
+            this.BtnUpFold.Name = "BtnUpFold";
+            this.BtnUpFold.Size = new System.Drawing.Size(217, 47);
+            this.BtnUpFold.TabIndex = 21;
+            this.BtnUpFold.Text = "Select Update Folder";
+            this.BtnUpFold.UseVisualStyleBackColor = true;
+            this.BtnUpFold.Click += new System.EventHandler(this.BtnUpFold_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(36, 181);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(217, 23);
+            this.comboBox2.TabIndex = 20;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // admVersionLBL
+            // 
+            this.admVersionLBL.AutoSize = true;
+            this.admVersionLBL.Location = new System.Drawing.Point(173, 87);
+            this.admVersionLBL.Name = "admVersionLBL";
+            this.admVersionLBL.Size = new System.Drawing.Size(15, 15);
+            this.admVersionLBL.TabIndex = 19;
+            this.admVersionLBL.Text = "0";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(33, 87);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(134, 15);
+            this.label46.TabIndex = 18;
+            this.label46.Text = "Last Admin Version:";
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(36, 105);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(217, 70);
+            this.button17.TabIndex = 17;
+            this.button17.Text = "Check for Admin Update";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // label31
             // 
@@ -709,11 +777,108 @@ namespace BlenderBender
             this.tabPage4.Text = "Automated Messages";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button12);
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.label45);
+            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.button21);
+            this.groupBox3.Controls.Add(this.button32);
+            this.groupBox3.Location = new System.Drawing.Point(334, 163);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(442, 212);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Οδηγός";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(228, 20);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(210, 23);
+            this.button12.TabIndex = 21;
+            this.button12.Text = "Παράδοση Επόμενο";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "",
+            "08:00 - 10:00",
+            "09:00 - 11:00",
+            "10:00 - 12:00",
+            "11:00 - 13:00",
+            "12:00 - 14:00",
+            "13:00 - 15:00",
+            "14:00 - 16:00",
+            "15:00 - 17:00",
+            "16:00 - 18:00",
+            "17:00 - 19:00",
+            "18:00 - 20:00",
+            "19:00 - 21:00"});
+            this.comboBox1.Location = new System.Drawing.Point(182, 178);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(258, 23);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(17, 176);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(82, 15);
+            this.label45.TabIndex = 19;
+            this.label45.Text = "Δρομολόγιο";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(6, 53);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(434, 23);
+            this.button9.TabIndex = 18;
+            this.button9.Text = "ΔΑ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(17, 147);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(143, 15);
+            this.label44.TabIndex = 17;
+            this.label44.Text = "Επιθυμεί παράδοση...";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(182, 142);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(258, 21);
+            this.dateTimePicker1.TabIndex = 16;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button21
+            // 
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(6, 86);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(434, 50);
+            this.button21.TabIndex = 3;
+            this.button21.Text = "2ο SMS &Οδηγού";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
             // button32
             // 
             this.button32.Location = new System.Drawing.Point(6, 20);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(434, 23);
+            this.button32.Size = new System.Drawing.Size(210, 23);
             this.button32.TabIndex = 15;
             this.button32.Text = "&Ζήτησε Κατάστημα";
             this.button32.UseVisualStyleBackColor = true;
@@ -721,10 +886,11 @@ namespace BlenderBender
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button22);
             this.groupBox10.Controls.Add(this.button24);
             this.groupBox10.Location = new System.Drawing.Point(6, 67);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(320, 56);
+            this.groupBox10.Size = new System.Drawing.Size(320, 84);
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "E-SHOP/PLUS4U";
@@ -848,7 +1014,7 @@ namespace BlenderBender
             this.groupBox4.Controls.Add(this.checkBox9);
             this.groupBox4.Controls.Add(this.label32);
             this.groupBox4.Controls.Add(this.button14);
-            this.groupBox4.Location = new System.Drawing.Point(6, 124);
+            this.groupBox4.Location = new System.Drawing.Point(6, 162);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(320, 159);
             this.groupBox4.TabIndex = 5;
@@ -886,17 +1052,6 @@ namespace BlenderBender
             this.checkBox9.Text = "+1 Μέρα";
             this.toolTip1.SetToolTip(this.checkBox9, "Προσθέτη μία μέρα");
             this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.Location = new System.Drawing.Point(6, 86);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(434, 50);
-            this.button21.TabIndex = 3;
-            this.button21.Text = "2ο SMS &Οδηγού";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // label32
             // 
@@ -2015,7 +2170,8 @@ namespace BlenderBender
             this.toolStripSeparator2,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 126);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 148);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripMenuItem16
             // 
@@ -2097,6 +2253,11 @@ namespace BlenderBender
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem8.Text = "Manual - Rename";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
             // 
             // toolStripMenuItem9
             // 
@@ -2526,51 +2687,30 @@ namespace BlenderBender
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
             this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
-            // toolStripSeparator1
+            // panel1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
+            this.panel1.Controls.Add(this.BtnUpFold);
+            this.panel1.Controls.Add(this.rtbInfo);
+            this.panel1.Controls.Add(this.button17);
+            this.panel1.Controls.Add(this.label46);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.admVersionLBL);
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(9, 93);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(763, 253);
+            this.panel1.TabIndex = 23;
             // 
-            // groupBox3
+            // button22
             // 
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
-            this.groupBox3.Controls.Add(this.button21);
-            this.groupBox3.Controls.Add(this.button32);
-            this.groupBox3.Location = new System.Drawing.Point(334, 163);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(442, 212);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Οδηγός";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(182, 142);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(258, 21);
-            this.dateTimePicker1.TabIndex = 16;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(17, 147);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(143, 15);
-            this.label44.TabIndex = 17;
-            this.label44.Text = "Επιθυμεί παράδοση...";
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(6, 53);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(434, 23);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "ΔΑ";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.Location = new System.Drawing.Point(6, 50);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(308, 26);
+            this.button22.TabIndex = 4;
+            this.button22.Text = "Αναμονή Διευκρ.";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // Form1
             // 
@@ -2612,6 +2752,8 @@ namespace BlenderBender
             this.flowLayoutPanel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -2641,8 +2783,8 @@ namespace BlenderBender
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2871,6 +3013,17 @@ namespace BlenderBender
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label admVersionLBL;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button BtnUpFold;
+        private System.Windows.Forms.RichTextBox rtbInfo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button22;
     }
 }
 

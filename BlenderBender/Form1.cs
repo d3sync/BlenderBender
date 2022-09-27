@@ -1,11 +1,14 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -27,6 +30,7 @@ namespace BlenderBender
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
         Cliptool tada;
+        public string foldGG;
         public Form1()
         {
             InitializeComponent();
@@ -74,6 +78,7 @@ namespace BlenderBender
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
             var version = string.Format("{0}", fvi.ProductVersion);
+            admVersionLBL.Text = Properties.Settings.Default.admVersion;
             label31.Text = version;
             //end of e-mail settings
             if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
@@ -101,6 +106,12 @@ namespace BlenderBender
             string _userc = CurrentUser();
             if (_userc == "") { _userc = "Άγνωστος Χειριστής"; }
             return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({_userc})";
+        }
+        public string DateNUser()
+        {
+            string _userc = CurrentUser();
+            if (_userc == "") { _userc = "Άγνωστος Χειριστής"; }
+            return $"{DateTime.Now.ToString("dd/MM")}/({_userc})";
         }
 
         public static string GetLocalIPAddress()
@@ -1011,8 +1022,95 @@ namespace BlenderBender
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**ΔΑ {DateTimeNUser()}");
+            Clipboard.SetText($"**ΔΑ {DateNUser()}");
             notifier("Δεν απαντούσε");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem.ToString()}~~");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: Ζήτησε στο επόμενο~~");
+        }
+        private void checkAdmin()
+        {
+            if (IsAdministrator() == false)
+            {
+                // Restart program and run as admin
+                var exeName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.Verb = "runas";
+                System.Diagnostics.Process.Start(startInfo);
+                Application.Exit();
+                return;
+            }
+        }
+
+    private static bool IsAdministrator()
+    {
+        WindowsIdentity identity = WindowsIdentity.GetCurrent();
+        WindowsPrincipal principal = new WindowsPrincipal(identity);
+        return principal.IsInRole(WindowsBuiltInRole.Administrator);
+    }
+    private void button17_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Console.WriteLine(foldGG);
+                var fileList = new List<FileInfo>();
+                string[] allfiles = Directory.GetFiles(foldGG, "*.*", SearchOption.AllDirectories);
+                foreach (var file in allfiles)
+                {
+                    FileInfo info = new FileInfo(file);
+                    fileList.Add(info);
+                    Console.WriteLine(info.FullName);
+                }
+                var orderedList = fileList.OrderBy(x => x.CreationTime);
+                comboBox2.DisplayMember = "Name";
+                foreach (var x in orderedList)
+                {
+                    comboBox2.Items.Add(x);
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                checkAdmin();
+                //button17.PerformClick();
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rtbInfo.Clear();
+            if (comboBox2.SelectedItem != null)
+            {
+                var x = (FileInfo)comboBox2.SelectedItem;
+                MessageBox.Show(x.FullName);
+                rtbInfo.Text = $"{x.FullName}\r\n{x.Name}\r\n{x.Length}\r\n{x.CreationTime}\r\n{x.LastWriteTime}";
+            }
+        }
+        private void BtnUpFold_Click(object sender, EventArgs e)
+        {
+            var result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                foldGG = BtnUpFold.Text = folderBrowserDialog1.SelectedPath;
+
+            }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
+            notifier("Αναμονή διευκρινίσεων");
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
