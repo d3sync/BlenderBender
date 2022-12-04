@@ -60,7 +60,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -71,6 +70,14 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.messagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.πιστωτικάToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.υπολογισμόςΧρημάτωνToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
@@ -78,10 +85,11 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.notesStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.emailStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.pistoStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.notesStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnFmonitor = new System.Windows.Forms.ToolStripButton();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,12 +100,8 @@
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.messagesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.πιστωτικάToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.υπολογισμόςΧρημάτωνToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemFM = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -254,6 +258,8 @@
             this.πιστωτικάToolStripMenuItem,
             this.υπολογισμόςΧρημάτωνToolStripMenuItem,
             this.toolStripSeparator12,
+            this.toolStripMenuItemFM,
+            this.toolStripSeparator2,
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
@@ -262,7 +268,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -333,12 +339,12 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -348,12 +354,14 @@
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(64, 64);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripSeparator1,
             this.emailStripButton3,
-            this.toolStripSeparator2,
+            this.toolStripSeparator13,
             this.pistoStripButton4,
             this.toolStripButton5,
-            this.notesStripButton2});
+            this.toolStripSeparator14,
+            this.notesStripButton2,
+            this.toolStripSeparator1,
+            this.toolStripBtnFmonitor});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1196, 71);
@@ -364,11 +372,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 71);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 71);
             // 
             // statusStrip
             // 
@@ -452,6 +455,50 @@
             this.timer1.Interval = 300;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // messagesToolStripMenuItem1
+            // 
+            this.messagesToolStripMenuItem1.Name = "messagesToolStripMenuItem1";
+            this.messagesToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.messagesToolStripMenuItem1.Text = "Messages";
+            // 
+            // emailsToolStripMenuItem
+            // 
+            this.emailsToolStripMenuItem.Name = "emailsToolStripMenuItem";
+            this.emailsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.emailsToolStripMenuItem.Text = "E-mails";
+            // 
+            // πιστωτικάToolStripMenuItem
+            // 
+            this.πιστωτικάToolStripMenuItem.Name = "πιστωτικάToolStripMenuItem";
+            this.πιστωτικάToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.πιστωτικάToolStripMenuItem.Text = "Πιστωτικά";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(203, 6);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(203, 6);
+            // 
+            // υπολογισμόςΧρημάτωνToolStripMenuItem
+            // 
+            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Name = "υπολογισμόςΧρημάτωνToolStripMenuItem";
+            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Text = "Υπολογισμός Χρημάτων";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 71);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 71);
+            // 
             // toolStripButton6
             // 
             this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -518,6 +565,39 @@
             this.toolStripButton1.ToolTipText = "Μηνύματα";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // emailStripButton3
+            // 
+            this.emailStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.emailStripButton3.Image = global::BlenderBender.Properties.Resources.icons8_send_email_50;
+            this.emailStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.emailStripButton3.Name = "emailStripButton3";
+            this.emailStripButton3.Size = new System.Drawing.Size(68, 68);
+            this.emailStripButton3.Text = "toolStripButton3";
+            this.emailStripButton3.ToolTipText = "Αποστολή E-mail";
+            this.emailStripButton3.Click += new System.EventHandler(this.emailStripButton3_Click);
+            // 
+            // pistoStripButton4
+            // 
+            this.pistoStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pistoStripButton4.Image = global::BlenderBender.Properties.Resources.transaction_icon_194111;
+            this.pistoStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pistoStripButton4.Name = "pistoStripButton4";
+            this.pistoStripButton4.Size = new System.Drawing.Size(68, 68);
+            this.pistoStripButton4.Text = "toolStripButton4";
+            this.pistoStripButton4.ToolTipText = "Πιστωτικά";
+            this.pistoStripButton4.Click += new System.EventHandler(this.pistoStripButton4_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::BlenderBender.Properties.Resources.ooo_calc_10003;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(68, 68);
+            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.ToolTipText = "Υπολογισμός Χρημάτων";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
             // notesStripButton2
             // 
             this.notesStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -529,38 +609,15 @@
             this.notesStripButton2.ToolTipText = "Κείμενα για Σημειώσεις";
             this.notesStripButton2.Click += new System.EventHandler(this.notesStripButton2_Click);
             // 
-            // emailStripButton3
+            // toolStripBtnFmonitor
             // 
-            this.emailStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.emailStripButton3.Image = global::BlenderBender.Properties.Resources.email;
-            this.emailStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.emailStripButton3.Name = "emailStripButton3";
-            this.emailStripButton3.Size = new System.Drawing.Size(68, 68);
-            this.emailStripButton3.Text = "toolStripButton3";
-            this.emailStripButton3.ToolTipText = "Αποστολή E-mail";
-            this.emailStripButton3.Click += new System.EventHandler(this.emailStripButton3_Click);
-            // 
-            // pistoStripButton4
-            // 
-            this.pistoStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pistoStripButton4.Image = global::BlenderBender.Properties.Resources.saving_money;
-            this.pistoStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pistoStripButton4.Name = "pistoStripButton4";
-            this.pistoStripButton4.Size = new System.Drawing.Size(68, 68);
-            this.pistoStripButton4.Text = "toolStripButton4";
-            this.pistoStripButton4.ToolTipText = "Πιστωτικά";
-            this.pistoStripButton4.Click += new System.EventHandler(this.pistoStripButton4_Click);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::BlenderBender.Properties.Resources.money_sack;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(68, 68);
-            this.toolStripButton5.Text = "toolStripButton5";
-            this.toolStripButton5.ToolTipText = "Υπολογισμός Χρημάτων";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            this.toolStripBtnFmonitor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnFmonitor.Image = global::BlenderBender.Properties.Resources.icons8_search_folder_50;
+            this.toolStripBtnFmonitor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnFmonitor.Name = "toolStripBtnFmonitor";
+            this.toolStripBtnFmonitor.Size = new System.Drawing.Size(68, 68);
+            this.toolStripBtnFmonitor.ToolTipText = "File Monitor";
+            this.toolStripBtnFmonitor.Click += new System.EventHandler(this.toolStripBtnFmonitor_Click);
             // 
             // newToolStripMenuItem
             // 
@@ -656,39 +713,16 @@
             this.pasteToolStripMenuItem.Text = "&Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
-            // messagesToolStripMenuItem1
+            // toolStripMenuItemFM
             // 
-            this.messagesToolStripMenuItem1.Name = "messagesToolStripMenuItem1";
-            this.messagesToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
-            this.messagesToolStripMenuItem1.Text = "Messages";
+            this.toolStripMenuItemFM.Name = "toolStripMenuItemFM";
+            this.toolStripMenuItemFM.Size = new System.Drawing.Size(206, 22);
+            this.toolStripMenuItemFM.Text = "File Monitor";
             // 
-            // emailsToolStripMenuItem
+            // toolStripSeparator2
             // 
-            this.emailsToolStripMenuItem.Name = "emailsToolStripMenuItem";
-            this.emailsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.emailsToolStripMenuItem.Text = "E-mails";
-            // 
-            // πιστωτικάToolStripMenuItem
-            // 
-            this.πιστωτικάToolStripMenuItem.Name = "πιστωτικάToolStripMenuItem";
-            this.πιστωτικάToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.πιστωτικάToolStripMenuItem.Text = "Πιστωτικά";
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(203, 6);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(203, 6);
-            // 
-            // υπολογισμόςΧρημάτωνToolStripMenuItem
-            // 
-            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Name = "υπολογισμόςΧρημάτωνToolStripMenuItem";
-            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.υπολογισμόςΧρημάτωνToolStripMenuItem.Text = "Υπολογισμός Χρημάτων";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
             // 
             // MainWindow
             // 
@@ -769,7 +803,6 @@
         private System.Windows.Forms.ToolStripButton notesStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton emailStripButton3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton pistoStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
@@ -791,6 +824,11 @@
         private System.Windows.Forms.ToolStripMenuItem πιστωτικάToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem υπολογισμόςΧρημάτωνToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripButton toolStripBtnFmonitor;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFM;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

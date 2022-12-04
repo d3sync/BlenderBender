@@ -1108,9 +1108,5 @@ namespace BlenderBender
             notifier("Αναμονή διευκρινίσεων");
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
     }
 }

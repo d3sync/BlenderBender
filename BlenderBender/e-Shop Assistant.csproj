@@ -156,6 +156,12 @@
     <Compile Include="Forms\CalcForm.Designer.cs">
       <DependentUpon>CalcForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FileMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FileMonitor.Designer.cs">
+      <DependentUpon>FileMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MessagesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CalcForm.resx">
       <DependentUpon>CalcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FileMonitor.resx">
+      <DependentUpon>FileMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MessagesForm.resx">
       <DependentUpon>MessagesForm.cs</DependentUpon>
@@ -253,6 +262,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Medicalwp-Medical-Doctor-blue.ico" />
+    <None Include="Resources\ooo_calc_10003.png" />
+    <None Include="Resources\transaction_icon_194111.png" />
+    <None Include="Resources\icons8-send-email-50.png" />
+    <None Include="Resources\icons8-search-folder-50.png" />
     <None Include="Resources\icons8-save-50.png" />
     <None Include="Resources\icons8-remove-50.png" />
     <None Include="Resources\icons8-add-50.png" />

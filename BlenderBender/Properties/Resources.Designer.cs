@@ -153,6 +153,26 @@ namespace BlenderBender.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_folder_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-folder-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_send_email_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-send-email-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_shortcut_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-shortcut-48", resourceCulture);
@@ -213,9 +233,29 @@ namespace BlenderBender.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ooo_calc_10003 {
+            get {
+                object obj = ResourceManager.GetObject("ooo_calc_10003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap saving_money {
             get {
                 object obj = ResourceManager.GetObject("saving-money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction_icon_194111 {
+            get {
+                object obj = ResourceManager.GetObject("transaction_icon_194111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

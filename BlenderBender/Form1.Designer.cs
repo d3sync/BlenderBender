@@ -37,12 +37,13 @@ namespace BlenderBender
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.rtbInfo = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BtnUpFold = new System.Windows.Forms.Button();
+            this.rtbInfo = new System.Windows.Forms.RichTextBox();
+            this.button17 = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.admVersionLBL = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -86,6 +87,7 @@ namespace BlenderBender
             this.button21 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button22 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.currentUser = new System.Windows.Forms.TextBox();
@@ -262,10 +264,9 @@ namespace BlenderBender
             this.button4 = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button22 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -297,7 +298,6 @@ namespace BlenderBender
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -351,13 +351,19 @@ namespace BlenderBender
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // rtbInfo
+            // panel1
             // 
-            this.rtbInfo.Location = new System.Drawing.Point(311, 59);
-            this.rtbInfo.Name = "rtbInfo";
-            this.rtbInfo.Size = new System.Drawing.Size(357, 115);
-            this.rtbInfo.TabIndex = 22;
-            this.rtbInfo.Text = "";
+            this.panel1.Controls.Add(this.BtnUpFold);
+            this.panel1.Controls.Add(this.rtbInfo);
+            this.panel1.Controls.Add(this.button17);
+            this.panel1.Controls.Add(this.label46);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.admVersionLBL);
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(9, 93);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(763, 253);
+            this.panel1.TabIndex = 23;
             // 
             // BtnUpFold
             // 
@@ -368,6 +374,33 @@ namespace BlenderBender
             this.BtnUpFold.Text = "Select Update Folder";
             this.BtnUpFold.UseVisualStyleBackColor = true;
             this.BtnUpFold.Click += new System.EventHandler(this.BtnUpFold_Click);
+            // 
+            // rtbInfo
+            // 
+            this.rtbInfo.Location = new System.Drawing.Point(311, 59);
+            this.rtbInfo.Name = "rtbInfo";
+            this.rtbInfo.Size = new System.Drawing.Size(357, 115);
+            this.rtbInfo.TabIndex = 22;
+            this.rtbInfo.Text = "";
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(36, 105);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(217, 70);
+            this.button17.TabIndex = 17;
+            this.button17.Text = "Check for Admin Update";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(33, 87);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(134, 15);
+            this.label46.TabIndex = 18;
+            this.label46.Text = "Last Admin Version:";
             // 
             // comboBox2
             // 
@@ -386,25 +419,6 @@ namespace BlenderBender
             this.admVersionLBL.Size = new System.Drawing.Size(15, 15);
             this.admVersionLBL.TabIndex = 19;
             this.admVersionLBL.Text = "0";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(33, 87);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(134, 15);
-            this.label46.TabIndex = 18;
-            this.label46.Text = "Last Admin Version:";
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(36, 105);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(217, 70);
-            this.button17.TabIndex = 17;
-            this.button17.Text = "Check for Admin Update";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // label31
             // 
@@ -448,7 +462,7 @@ namespace BlenderBender
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(695, 374);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 16);
+            this.label30.Size = new System.Drawing.Size(78, 16);
             this.label30.TabIndex = 8;
             this.label30.Text = "..::d3sync*";
             this.label30.Click += new System.EventHandler(this.label30_Click);
@@ -894,6 +908,17 @@ namespace BlenderBender
             this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "E-SHOP/PLUS4U";
+            // 
+            // button22
+            // 
+            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.Location = new System.Drawing.Point(6, 50);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(308, 26);
+            this.button22.TabIndex = 4;
+            this.button22.Text = "Αναμονή Διευκρ.";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button24
             // 
@@ -1933,7 +1958,7 @@ namespace BlenderBender
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(6, 367);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(36, 16);
+            this.label23.Size = new System.Drawing.Size(35, 16);
             this.label23.TabIndex = 14;
             this.label23.Text = "0,01";
             // 
@@ -1943,7 +1968,7 @@ namespace BlenderBender
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(6, 341);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 16);
+            this.label22.Size = new System.Drawing.Size(35, 16);
             this.label22.TabIndex = 13;
             this.label22.Text = "0,02";
             // 
@@ -1953,7 +1978,7 @@ namespace BlenderBender
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(6, 315);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 16);
+            this.label21.Size = new System.Drawing.Size(35, 16);
             this.label21.TabIndex = 12;
             this.label21.Text = "0,05";
             // 
@@ -1963,7 +1988,7 @@ namespace BlenderBender
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(6, 289);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(36, 16);
+            this.label20.Size = new System.Drawing.Size(35, 16);
             this.label20.TabIndex = 11;
             this.label20.Text = "0,10";
             // 
@@ -1973,7 +1998,7 @@ namespace BlenderBender
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(6, 263);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(36, 16);
+            this.label19.Size = new System.Drawing.Size(35, 16);
             this.label19.TabIndex = 10;
             this.label19.Text = "0,20";
             // 
@@ -1983,7 +2008,7 @@ namespace BlenderBender
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(6, 237);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 16);
+            this.label18.Size = new System.Drawing.Size(35, 16);
             this.label18.TabIndex = 9;
             this.label18.Text = "0,50";
             // 
@@ -1993,7 +2018,7 @@ namespace BlenderBender
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(6, 211);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 16);
+            this.label17.Size = new System.Drawing.Size(15, 16);
             this.label17.TabIndex = 8;
             this.label17.Text = "1";
             // 
@@ -2003,7 +2028,7 @@ namespace BlenderBender
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(6, 185);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(16, 16);
+            this.label16.Size = new System.Drawing.Size(15, 16);
             this.label16.TabIndex = 7;
             this.label16.Text = "2";
             // 
@@ -2013,7 +2038,7 @@ namespace BlenderBender
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(6, 159);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 16);
+            this.label15.Size = new System.Drawing.Size(15, 16);
             this.label15.TabIndex = 6;
             this.label15.Text = "5";
             // 
@@ -2023,7 +2048,7 @@ namespace BlenderBender
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(6, 133);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(24, 16);
+            this.label14.Size = new System.Drawing.Size(23, 16);
             this.label14.TabIndex = 5;
             this.label14.Text = "10";
             // 
@@ -2033,7 +2058,7 @@ namespace BlenderBender
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(6, 107);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 16);
+            this.label13.Size = new System.Drawing.Size(23, 16);
             this.label13.TabIndex = 4;
             this.label13.Text = "20";
             // 
@@ -2043,7 +2068,7 @@ namespace BlenderBender
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(6, 81);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 16);
+            this.label12.Size = new System.Drawing.Size(23, 16);
             this.label12.TabIndex = 3;
             this.label12.Text = "50";
             // 
@@ -2053,7 +2078,7 @@ namespace BlenderBender
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 55);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 16);
+            this.label11.Size = new System.Drawing.Size(31, 16);
             this.label11.TabIndex = 2;
             this.label11.Text = "100";
             // 
@@ -2063,7 +2088,7 @@ namespace BlenderBender
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 16);
+            this.label10.Size = new System.Drawing.Size(31, 16);
             this.label10.TabIndex = 1;
             this.label10.Text = "200";
             // 
@@ -2073,7 +2098,7 @@ namespace BlenderBender
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 16);
+            this.label9.Size = new System.Drawing.Size(31, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "500";
             // 
@@ -2170,8 +2195,7 @@ namespace BlenderBender
             this.toolStripSeparator2,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 148);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 126);
             // 
             // toolStripMenuItem16
             // 
@@ -2423,7 +2447,7 @@ namespace BlenderBender
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(571, 27);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(156, 20);
+            this.checkBox2.Size = new System.Drawing.Size(155, 20);
             this.checkBox2.TabIndex = 34;
             this.checkBox2.Text = "Replace \".\" with \",\"";
             this.toolTip1.SetToolTip(this.checkBox2, "Windows 10 weirdness");
@@ -2687,31 +2711,6 @@ namespace BlenderBender
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
             this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BtnUpFold);
-            this.panel1.Controls.Add(this.rtbInfo);
-            this.panel1.Controls.Add(this.button17);
-            this.panel1.Controls.Add(this.label46);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.admVersionLBL);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(9, 93);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(763, 253);
-            this.panel1.TabIndex = 23;
-            // 
-            // button22
-            // 
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.Location = new System.Drawing.Point(6, 50);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(308, 26);
-            this.button22.TabIndex = 4;
-            this.button22.Text = "Αναμονή Διευκρ.";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2740,6 +2739,8 @@ namespace BlenderBender
             this.statusStrip1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
@@ -2783,8 +2784,6 @@ namespace BlenderBender
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

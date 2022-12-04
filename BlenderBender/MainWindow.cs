@@ -19,9 +19,12 @@ namespace BlenderBender
         private int childFormNumber = 0;
         public int hold;
         public MessagesForm mes;
+        public FileMonitor fmonitor;
         public MainWindow()
         {
             InitializeComponent();
+            fmonitor = new FileMonitor(this);
+            fmonitor.MdiParent = this;
         }
         public void notifier(string message, ToolTipIcon d = ToolTipIcon.Info, int option = 0)
         {
@@ -209,6 +212,11 @@ namespace BlenderBender
             PistoForm pf = new PistoForm(this);
             pf.MdiParent = this;
             pf.Show();
+        }
+
+        private void toolStripBtnFmonitor_Click(object sender, EventArgs e)
+        {
+            fmonitor.Show();
         }
     }
 }
