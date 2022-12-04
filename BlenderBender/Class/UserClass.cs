@@ -6,6 +6,9 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Principal;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace BlenderBender.Class
 {
@@ -92,6 +95,25 @@ namespace BlenderBender.Class
                 }
             }
             throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
+        public static bool IsAdministrator()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+        public void checkAdmin()
+        {
+            if (IsAdministrator() == false)
+            {
+                // Restart program and run as admin
+                var exeName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.Verb = "runas";
+                System.Diagnostics.Process.Start(startInfo);
+                Application.Exit();
+                return;
+            }
         }
     }
 }

@@ -101,6 +101,12 @@ namespace BlenderBender
             textBox81.Text = "" + lol1;
         }
 
-        private void clrBtn_Click(object sender, EventArgs e) => ClearTextBoxes();  
+        private void clrBtn_Click(object sender, EventArgs e) => ClearTextBoxes();
+        private void textBoxRdots_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Properties.Settings.Default.windowsWeirdness)
+                if (e.KeyChar == '.')
+                    e.KeyChar = ',';
+        }
     }
 }

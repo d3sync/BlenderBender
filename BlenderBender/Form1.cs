@@ -70,7 +70,8 @@ namespace BlenderBender
                 key.Close();
             }
             currentUser.Text = Properties.Settings.Default.User;
-            numericUpDown1.Value = Properties.Settings.Default.BookDays;
+            numericUpDown1.Value = 10;
+            checkBox2.Checked = Properties.Settings.Default.windowsWeirdness;
             richTextBox3.Text = Properties.Settings.Default.Signature;
             tabPage7.Visible = true;
             //tabControl1.TabPages.Remove(tabPage7);
@@ -455,7 +456,6 @@ namespace BlenderBender
             key.SetValue("REPLACE_ON_MAIL", checkBox8.Checked.ToString());
             key.Close();
             Properties.Settings.Default._storeAddress = _storeAddress.Text;
-            Properties.Settings.Default.BookDays = numericUpDown1.Value;
             Properties.Settings.Default.Signature = richTextBox3.Text;
             //Properties.Settings.Default._storeArea = _txtFrom.Text;
             Properties.Settings.Default.Save();

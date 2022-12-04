@@ -8,18 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BlenderBender.Class;
+using BlenderBender.Forms;
+using System.Text.RegularExpressions;
+using BlenderBender.Properties;
 
 namespace BlenderBender
 {
     public partial class MainWindow : Form
     {
         private int childFormNumber = 0;
-
+        public int hold;
+        public MessagesForm mes;
         public MainWindow()
         {
             InitializeComponent();
         }
-        public void notifier(string message, ToolTipIcon d, int option)
+        public void notifier(string message, ToolTipIcon d = ToolTipIcon.Info, int option = 0)
         {
             var data = new Dictionary<int, string>()
             {
@@ -32,6 +36,8 @@ namespace BlenderBender
             notifyIcon1.BalloonTipText = String.Format("{0} {1}",data[option],message);
             notifyIcon1.ShowBalloonTip(2000);
         }
+        public int countdown { get; set; }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
             Form childForm = new Form();
@@ -128,6 +134,81 @@ namespace BlenderBender
             calculateForm calc = new calculateForm(this);
             calc.MdiParent = this;
             calc.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.MdiParent = this;
+            about.Show();
+        }
+
+        private void notesStripButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            mes = new MessagesForm(this);
+            mes.MdiParent = this;
+            mes.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //toolStripProgressBar1.Value = i++;
+            //if (i >= 100) { i = 0; }
+            toolStripStatusLabel.Text = DateTime.Now.ToString();
+
+            if (countdown == 100)
+            {
+                toolStripProgressBar1.Visible = true;
+                toolStripProgressBar1.Value = 100;
+            }
+            if (countdown > 0)
+            {
+                countdown--;
+                toolStripProgressBar1.Value = countdown;
+                if (countdown <= 0)
+                {
+                    hold = 1;
+                    toolStripProgressBar1.Value = 0;
+                    toolStripProgressBar1.Visible = false;
+                    if (this.MdiChildren.Length > 0)
+                    {
+                        var children = this.MdiChildren;
+                        foreach (var child in children)
+                        {
+                            if (child.GetType() == typeof(MessagesForm))
+                                mes.dateTimePicker3.Value = DateTime.Now;
+                        }
+                    }
+                    Clipboard.Clear();
+                }
+            }
+            hold = 0;
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm sf = new SettingsForm();
+            sf.MdiParent = this;
+            sf.Show();
+        }
+
+        private void emailStripButton3_Click(object sender, EventArgs e)
+        {
+            EmailForm ef = new EmailForm(this);
+            ef.MdiParent = this;
+            ef.Show();
+        }
+
+        private void pistoStripButton4_Click(object sender, EventArgs e)
+        {
+            PistoForm pf = new PistoForm(this);
+            pf.MdiParent = this;
+            pf.Show();
         }
     }
 }

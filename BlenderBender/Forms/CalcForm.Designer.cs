@@ -105,6 +105,8 @@
             this.textBox45.Size = new System.Drawing.Size(100, 20);
             this.textBox45.TabIndex = 637;
             this.textBox45.Text = "0";
+            this.textBox45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox45.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // label34
             // 
@@ -122,6 +124,8 @@
             this.textBox44.Size = new System.Drawing.Size(100, 20);
             this.textBox44.TabIndex = 636;
             this.textBox44.Text = "0";
+            this.textBox44.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox44.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // clrBtn
             // 
@@ -161,6 +165,8 @@
             this.textBox41.Size = new System.Drawing.Size(100, 20);
             this.textBox41.TabIndex = 635;
             this.textBox41.Text = "0";
+            this.textBox41.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox41.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // label28
             // 
@@ -189,6 +195,8 @@
             this.textBox40.Size = new System.Drawing.Size(100, 20);
             this.textBox40.TabIndex = 634;
             this.textBox40.Text = "0";
+            this.textBox40.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.textBox40.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRdots_KeyPress);
             // 
             // textBox80
             // 
@@ -725,6 +733,7 @@
             this.Name = "calculateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Υπολογισμός Χρημάτων";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

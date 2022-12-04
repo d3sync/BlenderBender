@@ -92,7 +92,7 @@ namespace BlenderBender.Forms
                                 $"**Το πιστωτικό αξίας {textBox2.Text} ευρώ εκπληρώθηκε στην {textBox3.Text}.**";
                             richTextBox2.Text =
                                 $"**Εδώ εκπληρώθηκε το πιστωτικό {textBox1.Text} αξίας {textBox2.Text} ευρώ. ";
-                            if (checkBox4.Checked)
+                            if (Properties.Settings.Default.PistoMsg)
                                 richTextBox2.Text = richTextBox2.Text +
                                                     $"## Η διαφορά {diff.ToString("#.##")} ευρώ πληρώθηκε με ΜΕΤΡΗΤΑ.##";
                             if (checkBox5.Checked)
@@ -109,7 +109,7 @@ namespace BlenderBender.Forms
                                 $"**Το πιστωτικό αξίας {textBox2.Text} ευρώ εκπληρώθηκε στην {textBox3.Text}.**";
                             richTextBox2.Text =
                                 $"**Εδώ εκπληρώθηκε το πιστωτικό {textBox1.Text} αξίας {textBox2.Text} ευρώ.";
-                            if (checkBox4.Checked)
+                            if (Properties.Settings.Default.PistoMsg)
                                 richTextBox2.Text = richTextBox2.Text +
                                                     $" ## Η διαφορά {diff.ToString("#.##")} ευρώ πληρώθηκε με ΚΑΡΤΑ.##";
                             if (checkBox5.Checked)
@@ -144,6 +144,12 @@ namespace BlenderBender.Forms
                     MessageBox.Show("Δεν έχετε εισάγει επαρκεί δεδομένα.");
                 }
             }
+        }
+        private void textBoxRdots_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Properties.Settings.Default.windowsWeirdness)
+                if (e.KeyChar == '.')
+                    e.KeyChar = ',';
         }
     }
 }
