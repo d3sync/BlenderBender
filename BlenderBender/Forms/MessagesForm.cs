@@ -20,6 +20,19 @@ namespace BlenderBender.Forms
         {
             InitializeComponent();
             this.mf = mf;
+            Known();
+            currentUser.Text = Properties.Settings.Default.User ?? "Αγνωστός Χειριστής";
+            cmbExtraDays.SelectedIndex = 0;
+        }
+
+        private void Known()
+        {
+            currentUser.Items.Clear();
+            foreach (var item in Properties.Settings.Default.KnownUsers)
+            {
+                if (!String.IsNullOrEmpty(item))
+                    currentUser.Items.Add(item);
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -142,6 +155,18 @@ namespace BlenderBender.Forms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem.ToString()}~~");
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(user.GetRegKey<string>("ESHOP_ONE").ToUpper() + " " + user.GetRegKey<string>("Phone"));
+            mf.notifier("1o SMS");
+        }
+
+        private void currentUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.User = currentUser.SelectedItem.ToString();
+            Properties.Settings.Default.Save();
         }
     }
 }

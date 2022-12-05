@@ -21,6 +21,7 @@ namespace BlenderBender.Forms
         {
             InitializeComponent();
             cmbKnown();
+            cmbKnownUsers.Text = Properties.Settings.Default.User ?? "Αγνωστός Χειριστής";
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -105,6 +106,12 @@ namespace BlenderBender.Forms
             cmbKnown();
             if (res)
                  MessageBox.Show($"Διαγραφή χρήστη {cmbKnownUsers.SelectedItem.ToString()}");
+        }
+
+        private void cmbKnownUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.User = cmbKnownUsers.SelectedItem.ToString();
+            Properties.Settings.Default.Save();
         }
     }
 }

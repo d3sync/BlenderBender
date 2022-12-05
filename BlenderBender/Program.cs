@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Security;
 using System.Threading;
 using System.Windows.Forms;
 
 namespace BlenderBender
 {
+
     internal static class Program
     {
         /// <summary>
@@ -27,6 +29,7 @@ namespace BlenderBender
             if (Properties.Settings.Default.UpdateSettings)
             {
                 Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.Reload();
                 Properties.Settings.Default.UpdateSettings = false;
                 Properties.Settings.Default.Save();
             }

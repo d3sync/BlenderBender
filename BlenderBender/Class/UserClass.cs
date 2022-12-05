@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Security.Principal;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
 
 namespace BlenderBender.Class
 {
     public class UserClass
-    { 
+    {
+        public UserClass()
+        {
+                
+        }
         public string CurrentUser()
         {
             string _user = "";
@@ -56,7 +61,7 @@ namespace BlenderBender.Class
                         if (key.GetValue(regKey) == null) result = "0";
                         break;
                     case "ESHOP_SHOP":
-                        if (key.GetValue(regKey) == null) result = "ΚΑΤΑΣΤΗΜΑ ΡΟΔΟΥ";
+                        if (key.GetValue(regKey) == null) result = "ΚΑΤΑΣΤΗΜΑ ????";
                         break;
                     case "ESHOP_ONE":
                         if (key.GetValue(regKey) == null)
@@ -114,6 +119,25 @@ namespace BlenderBender.Class
                 Application.Exit();
                 return;
             }
+        }
+
+        public string GetDefault(string query)
+        {
+            //Reading from appsettings file
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false)
+                .Build();
+            //return config.GetValue<string>("Logging:FilePath");
+            return config[query];
+        }
+        public IConfigurationSection GetSection(string query)
+        {
+            //Reading from appsettings file
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false)
+                .Build();
+            //return config.GetValue<string>("Logging:FilePath");
+            return config.GetRequiredSection(query);
         }
     }
 }

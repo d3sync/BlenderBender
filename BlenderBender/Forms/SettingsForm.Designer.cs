@@ -51,10 +51,10 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.cmbKnownUsers = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.btnDelUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox11.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -263,12 +263,14 @@
             // 
             // cmbKnownUsers
             // 
+            this.cmbKnownUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKnownUsers.FormattingEnabled = true;
             this.cmbKnownUsers.Location = new System.Drawing.Point(8, 20);
             this.cmbKnownUsers.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbKnownUsers.Name = "cmbKnownUsers";
             this.cmbKnownUsers.Size = new System.Drawing.Size(298, 23);
             this.cmbKnownUsers.TabIndex = 65;
+            this.cmbKnownUsers.SelectedIndexChanged += new System.EventHandler(this.cmbKnownUsers_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -284,6 +286,13 @@
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Χρήστες";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(8, 50);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(186, 23);
+            this.txtName.TabIndex = 68;
             // 
             // btnDelUser
             // 
@@ -317,13 +326,6 @@
             this.button13.TabIndex = 57;
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(8, 50);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(186, 23);
-            this.txtName.TabIndex = 68;
             // 
             // SettingsForm
             // 

@@ -39,15 +39,9 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.cmbExtraDays = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.extraUpDown = new System.Windows.Forms.NumericUpDown();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.cmbEmailText = new System.Windows.Forms.ComboBox();
             this.textBox55 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.textBox54 = new System.Windows.Forms.TextBox();
@@ -61,7 +55,6 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -119,6 +112,7 @@
             this._emailaid.TabIndex = 13;
             this._emailaid.Text = "Clipboard Aid";
             this._emailaid.UseVisualStyleBackColor = true;
+            this._emailaid.CheckedChanged += new System.EventHandler(this._emailaid_CheckedChanged);
             // 
             // button28
             // 
@@ -139,6 +133,7 @@
             this.button18.TabIndex = 11;
             this.button18.Text = "C";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // checkBox6
             // 
@@ -150,6 +145,7 @@
             this.checkBox6.TabIndex = 5;
             this.checkBox6.Text = "Καλημέρα";
             this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // comboBox3
             // 
@@ -175,6 +171,7 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.cmbExtraDays);
             this.groupBox12.Controls.Add(this.flowLayoutPanel1);
             this.groupBox12.Location = new System.Drawing.Point(5, 139);
             this.groupBox12.Name = "groupBox12";
@@ -183,110 +180,42 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Επιλογές";
             // 
+            // cmbExtraDays
+            // 
+            this.cmbExtraDays.DisplayMember = "0";
+            this.cmbExtraDays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbExtraDays.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbExtraDays.FormattingEnabled = true;
+            this.cmbExtraDays.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "5",
+            "7",
+            "10"});
+            this.cmbExtraDays.Location = new System.Drawing.Point(305, 20);
+            this.cmbExtraDays.Name = "cmbExtraDays";
+            this.cmbExtraDays.Size = new System.Drawing.Size(57, 23);
+            this.cmbExtraDays.TabIndex = 5;
+            this.cmbExtraDays.ValueMember = "0";
+            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.radioButton5);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton6);
-            this.flowLayoutPanel1.Controls.Add(this.extraUpDown);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton7);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton8);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton9);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton12);
-            this.flowLayoutPanel1.Controls.Add(this.radioButton1);
+            this.flowLayoutPanel1.Controls.Add(this.cmbEmailText);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(356, 112);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 112);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
-            // radioButton5
+            // cmbEmailText
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(3, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(117, 19);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "1η Ενημέρωση";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(126, 3);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(117, 19);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "2η Ενημέρωση";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // extraUpDown
-            // 
-            this.extraUpDown.Location = new System.Drawing.Point(249, 3);
-            this.extraUpDown.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.extraUpDown.Name = "extraUpDown";
-            this.extraUpDown.Size = new System.Drawing.Size(39, 21);
-            this.extraUpDown.TabIndex = 8;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(3, 30);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(92, 19);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "1η Service";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(101, 30);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(149, 19);
-            this.radioButton8.TabIndex = 3;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Υπενθύμιση Service";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(3, 55);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(174, 19);
-            this.radioButton9.TabIndex = 4;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Επικοινωνήστε μαζί μας";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12
-            // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(183, 55);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(151, 19);
-            this.radioButton12.TabIndex = 7;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Επικ. για Παράδοση";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(2, 79);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(168, 19);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Αναμονή διευκρινίσεων";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.cmbEmailText.FormattingEnabled = true;
+            this.cmbEmailText.Location = new System.Drawing.Point(3, 3);
+            this.cmbEmailText.Name = "cmbEmailText";
+            this.cmbEmailText.Size = new System.Drawing.Size(290, 23);
+            this.cmbEmailText.TabIndex = 0;
+            this.cmbEmailText.SelectedIndexChanged += new System.EventHandler(this.cmbEmailText_SelectedIndexChanged);
             // 
             // textBox55
             // 
@@ -362,8 +291,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.extraUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,14 +308,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.NumericUpDown extraUpDown;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox textBox55;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox textBox54;
@@ -396,5 +315,7 @@
         private System.Windows.Forms.TextBox textBox53;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.ComboBox cmbExtraDays;
+        private System.Windows.Forms.ComboBox cmbEmailText;
     }
 }

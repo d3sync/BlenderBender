@@ -41,7 +41,7 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.currentUser = new System.Windows.Forms.TextBox();
+            this.currentUser = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -51,13 +51,13 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbExtraDays = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbExtraDays = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -221,6 +221,7 @@
             this.button24.TabIndex = 3;
             this.button24.Text = "1η Ενημέρωση SMS";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // groupBox9
             // 
@@ -239,11 +240,14 @@
             // 
             // currentUser
             // 
-            this.currentUser.Location = new System.Drawing.Point(181, 29);
-            this.currentUser.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.currentUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currentUser.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentUser.FormattingEnabled = true;
+            this.currentUser.Location = new System.Drawing.Point(181, 28);
             this.currentUser.Name = "currentUser";
-            this.currentUser.Size = new System.Drawing.Size(174, 26);
+            this.currentUser.Size = new System.Drawing.Size(182, 24);
             this.currentUser.TabIndex = 12;
+            this.currentUser.SelectedIndexChanged += new System.EventHandler(this.currentUser_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -353,6 +357,35 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "2ο SMS";
             // 
+            // cmbExtraDays
+            // 
+            this.cmbExtraDays.DisplayMember = "0";
+            this.cmbExtraDays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbExtraDays.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbExtraDays.FormattingEnabled = true;
+            this.cmbExtraDays.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "5",
+            "7",
+            "10"});
+            this.cmbExtraDays.Location = new System.Drawing.Point(138, 37);
+            this.cmbExtraDays.Name = "cmbExtraDays";
+            this.cmbExtraDays.Size = new System.Drawing.Size(57, 25);
+            this.cmbExtraDays.TabIndex = 4;
+            this.cmbExtraDays.ValueMember = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Έξτρα ημέρες";
+            // 
             // label32
             // 
             this.label32.AutoSize = true;
@@ -414,35 +447,6 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Έξτρα ημέρες";
-            // 
-            // cmbExtraDays
-            // 
-            this.cmbExtraDays.DisplayMember = "0";
-            this.cmbExtraDays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbExtraDays.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbExtraDays.FormattingEnabled = true;
-            this.cmbExtraDays.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "5",
-            "7",
-            "10"});
-            this.cmbExtraDays.Location = new System.Drawing.Point(138, 37);
-            this.cmbExtraDays.Name = "cmbExtraDays";
-            this.cmbExtraDays.Size = new System.Drawing.Size(57, 25);
-            this.cmbExtraDays.TabIndex = 4;
-            this.cmbExtraDays.ValueMember = "0";
-            // 
             // MessagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 14F);
@@ -465,7 +469,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -490,7 +493,6 @@
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox currentUser;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -507,5 +509,6 @@
         private System.Windows.Forms.ComboBox cmbExtraDays;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.ComboBox currentUser;
     }
 }

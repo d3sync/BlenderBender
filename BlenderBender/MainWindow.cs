@@ -218,5 +218,31 @@ namespace BlenderBender
         {
             fmonitor.Show();
         }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.D1:
+                        break;
+                    case Keys.D2:
+                        break;
+                    case Keys.D3:
+                        break;
+                    case Keys.D4: 
+                        break;
+                    case Keys.D5:
+                        break;
+                    case Keys.D6:
+                        break;
+                }
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
