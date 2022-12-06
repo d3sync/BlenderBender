@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -101,6 +102,8 @@ namespace BlenderBender
 
         private void PopulateCmbWithPresets()
         {
+            var folder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\e-ShopAssistant";
+            var settings = $@"{folder}\Settings.ini";
             //Reading from appsettings file
             var config = new ConfigurationBuilder()
                 .AddJsonFile(@"default.json", optional: false)
@@ -118,8 +121,29 @@ namespace BlenderBender
                         d.Text = item.Key.Replace("EmailPresets:",$"[{i}]Preset:").Humanize().Transform(To.TitleCase);
                         d.Value = item.Value;
                         cmbEmailText.Items.Add(d);
-                        Console.WriteLine("{0} - {1}", d.Text, d.Value);
                         i++;
+                    }
+                }
+
+                if (File.Exists(settings))
+                {
+                    // Opening the file for reading
+                    using (StreamReader sr = File.OpenText(settings))
+                    {
+                        string s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            if (!s.StartsWith("#"))
+                            {
+                                var sl = s.Split('|');
+                                var d = new ComboboxItem()
+                                {
+                                    Text = $"[Custom]{sl[0]}",
+                                    Value = sl[1]
+                                };
+                                cmbEmailText.Items.Add(d);
+                            }
+                        }
                     }
                 }
             }
@@ -138,12 +162,20 @@ namespace BlenderBender
                 if (user.GetRegKey<bool>("REPLACE_ON_MAIL"))
                 {
                     message = message.Replace("\r\n", "%0D%0A");
+                    message = message.Replace("[newline]", "%0D%0A");
                     message = message.Replace(" ", "%20");
-                    message = message.Replace("[Phone]", user.GetRegKey<String>("Phone"));
-                    message = message.Replace("[fdate]", MakeDate());
-                    message = message.Replace("[user]", user.CurrentUser());
-                    if (signChk.Checked) message += Properties.Settings.Default.Signature;
                 }
+                else
+                {
+                    message = message.Replace("[newline]", "\r\n");
+                }
+                message = message.Replace("[phone]", user.GetRegKey<String>("Phone"));
+                message = message.Replace("[mphone]", "211 5000 500");
+                message = message.Replace("[fdate]", MakeDate());
+                message = message.Replace("[user]", user.CurrentUser());
+                message = message.Replace("[datetime-user]", user.DateTimeNUser());
+                message = message.Replace("[date-user]", user.DateNUser());
+                if (signChk.Checked) message += Properties.Settings.Default.Signature;
 
                 var mailing_add = textBox53.Text;
                 richTextBox5.Text = "E-mail Address:" + mailing_add + "\r\n" +
@@ -203,7 +235,7 @@ namespace BlenderBender
                     break;
                 default:
                     Clipboard.SetText(
-                        $"**Αποστάλθηκε E-mail {cmbEmailText.SelectedItem.ToString()} {user.DateTimeNUser()}");
+                        $"**Αποστάλθηκε E-mail για {cmbEmailText.SelectedItem.ToString()} {user.DateTimeNUser()}");
                     break;
             }
         }
@@ -220,7 +252,6 @@ namespace BlenderBender
                     else
                         func(control.Controls);
             };
-
             func(Controls);
         }
 
@@ -244,7 +275,8 @@ namespace BlenderBender
         private void cmbEmailText_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboboxItem cb = cmbEmailText.SelectedItem as ComboboxItem;
-            emailmsg = cb.Value.ToString();
+            if (cb != null)
+                emailmsg = cb.Value.ToString();
         }
     }
     public class ComboboxItem

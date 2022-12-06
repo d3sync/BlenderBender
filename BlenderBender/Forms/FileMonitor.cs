@@ -21,6 +21,7 @@ namespace BlenderBender.Forms
             InitializeComponent();
             this.mf = mf;
             checkBox1.Checked = Properties.Settings.Default.filemonitor;
+            label40.Text = Properties.Settings.Default.monitorfolder;
             fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
         }
 
@@ -58,41 +59,61 @@ namespace BlenderBender.Forms
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            //Rename Tautotita
-            if (listView1.SelectedItems[0].SubItems[1] != null)
+            try
             {
-                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\IDENTITY - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
-                listView1.SelectedItems[0].Remove();
+                //Rename Tautotita
+                if (listView1.SelectedItems[0].SubItems[1] != null)
+                {
+                    var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                    File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                        fileSystemWatcher1.Path + "\\IDENTITY - " + DateTime.Now.ToString("ddMMyyyyhhmmss") +
+                        extension);
+                    listView1.SelectedItems[0].Remove();
+                }
             }
+            catch { }
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems[0].SubItems[1] != null)
+            try
             {
-                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
-                listView1.SelectedItems[0].Remove();
+                if (listView1.SelectedItems[0].SubItems[1] != null)
+                {
+                    var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                    File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
+                    listView1.SelectedItems[0].Remove();
+                }
             }
+            catch { }
         }
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems[0].SubItems[1] != null)
+            try
             {
-                var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\TICKET COMPLIMENTS - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
-                listView1.SelectedItems[0].Remove();
+                if (listView1.SelectedItems[0].SubItems[1] != null)
+                {
+                    var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
+                    File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                        fileSystemWatcher1.Path + "\\TICKET COMPLIMENTS - " + DateTime.Now.ToString("ddMMyyyyhhmmss") +
+                        extension);
+                    listView1.SelectedItems[0].Remove();
+                }
             }
+            catch {}
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems[0].SubItems[1] != null)
+            try
             {
-                listView1.SelectedItems[0].Remove();
+                if (listView1.SelectedItems[0].SubItems[1] != null)
+                {
+                    listView1.SelectedItems[0].Remove();
+                }
             }
+            catch { }
         }
 
         private void CopyPathToolStripMenuItem_Click(object sender, EventArgs e)

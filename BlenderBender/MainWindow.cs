@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ using BlenderBender.Class;
 using BlenderBender.Forms;
 using System.Text.RegularExpressions;
 using BlenderBender.Properties;
+using System.Diagnostics;
 
 namespace BlenderBender
 {
@@ -23,6 +25,7 @@ namespace BlenderBender
         public MainWindow()
         {
             InitializeComponent();
+            CreateDefaultTxtFile();
             fmonitor = new FileMonitor(this);
             fmonitor.MdiParent = this;
         }
@@ -36,7 +39,7 @@ namespace BlenderBender
             };
             notifyIcon1.BalloonTipIcon = d;
             notifyIcon1.BalloonTipTitle = "e-Shop Assistant";
-            notifyIcon1.BalloonTipText = String.Format("{0} {1}",data[option],message);
+            notifyIcon1.BalloonTipText = String.Format("{0} {1}", data[option], message);
             notifyIcon1.ShowBalloonTip(2000);
         }
         public int countdown { get; set; }
@@ -49,6 +52,15 @@ namespace BlenderBender
             childForm.Show();
         }
 
+        private string GetSettingsFile()
+        {
+            var folder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\e-ShopAssistant";
+            var settings = $@"{folder}\Settings.ini";
+            if (File.Exists(settings))
+                return settings;
+            this.CreateDefaultTxtFile();
+            return settings;
+        }
         private void OpenFile(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -148,7 +160,7 @@ namespace BlenderBender
 
         private void notesStripButton2_Click(object sender, EventArgs e)
         {
-
+            Process.Start(GetSettingsFile());
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -158,6 +170,49 @@ namespace BlenderBender
             mes.Show();
         }
 
+        public void CreateDefaultTxtFile()
+        {
+            var template = new List<string>
+            {
+                "##################################################################################################",
+                "##################################################################################################",
+                "###                                ΑΡΧΕΙΟ ΕΤΟΙΜΩΝ ΚΕΙΜΕΝΩΝ    (ΔΟΚΙΜΑΣΤΙΚΟ)                    ###",
+                "##################################################################################################",
+                "### ΤΟ ΚΕΙΜΕΝΟ ΠΟΥ ΞΕΚΙΝΑΕΙ ΑΠΟ '#' ΔΕΝ ΑΝΑΓΝΩΡΙΖΕΤΑΙ ΕΙΝΑΙ ΜΟΝΟ ΓΙΑ ΣΗΜΕΙΩΣΕΙΣ                ###",
+                "### ΥΠΑΡΧΟΥΝ ΣΥΓΚΕΚΡΙΜΕΝΑ TAGS ΤΑ ΟΠΟΙΑ ΓΙΝΟΝΤΑΙ REPLACE ΚΑΤΑ ΤΟ ΦΟΡΤΩΜΑ ΤΩΝ ΚΕΙΜΕΝΩΝ ΣΤΟ APP  ###",
+                "### * [phone] ΓΙΑ ΝΑ ΠΡΟΣΘΕΣΕΤΕ ΤΟ ΤΗΛΕΦΩΝΟ ΤΟΥ ΚΑΤΑΣΤΗΜΑΤΟΣ                                   ###",
+                "### * [mphone] ΓΙΑ ΝΑ ΠΡΟΣΘΕΣΕΤΕ ΤΟ ΚΕΝΤΡΙΚΟ ΤΗΛΕΦΩΝΟ ΤΟΥ E-SHOP.GR                            ###",
+                "### * [fdate] ΗΜΕΡΟΜΗΝΙΑ ΣΤΟ ΜΕΛΛΟΝ ΠΡΟΕΠΙΛΟΓΗ +2 Ή ΠΑΡΑΠΑΝΩ ΕΠΙΛΕΓΩΝΤΑΣ ΤΟ ΑΠ ΤΟ COMBOBOX     ###",
+                "### * [user]  ΒΑΖΕΙ ΤΟ ΟΝΟΜΑ ΤΟΥ ΧΕΙΡΙΣΤΗ ΠΟΥ ΕΙΝΑΙ ΔΗΛΩΜΕΝΟ ΣΤΗΝ ΕΦΑΡΜΟΓΗ                     ###",
+                "### * [datetime-user] ΗΜΕΡΟΜΗΝΙΑ ΩΡΑ ΚΑΙ ΧΕΙΡΙΣΤΗΣ                                             ###",
+                "### * [date-user]     ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΧΕΙΡΙΣΤΗΣ                                                 ###",
+                "### * [newline]     ΑΛΛΑΓΗ ΓΡΑΜΜΗΣ                                                             ###",
+                "##################################################################################################",
+                "### ΓΙΑ ΤΗΝ ΚΩΔΙΚΟΠΟΙΗΣΗ ΤΩΝ ΚΕΙΜΕΝΩΝ ΥΠΑΡΧΟΥΝ 2 ΠΕΔΙΑ ΧΩΡΙΣΜΕΝΑ ΜΕ '|'                        ###",
+                "### ΠΕΔΙΟ1: ΟΝΟΜΑ ΚΩΔΙΚΟΠΟΙΗΣΗΣ | ΠΕΔΙΟ2: ΚΕΙΜΕΝΟ ΑΠΟΣΤΟΛΗΣ                                    ###",
+                "### i.e. ΕΝΗΜ. ΓΙΑ ΕΠΙΚ.|Παρακαλούμε επικοινωνήστε μαζί μας τηλ [phone]                        ###",
+                "### Η κωδικοποίηση αφορά μόνο τό κύριως σώμα του μηνύματος και όχι τα βασικα (καλησπέρα κτλ)   ###",
+                "##################################################################################################",
+                "##################################################################################################"
+            };
+            var folder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\e-ShopAssistant";
+            var settings = $@"{folder}\Settings.ini";
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            if (!File.Exists(settings))
+            {
+                using (StreamWriter sw = File.CreateText(settings))
+                {
+                    foreach (var item in template)
+                    {
+                        sw.WriteLine(item);
+                    }
+                    sw.WriteLine("ΕΝΗΜ. ΓΙΑ ΕΠΙΚ.(ΤΕΣΤ)|Παρακαλούμε επικοινωνήστε μαζί μας στο τηλ [phone]");
+                }
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             //toolStripProgressBar1.Value = i++;
@@ -231,7 +286,7 @@ namespace BlenderBender
                         break;
                     case Keys.D3:
                         break;
-                    case Keys.D4: 
+                    case Keys.D4:
                         break;
                     case Keys.D5:
                         break;
@@ -241,8 +296,18 @@ namespace BlenderBender
             }
             else
             {
-                
+
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc.exe");
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Process.Start("notepad.exe");
         }
     }
 }

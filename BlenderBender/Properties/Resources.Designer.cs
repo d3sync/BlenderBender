@@ -63,6 +63,26 @@ namespace BlenderBender.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3440925_business_calculator_ecommerce_finance_marketing_math_office_107525 {
+            get {
+                object obj = ResourceManager.GetObject("3440925-business-calculator-ecommerce-finance-marketing-math-office_107525", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calculator_calculate_maths_scientific_calc_44531 {
+            get {
+                object obj = ResourceManager.GetObject("calculator-calculate-maths-scientific-calc-44531", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cash_flow {
             get {
                 object obj = ResourceManager.GetObject("cash-flow", resourceCulture);
@@ -106,6 +126,16 @@ namespace BlenderBender.Properties {
         internal static System.Drawing.Bitmap icons8_calculator_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-calculator-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_calculator_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-calculator-321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +246,16 @@ namespace BlenderBender.Properties {
         internal static System.Drawing.Bitmap money_sack {
             get {
                 object obj = ResourceManager.GetObject("money-sack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Notepad_36859 {
+            get {
+                object obj = ResourceManager.GetObject("Notepad_36859", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
