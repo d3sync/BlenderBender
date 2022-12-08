@@ -151,5 +151,10 @@ namespace BlenderBender.Forms
                 if (e.KeyChar == '.')
                     e.KeyChar = ',';
         }
+        
+        private void PistoForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) { this.Close(); }
+        }
     }
 }

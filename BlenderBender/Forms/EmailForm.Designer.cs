@@ -284,6 +284,7 @@
             this.Name = "EmailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Αποστολή Ηλεκτρονικής Αλληλογραφίας";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmailForm_KeyDown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

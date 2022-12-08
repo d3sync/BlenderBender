@@ -276,6 +276,7 @@ namespace BlenderBender
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.Control)
             {
                 switch (e.KeyCode)
@@ -296,7 +297,7 @@ namespace BlenderBender
             }
             else
             {
-
+                
             }
         }
 
@@ -308,6 +309,11 @@ namespace BlenderBender
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             Process.Start("notepad.exe");
+        }
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized; 
         }
     }
 }

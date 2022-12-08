@@ -330,6 +330,7 @@
             this.Name = "PistoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Σημειώσεις Πιστωτικών";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PistoForm_KeyDown);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);

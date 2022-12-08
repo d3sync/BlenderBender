@@ -50,6 +50,7 @@ namespace BlenderBender
         }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape) { this.Close(); }
             TextBox tb = (TextBox)sender;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
                 SelectNextControl(tb, true, true, true, true);
@@ -107,6 +108,11 @@ namespace BlenderBender
             if (Properties.Settings.Default.windowsWeirdness)
                 if (e.KeyChar == '.')
                     e.KeyChar = ',';
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

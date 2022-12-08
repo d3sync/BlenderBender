@@ -465,6 +465,7 @@
             this.Name = "MessagesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessagesForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessagesForm_KeyDown);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox10.ResumeLayout(false);

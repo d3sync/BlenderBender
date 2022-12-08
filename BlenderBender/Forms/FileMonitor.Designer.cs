@@ -37,7 +37,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +59,14 @@
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +74,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(436, 60);
+            this.checkBox1.Location = new System.Drawing.Point(563, 365);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 7;
@@ -78,9 +84,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(436, 31);
+            this.button5.Location = new System.Drawing.Point(441, 361);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(341, 23);
+            this.button5.Size = new System.Drawing.Size(116, 23);
             this.button5.TabIndex = 6;
             this.button5.Text = "Browse";
             this.button5.UseVisualStyleBackColor = true;
@@ -89,7 +95,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(433, 13);
+            this.label40.Location = new System.Drawing.Point(361, 366);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(74, 13);
             this.label40.TabIndex = 5;
@@ -101,13 +107,15 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(7, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(423, 384);
+            this.listView1.Size = new System.Drawing.Size(765, 357);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -115,12 +123,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 210;
+            this.columnHeader1.Width = 153;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Location";
-            this.columnHeader2.Width = 5;
+            this.columnHeader2.Width = 2;
             // 
             // columnHeader3
             // 
@@ -218,6 +226,7 @@
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
             this.toolStripMenuItem15.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem15.Text = "Απόδειξη Προείσπραξης";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripSeparator4_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -236,6 +245,7 @@
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem9.Text = "Μετονομασία";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -304,11 +314,39 @@
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
             this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Classification";
+            this.columnHeader5.Width = 270;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 366);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(222, 23);
+            this.progressBar1.TabIndex = 8;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Barcodes";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(676, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Classify";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FileMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 391);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label40);
@@ -317,6 +355,7 @@
             this.Name = "FileMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Monitor";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileMonitor_KeyDown);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
@@ -329,7 +368,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -358,5 +396,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         public System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        public System.Windows.Forms.ListView listView1;
     }
 }

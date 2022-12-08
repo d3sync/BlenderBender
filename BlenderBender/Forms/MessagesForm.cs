@@ -44,7 +44,7 @@ namespace BlenderBender.Forms
         private void button11_Click(object sender, EventArgs e)
         {
             int extra = 0;
-            extra += (int)cmbExtraDays.SelectedItem;
+            extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
 
             string doh = dtto.DateTo("excludeSunday", extra);
 
@@ -70,7 +70,10 @@ namespace BlenderBender.Forms
             Clipboard.SetText("Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
             mf.notifier("Αναμονή διευκρινίσεων");
         }
-
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
             Clipboard.SetText(
@@ -167,6 +170,11 @@ namespace BlenderBender.Forms
         {
             Properties.Settings.Default.User = currentUser.SelectedItem.ToString();
             Properties.Settings.Default.Save();
+        }
+
+        private void MessagesForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) { this.Close(); }
         }
     }
 }

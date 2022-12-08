@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -158,7 +159,6 @@ namespace BlenderBender
             {
 
                 var message = comboBox3.Text + " " + textBox55.Text + " " + tod2 + " " + emailmsg;
-                System.Console.WriteLine(message);
                 if (user.GetRegKey<bool>("REPLACE_ON_MAIL"))
                 {
                     message = message.Replace("\r\n", "%0D%0A");
@@ -203,40 +203,47 @@ namespace BlenderBender
 
         private void button28_Click(object sender, EventArgs e)
         {
-            int extra = 0;
-            extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
-            string doh = dtto.DateTo("excludeSunday", extra);
-            switch (cmbEmailText.SelectedIndex)
+            try
             {
-                case 4:
-                    Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {user.DateTimeNUser()}");
-                    break;
-                case 3:
-                    Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {user.DateTimeNUser()}");
-                    break;
-                case 1:
-                    Clipboard.SetText(
-                        $"**Αποστάλθηκε 2o E-mail {user.DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
-                    break;
-                case 0:
-                    Clipboard.SetText($"**Αποστάλθηκε E-mail υπενθύμισης {user.DateTimeNUser()}");
-                    break;
-                case 6:
-                    Clipboard.SetText(
-                        $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {user.DateTimeNUser()}");
-                    break;
-                case 5:
-                    Clipboard.SetText(
-                        $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {user.DateTimeNUser()}");
-                    break;
-                case 2:
-                    Clipboard.SetText(
-                        $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας (διευκρινίσεις). {user.DateTimeNUser()}");
-                    break;
-                default:
-                    Clipboard.SetText(
-                        $"**Αποστάλθηκε E-mail για {cmbEmailText.SelectedItem.ToString()} {user.DateTimeNUser()}");
-                    break;
+                int extra = 0;
+                extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
+                string doh = dtto.DateTo("excludeSunday", extra);
+                switch (cmbEmailText.SelectedIndex)
+                {
+                    case 4:
+                        Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {user.DateTimeNUser()}");
+                        break;
+                    case 3:
+                        Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {user.DateTimeNUser()}");
+                        break;
+                    case 1:
+                        Clipboard.SetText(
+                            $"**Αποστάλθηκε 2o E-mail {user.DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
+                        break;
+                    case 0:
+                        Clipboard.SetText($"**Αποστάλθηκε E-mail υπενθύμισης {user.DateTimeNUser()}");
+                        break;
+                    case 6:
+                        Clipboard.SetText(
+                            $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {user.DateTimeNUser()}");
+                        break;
+                    case 5:
+                        Clipboard.SetText(
+                            $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {user.DateTimeNUser()}");
+                        break;
+                    case 2:
+                        Clipboard.SetText(
+                            $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας (διευκρινίσεις). {user.DateTimeNUser()}");
+                        break;
+                    default:
+                        Clipboard.SetText(
+                            $"**Αποστάλθηκε E-mail για {cmbEmailText.SelectedItem.ToString()} {user.DateTimeNUser()}");
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Η αντιγραφή για την σημείωση του clipboard απέτυχε. Με αιτία {ex}.\r\n Δοκιμάστε ξανά");
             }
         }
 
@@ -277,6 +284,16 @@ namespace BlenderBender
             ComboboxItem cb = cmbEmailText.SelectedItem as ComboboxItem;
             if (cb != null)
                 emailmsg = cb.Value.ToString();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EmailForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) { this.Close(); }
         }
     }
     public class ComboboxItem
