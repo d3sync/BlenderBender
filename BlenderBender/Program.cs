@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Security;
-using System.Threading;
 using System.Windows.Forms;
+using BlenderBender.Properties;
 
 namespace BlenderBender
 {
-
     internal static class Program
     {
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
         [STAThread]
-
-
         private static void Main()
         {
-
             //const string appName = "e-Shop Assistant";
             //bool createdNew;
             //var mutex = new Mutex(true, appName, out createdNew);
@@ -26,13 +21,14 @@ namespace BlenderBender
             //    MessageBox.Show("The application is already running.");
             //    return;
             //}
-            if (Properties.Settings.Default.UpdateSettings)
+            if (Settings.Default.UpdateSettings)
             {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.Reload();
-                Properties.Settings.Default.UpdateSettings = false;
-                Properties.Settings.Default.Save();
+                Settings.Default.Upgrade();
+                Settings.Default.Reload();
+                Settings.Default.UpdateSettings = false;
+                Settings.Default.Save();
             }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

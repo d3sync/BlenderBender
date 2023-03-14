@@ -176,5 +176,10 @@ namespace BlenderBender.Forms
         {
             if (e.KeyCode == Keys.Escape) { this.Close(); }
         }
+
+        private void MessagesForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

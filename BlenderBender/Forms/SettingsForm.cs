@@ -1,27 +1,20 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using BlenderBender.Class;
-using System.Xml.Linq;
+using BlenderBender.Properties;
+using Microsoft.Win32;
 
 namespace BlenderBender.Forms
 {
     public partial class SettingsForm : Form
     {
         public UserClass user;
+
         public SettingsForm()
         {
             InitializeComponent();
             cmbKnown();
-            cmbKnownUsers.Text = Properties.Settings.Default.User ?? "Αγνωστός Χειριστής";
+            cmbKnownUsers.Text = Settings.Default.User ?? "Αγνωστός Χειριστής";
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -53,8 +46,9 @@ namespace BlenderBender.Forms
 
                 key.Close();
             }
-            checkBox2.Checked = Properties.Settings.Default.windowsWeirdness;
-            richTextBox3.Text = Properties.Settings.Default.Signature;
+
+            checkBox2.Checked = Settings.Default.windowsWeirdness;
+            richTextBox3.Text = Settings.Default.Signature;
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -67,51 +61,48 @@ namespace BlenderBender.Forms
             key.SetValue("MAIL_ADDRESS", textBox47.Text);
             key.SetValue("REPLACE_ON_MAIL", checkBox8.Checked.ToString());
             key.Close();
-            Properties.Settings.Default._storeAddress = _storeAddress.Text;
-            Properties.Settings.Default.Signature = richTextBox3.Text;
-            Properties.Settings.Default.windowsWeirdness = checkBox2.Checked;
+            Settings.Default._storeAddress = _storeAddress.Text;
+            Settings.Default.Signature = richTextBox3.Text;
+            Settings.Default.windowsWeirdness = checkBox2.Checked;
             //Properties.Settings.Default._storeArea = _txtFrom.Text;
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
             //_txtFrom.Text = _storeAddress.Text;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            List<string> users = Properties.Settings.Default.KnownUsers;
+            var users = Settings.Default.KnownUsers;
             if (txtName.Text != null)
             {
                 users.Add(txtName.Text.Trim());
-                Properties.Settings.Default.KnownUsers = users;
-                Properties.Settings.Default.Save();
+                Settings.Default.KnownUsers = users;
+                Settings.Default.Save();
             }
 
             cmbKnown();
-
         }
 
         private void cmbKnown()
         {
             cmbKnownUsers.Items.Clear();
-            foreach (var item in Properties.Settings.Default.KnownUsers)
-            {
-                if(!String.IsNullOrEmpty(item))
+            foreach (var item in Settings.Default.KnownUsers)
+                if (!string.IsNullOrEmpty(item))
                     cmbKnownUsers.Items.Add(item);
-            }
         }
 
         private void btnDelUser_Click(object sender, EventArgs e)
         {
-            var res = Properties.Settings.Default.KnownUsers.Remove(cmbKnownUsers.SelectedItem.ToString());
-            Properties.Settings.Default.Save();
+            var res = Settings.Default.KnownUsers.Remove(cmbKnownUsers.SelectedItem.ToString());
+            Settings.Default.Save();
             cmbKnown();
             if (res)
-                 MessageBox.Show($"Διαγραφή χρήστη {cmbKnownUsers.SelectedItem.ToString()}");
+                MessageBox.Show($"Διαγραφή χρήστη {cmbKnownUsers.SelectedItem}");
         }
 
         private void cmbKnownUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.User = cmbKnownUsers.SelectedItem.ToString();
-            Properties.Settings.Default.Save();
+            Settings.Default.User = cmbKnownUsers.SelectedItem.ToString();
+            Settings.Default.Save();
         }
     }
 }

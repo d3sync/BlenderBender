@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BlenderBender.Properties;
 
 namespace BlenderBender.Forms
 {
     public partial class PistoForm : Form
     {
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
-        public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
         private Form mf;
+        public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
+
         public PistoForm(Form mf)
         {
             InitializeComponent();
             this.mf = mf;
         }
+
         public void ClearTextBoxes()
         {
             Action<Control.ControlCollection> func = null;
@@ -36,9 +32,10 @@ namespace BlenderBender.Forms
 
             func(Controls);
         }
+
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
+            var tb = (TextBox)sender;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
                 SelectNextControl(tb, true, true, true, true);
             else if (e.KeyCode == Keys.Up)
@@ -47,7 +44,10 @@ namespace BlenderBender.Forms
                 return;
         }
 
-        private void button25_Click(object sender, EventArgs e) => ClearTextBoxes();
+        private void button25_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ namespace BlenderBender.Forms
                                 $"**Το πιστωτικό αξίας {textBox2.Text} ευρώ εκπληρώθηκε στην {textBox3.Text}.**";
                             richTextBox2.Text =
                                 $"**Εδώ εκπληρώθηκε το πιστωτικό {textBox1.Text} αξίας {textBox2.Text} ευρώ. ";
-                            if (Properties.Settings.Default.PistoMsg)
+                            if (Settings.Default.PistoMsg)
                                 richTextBox2.Text = richTextBox2.Text +
                                                     $"## Η διαφορά {diff.ToString("#.##")} ευρώ πληρώθηκε με ΜΕΤΡΗΤΑ.##";
                             if (checkBox5.Checked)
@@ -109,7 +109,7 @@ namespace BlenderBender.Forms
                                 $"**Το πιστωτικό αξίας {textBox2.Text} ευρώ εκπληρώθηκε στην {textBox3.Text}.**";
                             richTextBox2.Text =
                                 $"**Εδώ εκπληρώθηκε το πιστωτικό {textBox1.Text} αξίας {textBox2.Text} ευρώ.";
-                            if (Properties.Settings.Default.PistoMsg)
+                            if (Settings.Default.PistoMsg)
                                 richTextBox2.Text = richTextBox2.Text +
                                                     $" ## Η διαφορά {diff.ToString("#.##")} ευρώ πληρώθηκε με ΚΑΡΤΑ.##";
                             if (checkBox5.Checked)
@@ -145,16 +145,17 @@ namespace BlenderBender.Forms
                 }
             }
         }
+
         private void textBoxRdots_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Properties.Settings.Default.windowsWeirdness)
+            if (Settings.Default.windowsWeirdness)
                 if (e.KeyChar == '.')
                     e.KeyChar = ',';
         }
-        
+
         private void PistoForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Close(); }
+            if (e.KeyCode == Keys.Escape) Close();
         }
     }
 }

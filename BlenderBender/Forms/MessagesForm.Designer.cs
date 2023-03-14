@@ -370,7 +370,8 @@
             "3",
             "5",
             "7",
-            "10"});
+            "10",
+            "-1"});
             this.cmbExtraDays.Location = new System.Drawing.Point(138, 37);
             this.cmbExtraDays.Name = "cmbExtraDays";
             this.cmbExtraDays.Size = new System.Drawing.Size(57, 25);
@@ -464,7 +465,8 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "MessagesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MessagesForm";
+            this.Text = "Κείμενα";
+            this.Load += new System.EventHandler(this.MessagesForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessagesForm_KeyDown);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

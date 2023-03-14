@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BlenderBender
 {
     public partial class Cliptool : Form
     {
+        public string lastclip;
+
         public Cliptool()
         {
             InitializeComponent();
         }
 
-        public string lastclip;
         private void timer1_Tick(object sender, EventArgs e)
         {
             //toolStripStatusLabel1.Text = DateTime.Now.ToString();
-            if (_monitor.Checked == true)
+            if (_monitor.Checked)
             {
                 var iData = Clipboard.GetDataObject();
-                if ((Clipboard.GetDataObject() != null) && ((string)iData.GetData(DataFormats.Text) != lastclip))
-                {
+                if (Clipboard.GetDataObject() != null && (string)iData.GetData(DataFormats.Text) != lastclip)
                     // Is Data Text?
                     if (iData.GetDataPresent(DataFormats.Text))
                     {
@@ -32,7 +26,7 @@ namespace BlenderBender
                         listBox1.Items.Insert(0, (string)iData.GetData(DataFormats.Text));
                         lastclip = (string)iData.GetData(DataFormats.Text);
                     }
-                }
+
                 lastclip = (string)iData.GetData(DataFormats.Text);
             }
         }
@@ -44,27 +38,18 @@ namespace BlenderBender
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (listBox1.SelectedItem != null)
             {
-                if (listBox1.SelectedItem != null)
-                {
-                    Clipboard.SetText(listBox1.SelectedItem.ToString());
-                    listBox1.Items.Remove(listBox1.SelectedItem);
-                }
+                Clipboard.SetText(listBox1.SelectedItem.ToString());
+                listBox1.Items.Remove(listBox1.SelectedItem);
             }
-            finally
-            {
-                //todo
-            }
-
         }
 
         private void Cliptool_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-            this.Hide();
+            Hide();
         }
     }
 }

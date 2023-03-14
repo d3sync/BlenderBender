@@ -119,7 +119,7 @@ namespace BlenderBender
                     if (item.Key != "EmailPresets")
                     {
                         var d = new ComboboxItem();
-                        d.Text = item.Key.Replace("EmailPresets:",$"[{i}]Preset:").Humanize().Transform(To.TitleCase);
+                        d.Text = item.Key.Replace("EmailPresets:",$"[{i}]ΠΡΟΤΥΠΟ:").Humanize().Transform(To.TitleCase);
                         d.Value = item.Value;
                         cmbEmailText.Items.Add(d);
                         i++;

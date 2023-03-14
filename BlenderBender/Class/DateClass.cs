@@ -6,20 +6,21 @@ namespace BlenderBender
     {
         public string DateTo(string option, int extraDays)
         {
-            var nn = 2;
+            var nn = 3;
             var meh = DateTime.Now;
             switch (option)
             {
                 case "excludeSunday":
-                    if ((meh.DayOfWeek == DayOfWeek.Saturday) || (meh.DayOfWeek == DayOfWeek.Friday)) nn += 1;
+                    if (meh.DayOfWeek == DayOfWeek.Saturday || meh.DayOfWeek == DayOfWeek.Friday) nn += 1;
                     meh = meh.AddDays(nn);
                     break;
                 case "bookExcludeSunday":
-                    for (int i = 1; i < 7; i++)
+                    for (var i = 1; i < 7; i++)
                     {
                         meh = meh.AddDays(1);
-                        if (meh.DayOfWeek == DayOfWeek.Sunday) { meh = meh.AddDays(1); }
+                        if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
                     }
+
                     break;
                 case "includeSunday":
                     meh = meh.AddDays(nn);
@@ -28,11 +29,13 @@ namespace BlenderBender
                     meh = meh.AddDays(nn);
                     break;
             }
+
             if (extraDays != 0)
             {
                 meh = meh.AddDays(extraDays);
-                if (meh.DayOfWeek == DayOfWeek.Sunday) { meh = meh.AddDays(1); }
+                if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
             }
+
             var dtp = meh.ToString("dddd dd/MM");
             var ntay = meh.DayOfWeek.ToString();
             switch (ntay)
@@ -57,7 +60,6 @@ namespace BlenderBender
 
                 default:
                     return dtp;
-
             }
         }
     }

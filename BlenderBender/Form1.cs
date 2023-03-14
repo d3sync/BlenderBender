@@ -1,16 +1,19 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using BlenderBender.Properties;
+using Microsoft.Win32;
 
 
 //using ControlzEx.Standard;
@@ -19,25 +22,35 @@ namespace BlenderBender
 {
     public partial class Form1 : Form
     {
-        public string emailmsg = "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι η παραγγελία σας βρίσκεται στο κατάστημά μας.\r\nΜπορείτε να περάσετε να την παραλάβετε.\r\n";
+        public int _ccounter;
+        private readonly About about;
+        public CultureInfo cCulture = CultureInfo.CurrentCulture;
+        private readonly DateClass dtto = new DateClass();
+
+        public string emailmsg =
+            "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι η παραγγελία σας βρίσκεται στο κατάστημά μας.\r\nΜπορείτε να περάσετε να την παραλάβετε.\r\n";
+
+        public string foldGG;
         private int hold;
-        public int i = 0;
+        public int i;
+        public string lastclip;
+        public string lastemail;
+        public string lastname;
+        public string lastorder;
+        public string lastprice = null;
+        public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
         public double sum;
+        private Cliptool tada;
         public string tod = "καλησπέρα σας.";
         public string tod2 = "καλησπέρα σας.";
-        DateClass dtto = new DateClass();
-        private About about;
-        public CultureInfo cCulture = CultureInfo.CurrentCulture;
-        public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
-        Cliptool tada;
-        public string foldGG;
+
         public Form1()
         {
             InitializeComponent();
             about = new About();
-            fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked = Properties.Settings.Default.filemonitor;
-            label40.Text = Properties.Settings.Default.monitorfolder;
-            fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
+            fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked = Settings.Default.filemonitor;
+            label40.Text = Settings.Default.monitorfolder;
+            fileSystemWatcher1.Path = Path.GetFullPath(Settings.Default.monitorfolder);
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -69,49 +82,46 @@ namespace BlenderBender
 
                 key.Close();
             }
-            currentUser.Text = Properties.Settings.Default.User;
+
+            currentUser.Text = Settings.Default.User;
             numericUpDown1.Value = 10;
-            checkBox2.Checked = Properties.Settings.Default.windowsWeirdness;
-            richTextBox3.Text = Properties.Settings.Default.Signature;
+            checkBox2.Checked = Settings.Default.windowsWeirdness;
+            richTextBox3.Text = Settings.Default.Signature;
             tabPage7.Visible = true;
             //tabControl1.TabPages.Remove(tabPage7);
 
             var asm = Assembly.GetExecutingAssembly();
             var fvi = FileVersionInfo.GetVersionInfo(asm.Location);
             var version = string.Format("{0}", fvi.ProductVersion);
-            admVersionLBL.Text = Properties.Settings.Default.admVersion;
+            admVersionLBL.Text = Settings.Default.admVersion;
             label31.Text = version;
             //end of e-mail settings
-            if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
-            {
-                toolStripStatusLabel2.Text = GetLocalIPAddress();
-            }
+            if (NetworkInterface.GetIsNetworkAvailable()) toolStripStatusLabel2.Text = GetLocalIPAddress();
 
             //_txtFrom.Text = Properties.Settings.Default._storeArea;
-            _storeAddress.Text = Properties.Settings.Default._storeAddress;
+            _storeAddress.Text = Settings.Default._storeAddress;
         }
+
         public int countdown { get; private set; }
 
         public string CurrentUser()
         {
-            string _user = "";
-            if (Properties.Settings.Default.User != "")
-            {
-                _user = Properties.Settings.Default.User;
-            }
+            var _user = "";
+            if (Settings.Default.User != "") _user = Settings.Default.User;
             return _user;
         }
 
         public string DateTimeNUser()
         {
-            string _userc = CurrentUser();
-            if (_userc == "") { _userc = "Άγνωστος Χειριστής"; }
+            var _userc = CurrentUser();
+            if (_userc == "") _userc = "Άγνωστος Χειριστής";
             return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({_userc})";
         }
+
         public string DateNUser()
         {
-            string _userc = CurrentUser();
-            if (_userc == "") { _userc = "Άγνωστος Χειριστής"; }
+            var _userc = CurrentUser();
+            if (_userc == "") _userc = "Άγνωστος Χειριστής";
             return $"{DateTime.Now.ToString("dd/MM")}/({_userc})";
         }
 
@@ -119,14 +129,11 @@ namespace BlenderBender
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
-            {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
                     return ip.ToString();
-                }
-            }
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
+
         private void notifier(string message)
         {
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
@@ -235,83 +242,73 @@ namespace BlenderBender
                 }
             }
         }
-        public string lastclip = null;
-        public string lastorder = null;
-        public string lastemail = null;
-        public string lastname = null;
-        public string lastprice = null;
 
-        public int _ccounter = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             //toolStripProgressBar1.Value = i++;
             //if (i >= 100) { i = 0; }
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
 
-            if (_emailaid.Checked == true)
+            if (_emailaid.Checked)
             {
                 var iData = Clipboard.GetDataObject();
-                if ((Clipboard.GetDataObject() != null) && ((string)iData.GetData(DataFormats.Text) != lastclip))
-                {
+                if (Clipboard.GetDataObject() != null && (string)iData.GetData(DataFormats.Text) != lastclip)
                     // Is Data Text?
                     if (iData.GetDataPresent(DataFormats.Text))
                     {
-                        string data = (string)iData.GetData(DataFormats.Text);
-                        string gtext = Clipboard.GetText(TextDataFormat.UnicodeText);
+                        var data = (string)iData.GetData(DataFormats.Text);
+                        var gtext = Clipboard.GetText(TextDataFormat.UnicodeText);
                         //Console.WriteLine(data);
                         //if ((data.Contains("---")) && (data.Contains("_")))
-                        if (Regex.IsMatch(data, @"^\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$") || Regex.IsMatch(data, @"^\d{3}-\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$"))
-                        {
+                        if (Regex.IsMatch(data,
+                                @"^\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$") ||
+                            Regex.IsMatch(data,
+                                @"^\d{3}-\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$"))
                             if (data != lastorder)
                             {
                                 textBox54.Text = data;
                                 lastorder = data;
                                 _ccounter += 1;
                             }
-                        }
+
                         if (data.Contains("@"))
-                        {
                             if (Regex.IsMatch(data, @"^.+\@.+\.\w{2,3}$"))
-                            {
                                 if (data != lastemail)
                                 {
                                     textBox53.Text = data;
                                     lastemail = data;
                                     _ccounter += 1;
                                 }
-                            }
-                        }
-                        if ((!data.Contains("---")) && (!data.Contains("_")) && (!data.Contains("@")))
-                        {
+
+                        if (!data.Contains("---") && !data.Contains("_") && !data.Contains("@"))
                             if (Regex.IsMatch(gtext, @"^\w+$"))
-                            {
                                 if (gtext != lastname)
                                 {
                                     textBox55.Text = gtext;
                                     lastname = gtext;
                                     _ccounter += 1;
                                 }
-                            }
-                        }
+
                         lastclip = (string)iData.GetData(DataFormats.Text);
                         if (_ccounter == 3)
                         {
-                            this.WindowState = FormWindowState.Normal;
-                            this.BringToFront();
-                            this.TopMost = true;
-                            this.Focus();
+                            WindowState = FormWindowState.Normal;
+                            BringToFront();
+                            TopMost = true;
+                            Focus();
                             _ccounter = 0;
                             _emailaid.Checked = false;
-                            this.TopMost = false;
+                            TopMost = false;
                         }
                     }
-                }
             }
+
             if (countdown == 100)
             {
                 toolStripProgressBar1.Visible = true;
                 toolStripProgressBar1.Value = 100;
             }
+
             if (countdown > 0)
             {
                 countdown--;
@@ -325,6 +322,7 @@ namespace BlenderBender
                     Clipboard.Clear();
                 }
             }
+
             hold = 0;
         }
 
@@ -374,14 +372,11 @@ namespace BlenderBender
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
-            {
                 textBox3.Enabled = textBox4.Enabled = false;
-            }
             else
-            {
                 textBox3.Enabled = textBox4.Enabled = true;
-            }
         }
+
         private void textBoxRdots_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (checkBox2.Checked)
@@ -391,18 +386,12 @@ namespace BlenderBender
 
         private void button4_Click(object sender, EventArgs e)
         {
-            TabPage currentTab = tabControl1.SelectedTab;
+            var currentTab = tabControl1.SelectedTab;
             for (i = 0; i <= 1; i++)
-            {
                 foreach (Control control in currentTab.Controls)
-                {
                     //Console.WriteLine("Control [{0}] - [{1}]", control.Name, control.GetType().Name);
-                    if (control.GetType().Name.ToString() == "TextBox")
-                    {
+                    if (control.GetType().Name == "TextBox")
                         control.Text = "0";
-                    }
-                }
-            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -413,7 +402,7 @@ namespace BlenderBender
 
         private void button11_Click(object sender, EventArgs e)
         {
-            int extra = 0;
+            var extra = 0;
             if (checkBox11.Checked)
             {
                 extra += 5;
@@ -423,14 +412,16 @@ namespace BlenderBender
                 if (checkBox9.Checked) extra += 1;
                 if (checkBox10.Checked) extra += 2;
             }
-            string doh = dtto.DateTo("excludeSunday", extra);
+
+            var doh = dtto.DateTo("excludeSunday", extra);
 
             Clipboard.SetText($"**2η Ενημέρωση μέσω τηλεφώνου {DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
             notifier("Τηλεφωνική Υπενθύμιση");
         }
+
         private void button14_Click(object sender, EventArgs e) // Button 2o EPITOPOU
         {
-            int extra = 0;            
+            var extra = 0;
             if (checkBox11.Checked)
             {
                 extra += (int)numericUpDown1.Value;
@@ -440,8 +431,10 @@ namespace BlenderBender
                 if (checkBox9.Checked) extra += 1;
                 if (checkBox10.Checked) extra += 2;
             }
+
             label32.Text = dtto.DateTo("excludeSunday", extra);
-            Clipboard.SetText($"{textBox48.Text} - ΣΑΣ ΕΝΗΜΕΡΩΝΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΘΑ ΠΑΡΑΜΕΙΝΕΙ ΣΤΟ ΚΑΤΑΣΤΗΜΑ ΜΑΣ ΕΩΣ {label32.Text.ToUpper()}. ΕΥΧΑΡΙΣΤΟΥΜΕ");
+            Clipboard.SetText(
+                $"{textBox48.Text} - ΣΑΣ ΕΝΗΜΕΡΩΝΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΘΑ ΠΑΡΑΜΕΙΝΕΙ ΣΤΟ ΚΑΤΑΣΤΗΜΑ ΜΑΣ ΕΩΣ {label32.Text.ToUpper()}. ΕΥΧΑΡΙΣΤΟΥΜΕ");
             notifier("2ο ΕΠΙΤΟΠΟΥ");
         }
 
@@ -455,10 +448,10 @@ namespace BlenderBender
             key.SetValue("MAIL_ADDRESS", textBox47.Text);
             key.SetValue("REPLACE_ON_MAIL", checkBox8.Checked.ToString());
             key.Close();
-            Properties.Settings.Default._storeAddress = _storeAddress.Text;
-            Properties.Settings.Default.Signature = richTextBox3.Text;
+            Settings.Default._storeAddress = _storeAddress.Text;
+            Settings.Default.Signature = richTextBox3.Text;
             //Properties.Settings.Default._storeArea = _txtFrom.Text;
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
             //_txtFrom.Text = _storeAddress.Text;
         }
 
@@ -505,7 +498,7 @@ namespace BlenderBender
 
         private void button21_Click(object sender, EventArgs e)
         {
-            int extra = 0;
+            var extra = 0;
             if (checkBox11.Checked)
             {
                 extra += 5;
@@ -515,6 +508,7 @@ namespace BlenderBender
                 if (checkBox9.Checked) extra += 1;
                 if (checkBox10.Checked) extra += 2;
             }
+
             label32.Text = dtto.DateTo("excludeSunday", extra);
             Clipboard.SetText(
                 $"{textBox48.Text} - ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}.");
@@ -545,6 +539,7 @@ namespace BlenderBender
         {
             label8.Text = textBox6.Text.Length.ToString();
         }
+
         private void button6_Click(object sender, EventArgs e)
         {
             if (currentUser.Text != "")
@@ -557,21 +552,21 @@ namespace BlenderBender
                 MessageBox.Show("Όνομα κενό!");
             }
         }
+
         private void secondEmail()
         {
-            int extra = (int)extraUpDown.Value;
-            string doh = dtto.DateTo("excludeSunday", extra);
+            var extra = (int)extraUpDown.Value;
+            var doh = dtto.DateTo("excludeSunday", extra);
             emailmsg =
                 $"\r\n\r\nΘα θέλαμε να σας υπενθυμίσουμε ότι η παραγγελία σας είναι έτοιμη και θα παραμείνει στο κατάστημά μας μέχρι και {doh}. \r\nΜπορείτε να περάσετε να την παραλάβετε. \r\n";
         }
+
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
             button28.Enabled = true;
-            if (radioButton6.Checked)
-            {
-                secondEmail();
-            }
+            if (radioButton6.Checked) secondEmail();
         }
+
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton5.Checked)
@@ -589,13 +584,14 @@ namespace BlenderBender
             textBox53.Text = textBox54.Text = textBox55.Text = "";
             _ccounter = 0;
         }
+
         private void button7_Click(object sender, EventArgs e)
         {
             if (textBox47.Text != "")
             {
-                if (signChk.Checked) emailmsg += Properties.Settings.Default.Signature;
+                if (signChk.Checked) emailmsg += Settings.Default.Signature;
                 var message = comboBox3.Text + " " + textBox55.Text + " " + tod2 + " " + emailmsg;
-                System.Console.WriteLine(message);
+                Console.WriteLine(message);
                 if (checkBox8.Checked)
                 {
                     message = message.Replace("\r\n", "%0D%0A");
@@ -621,7 +617,8 @@ namespace BlenderBender
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton7.Checked)
-                emailmsg = "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι το Service σας είναι έτοιμo. \r\nΜπορείτε να περάσετε να τo παραλάβετε.\r\n";
+                emailmsg =
+                    "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι το Service σας είναι έτοιμo. \r\nΜπορείτε να περάσετε να τo παραλάβετε.\r\n";
 
             button28.Enabled = true;
         }
@@ -629,7 +626,8 @@ namespace BlenderBender
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton8.Checked)
-                emailmsg = "\r\nΣας υπενθυμίζουμε ότι το Service σας είναι έτοιμo.\r\nΜπορείτε να περάσετε να τo παραλάβετε.\r\n";
+                emailmsg =
+                    "\r\nΣας υπενθυμίζουμε ότι το Service σας είναι έτοιμo.\r\nΜπορείτε να περάσετε να τo παραλάβετε.\r\n";
             button28.Enabled = true;
         }
 
@@ -655,10 +653,11 @@ namespace BlenderBender
                 Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTimeNUser()}");
             if (radioButton6.Checked)
             {
-                int extra = (int)extraUpDown.Value;
-                string doh = dtto.DateTo("excludeSunday", extra);
+                var extra = (int)extraUpDown.Value;
+                var doh = dtto.DateTo("excludeSunday", extra);
                 Clipboard.SetText($"**Αποστάλθηκε 2o E-mail {DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
             }
+
             if (radioButton7.Checked)
                 Clipboard.SetText($"**Αποτυχία 1ου SMS - Αποστάλθηκε E-mail {DateTimeNUser()}");
             if (radioButton8.Checked)
@@ -666,10 +665,12 @@ namespace BlenderBender
             if (radioButton9.Checked)
                 Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
             if (radioButton1.Checked)
-                Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας (διευκρινίσεις). {DateTimeNUser()}");
+                Clipboard.SetText(
+                    $"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας (διευκρινίσεις). {DateTimeNUser()}");
             if (radioButton12.Checked)
                 Clipboard.SetText($"**Αποστάλθηκε E-mail ώστε να επικοινωνήσει ο πελάτης μαζί μας. {DateTimeNUser()}");
         }
+
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             Show();
@@ -693,7 +694,7 @@ namespace BlenderBender
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
+            var tb = (TextBox)sender;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
                 SelectNextControl(tb, true, true, true, true);
             else if (e.KeyCode == Keys.Up)
@@ -701,16 +702,13 @@ namespace BlenderBender
             else
                 return;
         }
+
         private void CheckBox11_CheckStateChanged(object sender, EventArgs e)
         {
             if (checkBox11.Checked)
-            {
                 checkBox9.Enabled = checkBox10.Enabled = checkBox9.Checked = checkBox10.Checked = false;
-            }
             else
-            {
                 checkBox9.Enabled = checkBox10.Enabled = true;
-            }
         }
 
         private void button32_Click(object sender, EventArgs e)
@@ -723,6 +721,7 @@ namespace BlenderBender
         {
             Clipboard.SetText(DateTime.Now.ToString("dd/MM HH:mm"));
         }
+
         private void _emailaid_CheckedChanged(object sender, EventArgs e)
         {
             Clipboard.Clear();
@@ -730,7 +729,7 @@ namespace BlenderBender
             _ccounter = 0;
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             printDocument1.DefaultPageSettings.Landscape = true;
         }
@@ -772,25 +771,13 @@ namespace BlenderBender
             else if (e.Control && e.KeyCode == Keys.C)
             {
                 if (tabControl1.SelectedTab == tabPage1)
-                {
                     button18.PerformClick();
-                }
                 else if (tabControl1.SelectedTab == tabPage2)
-                {
                     button25.PerformClick();
-                }
                 else if (tabControl1.SelectedTab == tabPage3)
-                {
                     clrBtn.PerformClick();
-                }
                 else
-                {
                     return;
-                }
-            }
-            else
-            {
-                return;
             }
         }
 
@@ -816,8 +803,11 @@ namespace BlenderBender
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb = (TextBox)sender;
-            if (Regex.IsMatch(tb.Text, @"^\d+$")) button8.PerformClick();
+            var tb = (TextBox)sender;
+            if (Regex.IsMatch(tb.Text, @"^\d+$"))
+            {
+                button8.PerformClick();
+            }
             else
             {
                 tb.Text = "0";
@@ -827,8 +817,8 @@ namespace BlenderBender
 
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.User = currentUser.Text;
-            Properties.Settings.Default.Save();
+            Settings.Default.User = currentUser.Text;
+            Settings.Default.Save();
         }
 
         private void extraUpDown_ValueChanged(object sender, EventArgs e)
@@ -850,25 +840,25 @@ namespace BlenderBender
             button28.Enabled = true;
         }
 
-        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        private void fileSystemWatcher1_Changed(object sender, FileSystemEventArgs e)
         {
             //listView1.Items.Add(new ListViewItem(new string[] { "skata", "test", "patates" }));
             //listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
         }
 
-        private void fileSystemWatcher1_Created(object sender, System.IO.FileSystemEventArgs e)
+        private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
         {
-            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
+            listView1.Items.Add(new ListViewItem(new[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
         }
 
-        private void fileSystemWatcher1_Deleted(object sender, System.IO.FileSystemEventArgs e)
+        private void fileSystemWatcher1_Deleted(object sender, FileSystemEventArgs e)
         {
             //listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
         }
 
-        private void fileSystemWatcher1_Renamed(object sender, System.IO.RenamedEventArgs e)
+        private void fileSystemWatcher1_Renamed(object sender, RenamedEventArgs e)
         {
-            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString(), e.OldName }));
+            listView1.Items.Add(new ListViewItem(new[] { e.Name, e.FullPath, e.ChangeType.ToString(), e.OldName }));
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -877,7 +867,8 @@ namespace BlenderBender
             if (listView1.SelectedItems[0].SubItems[1] != null)
             {
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\IDENTITY - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                    fileSystemWatcher1.Path + "\\IDENTITY - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
                 listView1.SelectedItems[0].Remove();
             }
         }
@@ -887,7 +878,8 @@ namespace BlenderBender
             if (listView1.SelectedItems[0].SubItems[1] != null)
             {
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                    fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
                 listView1.SelectedItems[0].Remove();
             }
         }
@@ -897,17 +889,16 @@ namespace BlenderBender
             if (listView1.SelectedItems[0].SubItems[1] != null)
             {
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\TICKET COMPLIMENTS - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+                File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                    fileSystemWatcher1.Path + "\\TICKET COMPLIMENTS - " + DateTime.Now.ToString("ddMMyyyyhhmmss") +
+                    extension);
                 listView1.SelectedItems[0].Remove();
             }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems[0].SubItems[1] != null)
-            {
-                listView1.SelectedItems[0].Remove();
-            }
+            if (listView1.SelectedItems[0].SubItems[1] != null) listView1.SelectedItems[0].Remove();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -915,10 +906,10 @@ namespace BlenderBender
             var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Properties.Settings.Default.monitorfolder = folderBrowserDialog1.SelectedPath;
-                Properties.Settings.Default.Save();
-                label40.Text = Properties.Settings.Default.monitorfolder;
-                fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
+                Settings.Default.monitorfolder = folderBrowserDialog1.SelectedPath;
+                Settings.Default.Save();
+                label40.Text = Settings.Default.monitorfolder;
+                fileSystemWatcher1.Path = Path.GetFullPath(Settings.Default.monitorfolder);
             }
         }
 
@@ -929,16 +920,16 @@ namespace BlenderBender
 
         private void filemonitor_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.filemonitor = fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked;
-            Properties.Settings.Default.Save();
+            Settings.Default.filemonitor = fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked;
+            Settings.Default.Save();
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            if ((listView1.SelectedItems[0].SubItems[1].Text != "") || (listView1.SelectedItems[0].SubItems[1].Text != null))
+            if (listView1.SelectedItems[0].SubItems[1].Text != "" ||
+                listView1.SelectedItems[0].SubItems[1].Text != null)
             {
-
-                saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
+                saveFileDialog1.InitialDirectory = Settings.Default.monitorfolder;
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
                 saveFileDialog1.FileName = $"Αρχείο - {DateTime.Now.ToString("ddMMyyyyhhmmss")}";
                 saveFileDialog1.DefaultExt = extension;
@@ -962,26 +953,27 @@ namespace BlenderBender
         private void toolStripSeparator4_Click(object sender, EventArgs e)
         {
             var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-            File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΑΠΟΔΕΙΞΗ ΠΡΟΕΙΣΠΡΑΞΗΣ - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+            File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                fileSystemWatcher1.Path + "\\ΑΠΟΔΕΙΞΗ ΠΡΟΕΙΣΠΡΑΞΗΣ - " + DateTime.Now.ToString("ddMMyyyyhhmmss") +
+                extension);
             listView1.SelectedItems[0].Remove();
         }
 
         private void MoveFile(string dstName)
         {
             var directory = fileSystemWatcher1.Path + $"\\{dstName} {DateTime.Now.ToString("MMMM yyyy")}";
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
+            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
             var filename = Path.GetFileName(listView1.SelectedItems[0].SubItems[1].Text);
             File.Move(listView1.SelectedItems[0].SubItems[1].Text, Path.Combine(directory, filename));
             listView1.SelectedItems[0].Remove();
         }
+
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
             //ejoda
             MoveFile("ΕΞΟΔΑ");
         }
+
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             //Ticket Compliments
@@ -1014,7 +1006,7 @@ namespace BlenderBender
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             Clipboard.SetText(
-            $"**Επιθυμεί παράδοση {dateTimePicker1.Value.ToString("dddd dd/MM")}({CurrentUser()})**");
+                $"**Επιθυμεί παράδοση {dateTimePicker1.Value.ToString("dddd dd/MM")}({CurrentUser()})**");
             if (hold != 1)
                 if (dateTimePicker1.Value != DateTime.Now)
                     countdown = 100;
@@ -1028,52 +1020,51 @@ namespace BlenderBender
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem.ToString()}~~");
+            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem}~~");
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: Ζήτησε στο επόμενο~~");
+            Clipboard.SetText("~~ΔΡΟΜΟΛΟΓΙΟ: Ζήτησε στο επόμενο~~");
         }
+
         private void checkAdmin()
         {
             if (IsAdministrator() == false)
             {
                 // Restart program and run as admin
-                var exeName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                var exeName = Process.GetCurrentProcess().MainModule.FileName;
+                var startInfo = new ProcessStartInfo(exeName);
                 startInfo.Verb = "runas";
-                System.Diagnostics.Process.Start(startInfo);
+                Process.Start(startInfo);
                 Application.Exit();
-                return;
             }
         }
 
-    private static bool IsAdministrator()
-    {
-        WindowsIdentity identity = WindowsIdentity.GetCurrent();
-        WindowsPrincipal principal = new WindowsPrincipal(identity);
-        return principal.IsInRole(WindowsBuiltInRole.Administrator);
-    }
-    private void button17_Click(object sender, EventArgs e)
+        private static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        private void button17_Click(object sender, EventArgs e)
         {
             try
             {
                 Console.WriteLine(foldGG);
                 var fileList = new List<FileInfo>();
-                string[] allfiles = Directory.GetFiles(foldGG, "*.*", SearchOption.AllDirectories);
+                var allfiles = Directory.GetFiles(foldGG, "*.*", SearchOption.AllDirectories);
                 foreach (var file in allfiles)
                 {
-                    FileInfo info = new FileInfo(file);
+                    var info = new FileInfo(file);
                     fileList.Add(info);
                     Console.WriteLine(info.FullName);
                 }
+
                 var orderedList = fileList.OrderBy(x => x.CreationTime);
                 comboBox2.DisplayMember = "Name";
-                foreach (var x in orderedList)
-                {
-                    comboBox2.Items.Add(x);
-                }
+                foreach (var x in orderedList) comboBox2.Items.Add(x);
             }
             catch (UnauthorizedAccessException ex)
             {
@@ -1092,21 +1083,18 @@ namespace BlenderBender
                 rtbInfo.Text = $"{x.FullName}\r\n{x.Name}\r\n{x.Length}\r\n{x.CreationTime}\r\n{x.LastWriteTime}";
             }
         }
+
         private void BtnUpFold_Click(object sender, EventArgs e)
         {
             var result = folderBrowserDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                foldGG = BtnUpFold.Text = folderBrowserDialog1.SelectedPath;
-
-            }
+            if (result == DialogResult.OK) foldGG = BtnUpFold.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText("Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
+            Clipboard.SetText(
+                "Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
             notifier("Αναμονή διευκρινίσεων");
         }
-
     }
 }

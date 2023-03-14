@@ -61,12 +61,12 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +95,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(361, 366);
+            this.label40.Location = new System.Drawing.Point(240, 366);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(74, 13);
             this.label40.TabIndex = 5;
@@ -107,18 +107,17 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader4});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(7, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(765, 357);
+            this.listView1.Size = new System.Drawing.Size(374, 357);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -151,7 +150,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 126);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 148);
             // 
             // toolStripMenuItem16
             // 
@@ -209,6 +208,8 @@
             // 
             // toolStripMenuItem6
             // 
+            this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem});
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem6.Text = "Έξοδο Καταστήματος";
@@ -314,24 +315,17 @@
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Deleted);
             this.fileSystemWatcher1.Renamed += new System.IO.RenamedEventHandler(this.fileSystemWatcher1_Renamed);
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Classification";
-            this.columnHeader5.Width = 270;
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 366);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(222, 23);
             this.progressBar1.TabIndex = 8;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Barcodes";
+            this.progressBar1.Visible = false;
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(676, 361);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -340,11 +334,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(393, 3);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(379, 352);
+            this.webBrowser1.TabIndex = 10;
+            // 
+            // χειροκίνητηΜετονομασίαToolStripMenuItem
+            // 
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Name = "χειροκίνητηΜετονομασίαToolStripMenuItem";
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Text = "Χειροκίνητη Μετονομασία";
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+            // 
             // FileMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 391);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.checkBox1);
@@ -396,12 +406,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         public System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         public System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ToolStripMenuItem χειροκίνητηΜετονομασίαToolStripMenuItem;
     }
 }

@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BlenderBender.Properties;
 
 namespace BlenderBender
 {
     public partial class calculateForm : Form
     {
+        public Form _m1;
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
-        public Form _m1;
+
         public calculateForm(Form m1)
         {
             InitializeComponent();
@@ -38,20 +33,25 @@ namespace BlenderBender
 
             func(Controls);
         }
+
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb = (TextBox)sender;
-            if (Regex.IsMatch(tb.Text, @"^\d+$")) button8.PerformClick();
+            var tb = (TextBox)sender;
+            if (Regex.IsMatch(tb.Text, @"^\d+$"))
+            {
+                button8.PerformClick();
+            }
             else
             {
                 tb.Text = "0";
                 MessageBox.Show("Συμπληρώνουμε μόνο ακέραιους αριθμούς!");
             }
         }
+
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Close(); }
-            TextBox tb = (TextBox)sender;
+            if (e.KeyCode == Keys.Escape) Close();
+            var tb = (TextBox)sender;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
                 SelectNextControl(tb, true, true, true, true);
             else if (e.KeyCode == Keys.Up)
@@ -59,6 +59,7 @@ namespace BlenderBender
             else
                 return;
         }
+
         private void button8_Click(object sender, EventArgs e)
         {
             if (textBox9.Text != "") textBox24.Text = "" + 500 * int.Parse(textBox9.Text);
@@ -76,21 +77,21 @@ namespace BlenderBender
             if (textBox21.Text != "") textBox36.Text = "" + 0.05 * double.Parse(textBox21.Text, nStyles, cCulture);
             if (textBox22.Text != "") textBox37.Text = "" + 0.02 * double.Parse(textBox22.Text, nStyles, cCulture);
             if (textBox23.Text != "") textBox38.Text = "" + 0.01 * double.Parse(textBox23.Text, nStyles, cCulture);
-             var sum = double.Parse(textBox24.Text, nStyles, cCulture)
-                  + double.Parse(textBox25.Text, nStyles, cCulture)
-                  + double.Parse(textBox26.Text, nStyles, cCulture)
-                  + double.Parse(textBox27.Text, nStyles, cCulture)
-                  + double.Parse(textBox28.Text, nStyles, cCulture)
-                  + double.Parse(textBox29.Text, nStyles, cCulture)
-                  + double.Parse(textBox30.Text, nStyles, cCulture)
-                  + double.Parse(textBox31.Text, nStyles, cCulture)
-                  + double.Parse(textBox32.Text, nStyles, cCulture)
-                  + double.Parse(textBox33.Text, nStyles, cCulture)
-                  + double.Parse(textBox34.Text, nStyles, cCulture)
-                  + double.Parse(textBox35.Text, nStyles, cCulture)
-                  + double.Parse(textBox36.Text, nStyles, cCulture)
-                  + double.Parse(textBox37.Text, nStyles, cCulture)
-                  + double.Parse(textBox38.Text, nStyles, cCulture);
+            var sum = double.Parse(textBox24.Text, nStyles, cCulture)
+                      + double.Parse(textBox25.Text, nStyles, cCulture)
+                      + double.Parse(textBox26.Text, nStyles, cCulture)
+                      + double.Parse(textBox27.Text, nStyles, cCulture)
+                      + double.Parse(textBox28.Text, nStyles, cCulture)
+                      + double.Parse(textBox29.Text, nStyles, cCulture)
+                      + double.Parse(textBox30.Text, nStyles, cCulture)
+                      + double.Parse(textBox31.Text, nStyles, cCulture)
+                      + double.Parse(textBox32.Text, nStyles, cCulture)
+                      + double.Parse(textBox33.Text, nStyles, cCulture)
+                      + double.Parse(textBox34.Text, nStyles, cCulture)
+                      + double.Parse(textBox35.Text, nStyles, cCulture)
+                      + double.Parse(textBox36.Text, nStyles, cCulture)
+                      + double.Parse(textBox37.Text, nStyles, cCulture)
+                      + double.Parse(textBox38.Text, nStyles, cCulture);
             if (sum != 0) textBox80.Text = "" + sum;
             var countit = double.Parse(textBox41.Text, nStyles, cCulture) +
                           double.Parse(textBox44.Text, nStyles, cCulture) +
@@ -102,17 +103,21 @@ namespace BlenderBender
             textBox81.Text = "" + lol1;
         }
 
-        private void clrBtn_Click(object sender, EventArgs e) => ClearTextBoxes();
+        private void clrBtn_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
+
         private void textBoxRdots_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Properties.Settings.Default.windowsWeirdness)
+            if (Settings.Default.windowsWeirdness)
                 if (e.KeyChar == '.')
                     e.KeyChar = ',';
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
