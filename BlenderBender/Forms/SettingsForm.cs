@@ -47,6 +47,7 @@ namespace BlenderBender.Forms
                 key.Close();
             }
 
+            chkBreakFree.Checked = Settings.Default.BreakFree;
             checkBox2.Checked = Settings.Default.windowsWeirdness;
             richTextBox3.Text = Settings.Default.Signature;
         }
@@ -102,6 +103,12 @@ namespace BlenderBender.Forms
         private void cmbKnownUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.User = cmbKnownUsers.SelectedItem.ToString();
+            Settings.Default.Save();
+        }
+
+        private void chkBreakFree_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.BreakFree = chkBreakFree.Checked;
             Settings.Default.Save();
         }
     }

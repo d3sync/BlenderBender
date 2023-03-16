@@ -1,37 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BlenderBender.Class;
+using BlenderBender.Properties;
 
 namespace BlenderBender.Forms
 {
     public partial class MessagesForm : Form
     {
+        private readonly DateClass dtto = new DateClass();
         public MainWindow mf;
-        DateClass dtto = new DateClass();
-        UserClass user = new UserClass();
+        private readonly UserClass user = new UserClass();
+
         public MessagesForm(MainWindow mf)
         {
             InitializeComponent();
             this.mf = mf;
             Known();
-            currentUser.Text = Properties.Settings.Default.User ?? "Αγνωστός Χειριστής";
+            currentUser.Text = Settings.Default.User ?? "Αγνωστός Χειριστής";
             cmbExtraDays.SelectedIndex = 0;
         }
 
         private void Known()
         {
-            currentUser.Items.Clear();
-            foreach (var item in Properties.Settings.Default.KnownUsers)
+            try
             {
-                if (!String.IsNullOrEmpty(item))
-                    currentUser.Items.Add(item);
+                currentUser.Items.Clear();
+                foreach (var item in Settings.Default.KnownUsers)
+                    if (!string.IsNullOrEmpty(item))
+                        currentUser.Items.Add(item);
+            }
+            catch
+            {
+                currentUser.Items.Add("Άγνωστος Χειριστής");
             }
         }
 
@@ -43,10 +43,10 @@ namespace BlenderBender.Forms
 
         private void button11_Click(object sender, EventArgs e)
         {
-            int extra = 0;
-            extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
+            var extra = 0;
+            extra += int.Parse(cmbExtraDays.SelectedItem.ToString());
 
-            string doh = dtto.DateTo("excludeSunday", extra);
+            var doh = dtto.DateTo("excludeSunday", extra);
 
             Clipboard.SetText(
                 $"**2η Ενημέρωση μέσω τηλεφώνου {user.DateTimeNUser()} ότι θα παραμείνει μέχρι και {doh}");
@@ -56,8 +56,8 @@ namespace BlenderBender.Forms
         private void button14_Click(object sender, EventArgs e)
         {
             {
-                int extra = 0;
-                extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
+                var extra = 0;
+                extra += int.Parse(cmbExtraDays.SelectedItem.ToString());
                 label32.Text = dtto.DateTo("excludeSunday", extra);
                 Clipboard.SetText(
                     $"{user.GetRegKey<string>("ESHOP_SHOP")} - ΣΑΣ ΕΝΗΜΕΡΩΝΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΘΑ ΠΑΡΑΜΕΙΝΕΙ ΣΤΟ ΚΑΤΑΣΤΗΜΑ ΜΑΣ ΕΩΣ {label32.Text.ToUpper()}. ΕΥΧΑΡΙΣΤΟΥΜΕ");
@@ -67,13 +67,16 @@ namespace BlenderBender.Forms
 
         private void button22_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText("Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
+            Clipboard.SetText(
+                "Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΒΡΙΣΚΕΤΑΙ ΣΕ ΑΝΑΜΟΝΗ ΔΙΕΥΚΡΙΝΙΣΕΩΝ. ΠΑΡΑΚΑΛΩ ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ ΣΤΟ 2115000500 . ΕΥΧΑΡΙΣΤΟΥΜΕ");
             mf.notifier("Αναμονή διευκρινίσεων");
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
+
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
             Clipboard.SetText(
@@ -133,13 +136,13 @@ namespace BlenderBender.Forms
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: Ζήτησε στο επόμενο~~");
+            Clipboard.SetText("~~ΔΡΟΜΟΛΟΓΙΟ: Ζήτησε στο επόμενο~~");
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            int extra = 0;
-            extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
+            var extra = 0;
+            extra += int.Parse(cmbExtraDays.SelectedItem.ToString());
             label32.Text = dtto.DateTo("excludeSunday", extra);
             Clipboard.SetText(
                 $"{user.GetRegKey<string>("ESHOP_SHOP")} - ΣΑΣ ΥΠΕΝΘΥΜΙΖΟΥΜΕ ΟΤΙ Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ ΚΑΙ ΠΡΕΠΕΙ ΝΑ ΠΑΡΑΔΟΘΕΙ ΜΕΧΡΙ {label32.Text.ToUpper()}.");
@@ -157,7 +160,7 @@ namespace BlenderBender.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem.ToString()}~~");
+            Clipboard.SetText($"~~ΔΡΟΜΟΛΟΓΙΟ: {comboBox1.SelectedItem}~~");
         }
 
         private void button24_Click(object sender, EventArgs e)
@@ -168,18 +171,17 @@ namespace BlenderBender.Forms
 
         private void currentUser_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.User = currentUser.SelectedItem.ToString();
-            Properties.Settings.Default.Save();
+            Settings.Default.User = currentUser.SelectedItem.ToString();
+            Settings.Default.Save();
         }
 
         private void MessagesForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Close(); }
+            if (e.KeyCode == Keys.Escape) Close();
         }
 
         private void MessagesForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

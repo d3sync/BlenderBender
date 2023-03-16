@@ -1,103 +1,96 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BlenderBender.Class;
-using Microsoft.Extensions.Configuration;
+using BlenderBender.Properties;
 using Humanizer;
+using Microsoft.Extensions.Configuration;
 
 namespace BlenderBender
 {
     public partial class EmailForm : Form
     {
-        public Form mf;
-        public UserClass user = new UserClass();
+        public int _ccounter;
         public DateClass dtto = new DateClass();
+
+        public string emailmsg =
+            "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι η παραγγελία σας βρίσκεται στο κατάστημά μας.\r\nΜπορείτε να περάσετε να την παραλάβετε.\r\n";
+
+        public string lastclip;
+        public string lastemail;
+        public string lastname;
+        public string lastorder;
+        public string lastprice = null;
+        public Form mf;
         public string tod2 = "καλησπέρα σας.";
-        public string emailmsg = "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι η παραγγελία σας βρίσκεται στο κατάστημά μας.\r\nΜπορείτε να περάσετε να την παραλάβετε.\r\n";
+        public UserClass user = new UserClass();
+
         public EmailForm(Form mf)
         {
             InitializeComponent();
             PopulateCmbWithPresets();
             this.mf = mf;
             cmbExtraDays.SelectedIndex = 0;
+            this.KeyPreview = true; // Enable key preview
+            this.KeyDown += new KeyEventHandler(EmailForm_KeyDown);
         }
-        public string lastclip = null;
-        public string lastorder = null;
-        public string lastemail = null;
-        public string lastname = null;
-        public string lastprice = null;
-        public int _ccounter = 0;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (_emailaid.Checked == true)
+            if (_emailaid.Checked)
             {
                 var iData = Clipboard.GetDataObject();
-                if ((Clipboard.GetDataObject() != null) && ((string)iData.GetData(DataFormats.Text) != lastclip))
-                {
+                if (Clipboard.GetDataObject() != null && (string)iData.GetData(DataFormats.Text) != lastclip)
                     // Is Data Text?
                     if (iData.GetDataPresent(DataFormats.Text))
                     {
-                        string data = (string)iData.GetData(DataFormats.Text);
-                        string gtext = Clipboard.GetText(TextDataFormat.UnicodeText);
+                        var data = (string)iData.GetData(DataFormats.Text);
+                        var gtext = Clipboard.GetText(TextDataFormat.UnicodeText);
                         //Console.WriteLine(data);
                         //if ((data.Contains("---")) && (data.Contains("_")))
-                        if (Regex.IsMatch(data, @"^\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$") || Regex.IsMatch(data, @"^\d{3}-\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$"))
-                        {
+                        if (Regex.IsMatch(data,
+                                @"^\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$") ||
+                            Regex.IsMatch(data,
+                                @"^\d{3}-\d{2}_\d{2}_\d{2}-\d{2}_\d{2}_\d{2}---\d{1,3}_\d{1,3}_\d{1,3}_\d{1,3}$"))
                             if (data != lastorder)
                             {
                                 textBox54.Text = data;
                                 lastorder = data;
                                 _ccounter += 1;
                             }
-                        }
+
                         if (data.Contains("@"))
-                        {
                             if (Regex.IsMatch(data, @"^.+\@.+\.\w{2,3}$"))
-                            {
                                 if (data != lastemail)
                                 {
                                     textBox53.Text = data;
                                     lastemail = data;
                                     _ccounter += 1;
                                 }
-                            }
-                        }
-                        if ((!data.Contains("---")) && (!data.Contains("_")) && (!data.Contains("@")))
-                        {
+
+                        if (!data.Contains("---") && !data.Contains("_") && !data.Contains("@"))
                             if (Regex.IsMatch(gtext, @"^\w+$"))
-                            {
                                 if (gtext != lastname)
                                 {
                                     textBox55.Text = gtext;
                                     lastname = gtext;
                                     _ccounter += 1;
                                 }
-                            }
-                        }
+
                         lastclip = (string)iData.GetData(DataFormats.Text);
                         if (_ccounter == 3)
                         {
-                            this.WindowState = FormWindowState.Normal;
-                            this.BringToFront();
-                            this.TopMost = true;
-                            this.Focus();
+                            WindowState = FormWindowState.Normal;
+                            BringToFront();
+                            TopMost = true;
+                            Focus();
                             _ccounter = 0;
                             _emailaid.Checked = false;
-                            this.TopMost = false;
+                            TopMost = false;
                         }
                     }
-                }
             }
         }
 
@@ -107,7 +100,7 @@ namespace BlenderBender
             var settings = $@"{folder}\Settings.ini";
             //Reading from appsettings file
             var config = new ConfigurationBuilder()
-                .AddJsonFile(@"default.json", optional: false)
+                .AddJsonFile(@"default.json", false)
                 .Build();
             //return config.GetValue<string>("Logging:FilePath");
             try
@@ -115,49 +108,43 @@ namespace BlenderBender
                 var data = config.GetRequiredSection("EmailPresets").AsEnumerable();
                 var i = 0;
                 foreach (var item in data)
-                {
                     if (item.Key != "EmailPresets")
                     {
                         var d = new ComboboxItem();
-                        d.Text = item.Key.Replace("EmailPresets:",$"[{i}]ΠΡΟΤΥΠΟ:").Humanize().Transform(To.TitleCase);
+                        d.Text = item.Key.Replace("EmailPresets:", $"[{i}]ΠΡΟΤΥΠΟ:").Humanize().Transform(To.TitleCase);
                         d.Value = item.Value;
                         cmbEmailText.Items.Add(d);
                         i++;
                     }
-                }
 
                 if (File.Exists(settings))
-                {
                     // Opening the file for reading
-                    using (StreamReader sr = File.OpenText(settings))
+                    using (var sr = File.OpenText(settings))
                     {
-                        string s = "";
+                        var s = "";
                         while ((s = sr.ReadLine()) != null)
-                        {
                             if (!s.StartsWith("#"))
                             {
                                 var sl = s.Split('|');
-                                var d = new ComboboxItem()
+                                var d = new ComboboxItem
                                 {
                                     Text = $"[Custom]{sl[0]}",
                                     Value = sl[1]
                                 };
                                 cmbEmailText.Items.Add(d);
                             }
-                        }
                     }
-                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         private void button7_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(user.GetRegKey<String>("MAIL_ADDRESS")))
+            if (!string.IsNullOrEmpty(user.GetRegKey<string>("MAIL_ADDRESS")))
             {
-
                 var message = comboBox3.Text + " " + textBox55.Text + " " + tod2 + " " + emailmsg;
                 if (user.GetRegKey<bool>("REPLACE_ON_MAIL"))
                 {
@@ -169,13 +156,14 @@ namespace BlenderBender
                 {
                     message = message.Replace("[newline]", "\r\n");
                 }
-                message = message.Replace("[phone]", user.GetRegKey<String>("Phone"));
+
+                message = message.Replace("[phone]", user.GetRegKey<string>("Phone"));
                 message = message.Replace("[mphone]", "211 5000 500");
                 message = message.Replace("[fdate]", MakeDate());
                 message = message.Replace("[user]", user.CurrentUser());
                 message = message.Replace("[datetime-user]", user.DateTimeNUser());
                 message = message.Replace("[date-user]", user.DateNUser());
-                if (signChk.Checked) message += Properties.Settings.Default.Signature;
+                if (signChk.Checked) message += Settings.Default.Signature;
 
                 var mailing_add = textBox53.Text;
                 richTextBox5.Text = "E-mail Address:" + mailing_add + "\r\n" +
@@ -195,9 +183,9 @@ namespace BlenderBender
 
         private string MakeDate()
         {
-            int extra = 0;
-            extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
-            string doh = dtto.DateTo("excludeSunday", extra);
+            var extra = 0;
+            extra += int.Parse(cmbExtraDays.SelectedItem.ToString());
+            var doh = dtto.DateTo("excludeSunday", extra);
             return doh;
         }
 
@@ -205,9 +193,9 @@ namespace BlenderBender
         {
             try
             {
-                int extra = 0;
-                extra += Int32.Parse(cmbExtraDays.SelectedItem.ToString());
-                string doh = dtto.DateTo("excludeSunday", extra);
+                var extra = 0;
+                extra += int.Parse(cmbExtraDays.SelectedItem.ToString());
+                var doh = dtto.DateTo("excludeSunday", extra);
                 switch (cmbEmailText.SelectedIndex)
                 {
                     case 4:
@@ -237,13 +225,14 @@ namespace BlenderBender
                         break;
                     default:
                         Clipboard.SetText(
-                            $"**Αποστάλθηκε E-mail για {cmbEmailText.SelectedItem.ToString()} {user.DateTimeNUser()}");
+                            $"**Αποστάλθηκε E-mail για {cmbEmailText.SelectedItem} {user.DateTimeNUser()}");
                         break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Η αντιγραφή για την σημείωση του clipboard απέτυχε. Με αιτία {ex}.\r\n Δοκιμάστε ξανά");
+                MessageBox.Show(
+                    $"Η αντιγραφή για την σημείωση του clipboard απέτυχε. Με αιτία {ex}.\r\n Δοκιμάστε ξανά");
             }
         }
 
@@ -262,7 +251,10 @@ namespace BlenderBender
             func(Controls);
         }
 
-        private void button18_Click(object sender, EventArgs e) => ClearTextBoxes();
+        private void button18_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
 
         private void _emailaid_CheckedChanged(object sender, EventArgs e)
         {
@@ -281,21 +273,27 @@ namespace BlenderBender
 
         private void cmbEmailText_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboboxItem cb = cmbEmailText.SelectedItem as ComboboxItem;
+            var cb = cmbEmailText.SelectedItem as ComboboxItem;
             if (cb != null)
                 emailmsg = cb.Value.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void EmailForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Close(); }
+            if (e.KeyCode == Keys.Escape) Close();
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                button18.PerformClick();
+                _emailaid.Checked = true;
+            }
         }
     }
+
     public class ComboboxItem
     {
         public string Text { get; set; }

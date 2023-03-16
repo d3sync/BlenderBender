@@ -33,9 +33,10 @@
     <SuiteName>e-shop Tools</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>24</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -99,12 +100,6 @@
   <ItemGroup>
     <Reference Include="Humanizer, Version=2.14.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
       <HintPath>..\packages\Humanizer.Core.2.14.1\lib\netstandard2.0\Humanizer.dll</HintPath>
-    </Reference>
-    <Reference Include="IronOcr, Version=2020.11.2.0, Culture=neutral, PublicKeyToken=c2cbcea5ea3f6d8d, processorArchitecture=MSIL">
-      <HintPath>..\packages\IronOcr.2020.11.2\lib\net40\IronOcr.dll</HintPath>
-    </Reference>
-    <Reference Include="IronOcr.Assets, Version=2020.11.2.0, Culture=neutral, PublicKeyToken=c2cbcea5ea3f6d8d, processorArchitecture=MSIL">
-      <HintPath>..\packages\IronOcr.2020.11.2\lib\net40\IronOcr.Assets.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -326,6 +321,7 @@
     <None Include="Models\DB_TD500_resnet50.onnx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\BlenderBender.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -355,9 +351,9 @@
     <Content Include="Medicalwp-Medical-Doctor-blue.ico" />
     <None Include="Resources\Notepad_36859.png" />
     <None Include="Resources\icons8-calculator-321.png" />
-    <None Include="default.json">
+    <Content Include="default.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Resources\ooo_calc_10003.png" />
     <None Include="Resources\transaction_icon_194111.png" />
     <None Include="Resources\icons8-send-email-50.png" />
@@ -382,7 +378,6 @@
     <None Include="Resources\icons8-spiral-bound-booklet-48.png" />
     <None Include="Resources\icons8-calculator-32.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\IronOcr.ComputerVision.Windows.2022.11.10820\build\IronOcr.ComputerVision.Windows.targets" Condition="Exists('..\packages\IronOcr.ComputerVision.Windows.2022.11.10820\build\IronOcr.ComputerVision.Windows.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

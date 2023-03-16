@@ -46,6 +46,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.χειροκίνητηΜετονομασίαToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +150,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(240, 126);
             // 
             // toolStripMenuItem16
             // 
@@ -214,6 +214,13 @@
             this.toolStripMenuItem6.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem6.Text = "Έξοδο Καταστήματος";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // χειροκίνητηΜετονομασίαToolStripMenuItem
+            // 
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Name = "χειροκίνητηΜετονομασίαToolStripMenuItem";
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Text = "Χειροκίνητη Μετονομασία";
+            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -341,13 +348,6 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(379, 352);
             this.webBrowser1.TabIndex = 10;
-            // 
-            // χειροκίνητηΜετονομασίαToolStripMenuItem
-            // 
-            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Name = "χειροκίνητηΜετονομασίαToolStripMenuItem";
-            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Text = "Χειροκίνητη Μετονομασία";
-            this.χειροκίνητηΜετονομασίαToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // FileMonitor
             // 

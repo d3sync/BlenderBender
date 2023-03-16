@@ -1,27 +1,19 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using BlenderBender.Class;
-using BlenderBender.Forms;
-using System.Text.RegularExpressions;
-using BlenderBender.Properties;
 using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
+using BlenderBender.Forms;
 
 namespace BlenderBender
 {
     public partial class MainWindow : Form
     {
-        private int childFormNumber = 0;
+        private int childFormNumber;
+        public FileMonitor fmonitor;
         public int hold;
         public MessagesForm mes;
-        public FileMonitor fmonitor;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,24 +21,26 @@ namespace BlenderBender
             fmonitor = new FileMonitor(this);
             fmonitor.MdiParent = this;
         }
+
+        public int countdown { get; set; }
+
         public void notifier(string message, ToolTipIcon d = ToolTipIcon.Info, int option = 0)
         {
-            var data = new Dictionary<int, string>()
+            var data = new Dictionary<int, string>
             {
-                {0,"Αντιγράφθηκε στο Πρόχειρο: "},
-                {1,"Ενημέρωση: "},
-                {2,"Πρόβλημα: "}
+                { 0, "Αντιγράφθηκε στο Πρόχειρο: " },
+                { 1, "Ενημέρωση: " },
+                { 2, "Πρόβλημα: " }
             };
             notifyIcon1.BalloonTipIcon = d;
             notifyIcon1.BalloonTipTitle = "e-Shop Assistant";
-            notifyIcon1.BalloonTipText = String.Format("{0} {1}", data[option], message);
+            notifyIcon1.BalloonTipText = string.Format("{0} {1}", data[option], message);
             notifyIcon1.ShowBalloonTip(2000);
         }
-        public int countdown { get; set; }
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
+            var childForm = new Form();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.Show();
@@ -58,45 +52,35 @@ namespace BlenderBender
             var settings = $@"{folder}\Settings.ini";
             if (File.Exists(settings))
                 return settings;
-            this.CreateDefaultTxtFile();
+            CreateDefaultTxtFile();
             return settings;
         }
+
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            var openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                string FileName = openFileDialog.FileName;
+                var FileName = openFileDialog.FileName;
             }
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                string FileName = saveFileDialog.FileName;
+                var FileName = saveFileDialog.FileName;
             }
         }
+
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            Close();
         }
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,29 +115,26 @@ namespace BlenderBender
 
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
+            foreach (var childForm in MdiChildren) childForm.Close();
         }
 
         private void messagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
+            var f1 = new Form1();
             f1.MdiParent = this;
             f1.Show();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            calculateForm calc = new calculateForm(this);
+            var calc = new calculateForm(this);
             calc.MdiParent = this;
             calc.Show();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About about = new About();
+            var about = new About();
             about.MdiParent = this;
             about.Show();
         }
@@ -197,22 +178,15 @@ namespace BlenderBender
             };
             var folder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\e-ShopAssistant";
             var settings = $@"{folder}\Settings.ini";
-            if (!Directory.Exists(folder))
-            {
-                Directory.CreateDirectory(folder);
-            }
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
             if (!File.Exists(settings))
-            {
-                using (StreamWriter sw = File.CreateText(settings))
+                using (var sw = File.CreateText(settings))
                 {
-                    foreach (var item in template)
-                    {
-                        sw.WriteLine(item);
-                    }
+                    foreach (var item in template) sw.WriteLine(item);
                     sw.WriteLine("ΕΝΗΜ. ΓΙΑ ΕΠΙΚ.(ΤΕΣΤ)|Παρακαλούμε επικοινωνήστε μαζί μας στο τηλ [phone]");
                 }
-            }
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //toolStripProgressBar1.Value = i++;
@@ -224,6 +198,7 @@ namespace BlenderBender
                 toolStripProgressBar1.Visible = true;
                 toolStripProgressBar1.Value = 100;
             }
+
             if (countdown > 0)
             {
                 countdown--;
@@ -233,38 +208,38 @@ namespace BlenderBender
                     hold = 1;
                     toolStripProgressBar1.Value = 0;
                     toolStripProgressBar1.Visible = false;
-                    if (this.MdiChildren.Length > 0)
+                    if (MdiChildren.Length > 0)
                     {
-                        var children = this.MdiChildren;
+                        var children = MdiChildren;
                         foreach (var child in children)
-                        {
                             if (child.GetType() == typeof(MessagesForm))
                                 mes.dateTimePicker3.Value = DateTime.Now;
-                        }
                     }
+
                     Clipboard.Clear();
                 }
             }
+
             hold = 0;
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsForm sf = new SettingsForm();
+            var sf = new SettingsForm();
             sf.MdiParent = this;
             sf.Show();
         }
 
         private void emailStripButton3_Click(object sender, EventArgs e)
         {
-            EmailForm ef = new EmailForm(this);
+            var ef = new EmailForm(this);
             ef.MdiParent = this;
             ef.Show();
         }
 
         private void pistoStripButton4_Click(object sender, EventArgs e)
         {
-            PistoForm pf = new PistoForm(this);
+            var pf = new PistoForm(this);
             pf.MdiParent = this;
             pf.Show();
         }
@@ -276,7 +251,6 @@ namespace BlenderBender
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.Control)
             {
                 switch (e.KeyCode)
@@ -295,10 +269,6 @@ namespace BlenderBender
                         break;
                 }
             }
-            else
-            {
-                
-            }
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -313,7 +283,32 @@ namespace BlenderBender
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized; 
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void messagesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            toolStripButton1.PerformClick();
+        }
+
+        private void emailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            emailStripButton3.PerformClick();
+        }
+
+        private void πιστωτικάToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pistoStripButton4.PerformClick();
+        }
+
+        private void υπολογισμόςΧρημάτωνToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripButton5.PerformClick();
+        }
+
+        private void toolStripMenuItemFM_Click(object sender, EventArgs e)
+        {
+            toolStripBtnFmonitor.PerformClick();
         }
     }
 }

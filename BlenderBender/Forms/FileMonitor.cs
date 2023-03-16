@@ -1,37 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BlenderBender;
-using BlenderBender.Models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ListView = System.Windows.Forms.ListView;
+using BlenderBender.Properties;
 
 namespace BlenderBender.Forms
 {
     public partial class FileMonitor : Form
     {
         public MainWindow mf;
+
         //public List<FileModel> files = new List<FileModel>();
         //public List<FileModel> classified = new List<FileModel>();
         public FileMonitor(MainWindow mf)
         {
             InitializeComponent();
             this.mf = mf;
-            checkBox1.Checked = Properties.Settings.Default.filemonitor;
-            label40.Text = Properties.Settings.Default.monitorfolder;
-            fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
-            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
-            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
-            backgroundWorker1.WorkerReportsProgress = true;
+            checkBox1.Checked = Settings.Default.filemonitor;
+            label40.Text = Settings.Default.monitorfolder;
+            fileSystemWatcher1.Path = Path.GetFullPath(Settings.Default.monitorfolder);
+            //backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            //backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            //backgroundWorker1.WorkerReportsProgress = true;
+            webBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
+        }
+        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            // Set the zoom level to fit the entire page
+            webBrowser1.Document.Body.Style = "zoom:80%"; // Change the zoom percentage as required
         }
 
         //public void ClassifyFile(FileModel lvi)
@@ -53,7 +50,6 @@ namespace BlenderBender.Forms
         //        {
         //            var ocrResult = ocrTesseract.Read(ocrInput);
         //            var barcodes = ocrResult.Barcodes.ToList();
-
 
 
         //            bool hasbarcodes = barcodes.Count > 0;
@@ -115,7 +111,7 @@ namespace BlenderBender.Forms
             //DisplayInListView();
         }
 
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             //if (files.Count > 0)
             //{
@@ -130,30 +126,32 @@ namespace BlenderBender.Forms
             //}
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //progressBar1.Value = e.ProgressPercentage;
         }
+
         private void button5_Click(object sender, EventArgs e)
         {
             var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Properties.Settings.Default.monitorfolder = folderBrowserDialog1.SelectedPath;
-                Properties.Settings.Default.Save();
-                label40.Text = Properties.Settings.Default.monitorfolder;
-                fileSystemWatcher1.Path = Path.GetFullPath(Properties.Settings.Default.monitorfolder);
+                Settings.Default.monitorfolder = folderBrowserDialog1.SelectedPath;
+                Settings.Default.Save();
+                label40.Text = Settings.Default.monitorfolder;
+                fileSystemWatcher1.Path = Path.GetFullPath(Settings.Default.monitorfolder);
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.filemonitor = fileSystemWatcher1.EnableRaisingEvents = checkBox1.Checked;
-            Properties.Settings.Default.Save();
+            Settings.Default.filemonitor = fileSystemWatcher1.EnableRaisingEvents = checkBox1.Checked;
+            Settings.Default.Save();
         }
-        private void fileSystemWatcher1_Created(object sender, System.IO.FileSystemEventArgs e)
+
+        private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
         {
-            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
+            listView1.Items.Add(new ListViewItem(new[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
             //files.Add(new FileModel()
             //{
             //    Name = e.Name,
@@ -165,15 +163,14 @@ namespace BlenderBender.Forms
             //});
         }
 
-        private void fileSystemWatcher1_Deleted(object sender, System.IO.FileSystemEventArgs e)
+        private void fileSystemWatcher1_Deleted(object sender, FileSystemEventArgs e)
         {
             //listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString() }));
         }
 
-        private void fileSystemWatcher1_Renamed(object sender, System.IO.RenamedEventArgs e)
+        private void fileSystemWatcher1_Renamed(object sender, RenamedEventArgs e)
         {
-            
-            listView1.Items.Add(new ListViewItem(new string[] { e.Name, e.FullPath, e.ChangeType.ToString(), e.OldName }));
+            listView1.Items.Add(new ListViewItem(new[] { e.Name, e.FullPath, e.ChangeType.ToString(), e.OldName }));
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -190,7 +187,9 @@ namespace BlenderBender.Forms
                     listView1.SelectedItems[0].Remove();
                 }
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -200,11 +199,15 @@ namespace BlenderBender.Forms
                 if (listView1.SelectedItems[0].SubItems[1] != null)
                 {
                     var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-                    File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") + extension);
+                    File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                        fileSystemWatcher1.Path + "\\ΕΞΟΔΟ - " + DateTime.Now.ToString("dd.MM.yyyy-hhmmss") +
+                        extension);
                     listView1.SelectedItems[0].Remove();
                 }
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
@@ -220,19 +223,20 @@ namespace BlenderBender.Forms
                     listView1.SelectedItems[0].Remove();
                 }
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             try
             {
-                if (listView1.SelectedItems[0].SubItems[1] != null)
-                {
-                    listView1.SelectedItems[0].Remove();
-                }
+                if (listView1.SelectedItems[0].SubItems[1] != null) listView1.SelectedItems[0].Remove();
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void CopyPathToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,7 +247,9 @@ namespace BlenderBender.Forms
         private void toolStripSeparator4_Click(object sender, EventArgs e)
         {
             var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
-            File.Move(listView1.SelectedItems[0].SubItems[1].Text, fileSystemWatcher1.Path + "\\ΑΠΟΔΕΙΞΗ ΠΡΟΕΙΣΠΡΑΞΗΣ - " + DateTime.Now.ToString("ddMMyyyyhhmmss") + extension);
+            File.Move(listView1.SelectedItems[0].SubItems[1].Text,
+                fileSystemWatcher1.Path + "\\ΑΠΟΔΕΙΞΗ ΠΡΟΕΙΣΠΡΑΞΗΣ - " + DateTime.Now.ToString("ddMMyyyyhhmmss") +
+                extension);
             listView1.SelectedItems[0].Remove();
         }
 
@@ -252,10 +258,7 @@ namespace BlenderBender.Forms
             try
             {
                 var directory = fileSystemWatcher1.Path + $"\\{dstName} {DateTime.Now.ToString("MMMM yyyy")}";
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
+                if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
                 var filename = Path.GetFileName(listView1.SelectedItems[0].SubItems[1].Text);
                 File.Move(listView1.SelectedItems[0].SubItems[1].Text, Path.Combine(directory, filename));
@@ -266,11 +269,13 @@ namespace BlenderBender.Forms
                 MessageBox.Show(ex.Message, "There is ur problem");
             }
         }
+
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
             //ejoda
             MoveFile("ΕΞΟΔΑ");
         }
+
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             //Ticket Compliments
@@ -304,24 +309,24 @@ namespace BlenderBender.Forms
         {
             if (e.CloseReason != CloseReason.WindowsShutDown)
             {
-                this.Hide();
+                Hide();
                 e.Cancel = true;
             }
 
             base.OnFormClosing(e);
         }
+
         private void FileMonitor_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Hide(); }
+            if (e.KeyCode == Keys.Escape) Hide();
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            if ((listView1.SelectedItems[0].SubItems[1].Text != "") ||
-                (listView1.SelectedItems[0].SubItems[1].Text != null))
+            if (listView1.SelectedItems[0].SubItems[1].Text != "" ||
+                listView1.SelectedItems[0].SubItems[1].Text != null)
             {
-
-                saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
+                saveFileDialog1.InitialDirectory = Settings.Default.monitorfolder;
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
                 saveFileDialog1.FileName = $"Αρχείο - {DateTime.Now.ToString("ddMMyyyyhhmmss")}";
                 saveFileDialog1.DefaultExt = extension;
@@ -341,22 +346,21 @@ namespace BlenderBender.Forms
         {
             try
             {
-                webBrowser1.Navigate("file:///"+ listView1.SelectedItems[0].SubItems[1].Text);
+                webBrowser1.Visible = true;
+                    webBrowser1.Navigate("file:///" + listView1.SelectedItems[0].SubItems[1].Text);
+                    
             }
             catch
             {
-
             }
-
         }
 
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((listView1.SelectedItems[0].SubItems[1].Text != "") ||
-                (listView1.SelectedItems[0].SubItems[1].Text != null))
+            if (listView1.SelectedItems[0].SubItems[1].Text != "" ||
+                listView1.SelectedItems[0].SubItems[1].Text != null)
             {
-
-                saveFileDialog1.InitialDirectory = Properties.Settings.Default.monitorfolder;
+                saveFileDialog1.InitialDirectory = Settings.Default.monitorfolder;
                 var extension = Path.GetExtension(listView1.SelectedItems[0].SubItems[1].Text);
                 saveFileDialog1.FileName = $"ΕΞΟΔΟ - (ΤΑΔΕ) - (ΤΟΣΑ) ΕΥΡΩ - {DateTime.Now.ToString("dd.MM.yyyy")}";
                 saveFileDialog1.DefaultExt = extension;
