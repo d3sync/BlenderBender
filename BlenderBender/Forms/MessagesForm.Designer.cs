@@ -371,6 +371,7 @@
             "5",
             "7",
             "10",
+            "12",
             "-1"});
             this.cmbExtraDays.Location = new System.Drawing.Point(138, 37);
             this.cmbExtraDays.Name = "cmbExtraDays";

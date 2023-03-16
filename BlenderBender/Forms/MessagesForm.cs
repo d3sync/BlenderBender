@@ -24,7 +24,8 @@ namespace BlenderBender.Forms
         {
             try
             {
-                currentUser.Items.Clear();
+                if (currentUser.Items.Count > 0)
+                    currentUser.Items.Clear();
                 foreach (var item in Settings.Default.KnownUsers)
                     if (!string.IsNullOrEmpty(item))
                         currentUser.Items.Add(item);

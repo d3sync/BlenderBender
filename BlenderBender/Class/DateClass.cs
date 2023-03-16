@@ -6,7 +6,7 @@ namespace BlenderBender
     {
         public string DateTo(string option, int extraDays)
         {
-            var nn = 3;
+            var nn = 2;
             var meh = DateTime.Now;
             switch (option)
             {
@@ -30,11 +30,9 @@ namespace BlenderBender
                     break;
             }
 
-            if (extraDays != 0)
-            {
-                meh = meh.AddDays(extraDays);
-                if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
-            }
+            meh = meh.AddDays(extraDays);
+            if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
+
 
             var dtp = meh.ToString("dddd dd/MM");
             var ntay = meh.DayOfWeek.ToString();
