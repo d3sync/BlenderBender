@@ -67,6 +67,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // button5
             // 
+            this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5.Location = new System.Drawing.Point(441, 361);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 23);
@@ -332,6 +334,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(676, 361);
             this.button1.Name = "button1";
@@ -349,11 +352,25 @@
             this.webBrowser1.Size = new System.Drawing.Size(379, 352);
             this.webBrowser1.TabIndex = 10;
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseBtn.Location = new System.Drawing.Point(333, 365);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 11;
+            this.CloseBtn.Text = "Hidden";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Visible = false;
+            this.CloseBtn.Click += new System.EventHandler(this.Close_Click);
+            // 
             // FileMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CloseBtn;
             this.ClientSize = new System.Drawing.Size(784, 391);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
@@ -413,5 +430,6 @@
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripMenuItem χειροκίνητηΜετονομασίαToolStripMenuItem;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using BlenderBender.Properties;
 
@@ -10,13 +11,20 @@ namespace BlenderBender.Forms
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         private Form mf;
         public NumberStyles nStyles = NumberStyles.AllowDecimalPoint;
-
+        
         public PistoForm(Form mf)
         {
             InitializeComponent();
             this.mf = mf;
+            this.KeyDown += Close_KeyDown;
         }
-
+        private void Close_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
         public void ClearTextBoxes()
         {
             Action<Control.ControlCollection> func = null;

@@ -56,6 +56,7 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.chkBreakFree = new System.Windows.Forms.CheckBox();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.groupBox11.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -331,7 +332,6 @@
             // chkBreakFree
             // 
             this.chkBreakFree.AutoSize = true;
-            this.chkBreakFree.Enabled = false;
             this.chkBreakFree.Location = new System.Drawing.Point(823, 266);
             this.chkBreakFree.Name = "chkBreakFree";
             this.chkBreakFree.Size = new System.Drawing.Size(209, 19);
@@ -340,11 +340,25 @@
             this.chkBreakFree.UseVisualStyleBackColor = true;
             this.chkBreakFree.CheckedChanged += new System.EventHandler(this.chkBreakFree_CheckedChanged);
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseBtn.Location = new System.Drawing.Point(955, 416);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 68;
+            this.CloseBtn.Text = "Hidden";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Visible = false;
+            this.CloseBtn.Click += new System.EventHandler(this.Close_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CloseBtn;
             this.ClientSize = new System.Drawing.Size(1045, 451);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.chkBreakFree);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.richTextBox3);
@@ -409,5 +423,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.CheckBox chkBreakFree;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

@@ -6,15 +6,17 @@ using Microsoft.Win32;
 
 namespace BlenderBender.Forms
 {
-    public partial class SettingsForm : Form
+    public partial class SettingsForm : Form    
     {
         public UserClass user;
 
         public SettingsForm()
         {
             InitializeComponent();
+            this.KeyDown += Close_KeyDown;
             cmbKnown();
             cmbKnownUsers.Text = Settings.Default.User ?? "Αγνωστός Χειριστής";
+            chkBreakFree.Checked = Settings.Default.BreakFree;
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
@@ -50,6 +52,13 @@ namespace BlenderBender.Forms
             chkBreakFree.Checked = Settings.Default.BreakFree;
             checkBox2.Checked = Settings.Default.windowsWeirdness;
             richTextBox3.Text = Settings.Default.Signature;
+        }
+        private void Close_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -105,11 +114,20 @@ namespace BlenderBender.Forms
             Settings.Default.User = cmbKnownUsers.SelectedItem.ToString();
             Settings.Default.Save();
         }
-
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void chkBreakFree_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Default.BreakFree = chkBreakFree.Checked;
             Settings.Default.Save();
+            if (chkBreakFree.Checked)
+            {
+                this.Hide();
+                this.MdiParent = null;
+                this.Show();
+            }
         }
     }
 }

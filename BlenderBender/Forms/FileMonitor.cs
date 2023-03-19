@@ -17,6 +17,7 @@ namespace BlenderBender.Forms
         {
             InitializeComponent();
             this.mf = mf;
+            this.KeyDown += Close_KeyDown;
             checkBox1.Checked = Settings.Default.filemonitor;
             label40.Text = Settings.Default.monitorfolder;
             fileSystemWatcher1.Path = Path.GetFullPath(Settings.Default.monitorfolder);
@@ -25,6 +26,19 @@ namespace BlenderBender.Forms
             //backgroundWorker1.WorkerReportsProgress = true;
             webBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
         }
+        private void Close_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Hide();
+            }
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
         private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             // Set the zoom level to fit the entire page

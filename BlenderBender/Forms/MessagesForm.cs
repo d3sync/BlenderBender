@@ -18,8 +18,13 @@ namespace BlenderBender.Forms
             Known();
             currentUser.Text = Settings.Default.User ?? "Αγνωστός Χειριστής";
             cmbExtraDays.SelectedIndex = 0;
+            this.KeyDown += Form_KeyDown;
         }
 
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) Close();
+        }
         private void Known()
         {
             try

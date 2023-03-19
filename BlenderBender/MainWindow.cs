@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using BlenderBender.Forms;
+using BlenderBender.Properties;
 
 namespace BlenderBender
 {
@@ -19,7 +22,44 @@ namespace BlenderBender
             InitializeComponent();
             CreateDefaultTxtFile();
             fmonitor = new FileMonitor(this);
-            fmonitor.MdiParent = this;
+            Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
+            if (!Settings.Default.BreakFree)
+            {
+                this.Height = 632;
+                fmonitor.MdiParent = this;
+                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            }
+            else
+            {
+                this.Height = 156;
+                this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+                int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width - 400;
+                int y = Screen.PrimaryScreen.WorkingArea.Height - this.Height - 20;
+                this.Location = new Point(x, y);
+            }
+
+        }
+        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // Check if the changed setting is the one you're interested in
+            if (e.PropertyName == "BreakFree")
+            {
+                if (Settings.Default.BreakFree)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    this.Height = 156;
+                    int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width - 400;
+                    int y = Screen.PrimaryScreen.WorkingArea.Height - this.Height - 20;
+                    this.Location = new Point(x, y);
+                }
+                else
+                {
+                    this.Height = 632;
+                    int x = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
+                    int y = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
+                    this.Location = new Point(x, y);
+                }
+            }
         }
 
         public int countdown { get; set; }
@@ -121,21 +161,24 @@ namespace BlenderBender
         private void messagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f1 = new Form1();
-            f1.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                f1.MdiParent = this;
             f1.Show();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             var calc = new calculateForm(this);
-            calc.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                calc.MdiParent = this;
             calc.Show();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var about = new About();
-            about.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                about.MdiParent = this;
             about.Show();
         }
 
@@ -147,7 +190,8 @@ namespace BlenderBender
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             mes = new MessagesForm(this);
-            mes.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                mes.MdiParent = this;
             mes.Show();
         }
 
@@ -226,21 +270,24 @@ namespace BlenderBender
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var sf = new SettingsForm();
-            sf.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                sf.MdiParent = this;
             sf.Show();
         }
 
         private void emailStripButton3_Click(object sender, EventArgs e)
         {
             var ef = new EmailForm(this);
-            ef.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                ef.MdiParent = this;
             ef.Show();
         }
 
         private void pistoStripButton4_Click(object sender, EventArgs e)
         {
             var pf = new PistoForm(this);
-            pf.MdiParent = this;
+            if (!Settings.Default.BreakFree)
+                pf.MdiParent = this;
             pf.Show();
         }
 
@@ -309,6 +356,11 @@ namespace BlenderBender
         private void toolStripMenuItemFM_Click(object sender, EventArgs e)
         {
             toolStripBtnFmonitor.PerformClick();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

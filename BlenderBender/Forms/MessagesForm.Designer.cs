@@ -58,6 +58,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -427,6 +428,7 @@
             // 
             // button11
             // 
+            this.button11.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(138, 18);
             this.button11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -439,6 +441,7 @@
             // 
             // button10
             // 
+            this.button10.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(5, 18);
             this.button10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -449,11 +452,25 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseBtn.Location = new System.Drawing.Point(623, 3);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(24, 23);
+            this.CloseBtn.TabIndex = 24;
+            this.CloseBtn.Text = "Hidden";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Visible = false;
+            this.CloseBtn.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // MessagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CloseBtn;
             this.ClientSize = new System.Drawing.Size(653, 421);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox9);
@@ -514,5 +531,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.ComboBox currentUser;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }
