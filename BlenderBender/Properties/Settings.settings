@@ -36,10 +36,14 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="KnownUsers" Type="System.Collections.Generic.List&lt;string&gt;" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Test
+Test 2</Value>
     </Setting>
     <Setting Name="BreakFree" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KnownUsers2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User 1|User 2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using BlenderBender.Class;
 using BlenderBender.Properties;
@@ -31,7 +32,7 @@ namespace BlenderBender.Forms
             {
                 if (currentUser.Items.Count > 0)
                     currentUser.Items.Clear();
-                foreach (var item in Settings.Default.KnownUsers)
+                foreach (var item in Settings.Default.KnownUsers2.Split('|').ToList())
                     if (!string.IsNullOrEmpty(item))
                         currentUser.Items.Add(item);
             }

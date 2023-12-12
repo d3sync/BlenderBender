@@ -362,5 +362,10 @@ namespace BlenderBender
         {
 
         }
+
+        private void openConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe",AppDomain.CurrentDomain.BaseDirectory);
+        }
     }
 }

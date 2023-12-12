@@ -12,7 +12,7 @@ namespace BlenderBender.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -159,6 +159,7 @@ namespace BlenderBender.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Test\r\nTest 2")]
         public global::System.Collections.Generic.List<string> KnownUsers {
             get {
                 return ((global::System.Collections.Generic.List<string>)(this["KnownUsers"]));
@@ -177,6 +178,18 @@ namespace BlenderBender.Properties {
             }
             set {
                 this["BreakFree"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("User 1|User 2")]
+        public string KnownUsers2 {
+            get {
+                return ((string)(this["KnownUsers2"]));
+            }
+            set {
+                this["KnownUsers2"] = value;
             }
         }
     }

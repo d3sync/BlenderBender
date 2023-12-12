@@ -26,14 +26,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://tools.idle.gr/eshopassistant-legacy/</InstallUrl>
+    <InstallUrl>https://tools.idle.gr/eshopassistant-legacy/</InstallUrl>
     <UpdateUrl>http://tools.idle.gr/eshopassistant-legacy/</UpdateUrl>
     <ProductName>e-Shop Assistant</ProductName>
     <PublisherName>d3sync</PublisherName>
     <SuiteName>e-shop Tools</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

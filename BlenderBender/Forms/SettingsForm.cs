@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using BlenderBender.Class;
 using BlenderBender.Properties;
@@ -6,7 +8,7 @@ using Microsoft.Win32;
 
 namespace BlenderBender.Forms
 {
-    public partial class SettingsForm : Form    
+    public partial class SettingsForm : Form
     {
         public UserClass user;
 
@@ -14,37 +16,19 @@ namespace BlenderBender.Forms
         {
             InitializeComponent();
             this.KeyDown += Close_KeyDown;
-            cmbKnown();
+            cmbKnown2();
             cmbKnownUsers.Text = Settings.Default.User ?? "Αγνωστός Χειριστής";
             chkBreakFree.Checked = Settings.Default.BreakFree;
             var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\e-ShopAssistant");
             if (key != null)
             {
-                if (key.GetValue("Phone") != null)
-                    textBox43.Text = key.GetValue("Phone").ToString();
-                else
-                    textBox43.Text = "2115000500";
-                if (key.GetValue("kava") != null)
-                    textBox46.Text = key.GetValue("kava").ToString();
-                else
-                    textBox46.Text = "0";
-                if (key.GetValue("ESHOP_SHOP") != null)
-                    textBox48.Text = key.GetValue("ESHOP_SHOP").ToString();
-                else
-                    textBox48.Text = "ΚΑΤΑΣΤΗΜΑ ΡΟΔΟΥ";
-                if (key.GetValue("ESHOP_ONE") != null)
-                    textBox6.Text = key.GetValue("ESHOP_ONE").ToString();
-                else
-                    textBox6.Text = " - Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ. ΜΠΟΡΕΙΤΕ ΝΑ ΠΕΡΑΣΕΤΕ ΝΑ ΤΗΝ ΠΑΡΑΛΑΒΕΤΕ.";
-                if (key.GetValue("Phone") != null)
-                    textBox43.Text = key.GetValue("Phone").ToString();
-                else
-                    textBox43.Text = "2115000500";
+                textBox43.Text = key.GetValue("Phone") != null ? key.GetValue("Phone").ToString() : "2115000500";
+                textBox46.Text = key.GetValue("kava") != null ? key.GetValue("kava").ToString() : "0";
+                textBox48.Text = key.GetValue("ESHOP_SHOP") != null ? key.GetValue("ESHOP_SHOP").ToString() : "ΚΑΤΑΣΤΗΜΑ ΡΟΔΟΥ";
+                textBox6.Text = key.GetValue("ESHOP_ONE") != null ? key.GetValue("ESHOP_ONE").ToString() : " - Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ ΕΙΝΑΙ ΕΤΟΙΜΗ. ΜΠΟΡΕΙΤΕ ΝΑ ΠΕΡΑΣΕΤΕ ΝΑ ΤΗΝ ΠΑΡΑΛΑΒΕΤΕ.";
+                textBox43.Text = key.GetValue("Phone") != null ? key.GetValue("Phone").ToString() : "2115000500";
                 if (key.GetValue("MAIL_ADDRESS") != null) textBox47.Text = key.GetValue("MAIL_ADDRESS").ToString();
-                if (key.GetValue("REPLACE_ON_MAIL") != null)
-                    checkBox8.Checked = Convert.ToBoolean(key.GetValue("REPLACE_ON_MAIL"));
-                else
-                    checkBox8.Checked = true;
+                checkBox8.Checked = key.GetValue("REPLACE_ON_MAIL") == null || Convert.ToBoolean(key.GetValue("REPLACE_ON_MAIL"));
 
                 key.Close();
             }
@@ -81,30 +65,57 @@ namespace BlenderBender.Forms
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            var users = Settings.Default.KnownUsers;
-            if (txtName.Text != null)
+            try
             {
-                users.Add(txtName.Text.Trim());
-                Settings.Default.KnownUsers = users;
-                Settings.Default.Save();
-            }
+                var usr = Settings.Default.KnownUsers2.Split('|').ToList();
+                if (usr.Count > 0)
+                {
+                    usr.Add(txtName.Text.Trim());
+                }
+                else
+                {
+                    usr.Add(txtName.Text.Trim());
+                }
 
-            cmbKnown();
+                Settings.Default.KnownUsers2 = string.Join("|", usr);
+                Settings.Default.Save();
+                cmbKnown2();
+            }
+            catch
+            {
+            }
         }
 
         private void cmbKnown()
         {
-            cmbKnownUsers.Items.Clear();
-            foreach (var item in Settings.Default.KnownUsers)
-                if (!string.IsNullOrEmpty(item))
-                    cmbKnownUsers.Items.Add(item);
+            try
+            {
+                cmbKnownUsers.Items.Clear();
+                foreach (var item in Settings.Default.KnownUsers)
+                    if (!string.IsNullOrEmpty(item))
+                        cmbKnownUsers.Items.Add(item);
+            }
+            catch { }
+        }
+        private void cmbKnown2()
+        {
+            try
+            {
+                cmbKnownUsers.Items.Clear();
+                foreach (var item in Settings.Default.KnownUsers2.Split('|').ToList())
+                    if (!string.IsNullOrEmpty(item))
+                        cmbKnownUsers.Items.Add(item);
+            }
+            catch { }
         }
 
         private void btnDelUser_Click(object sender, EventArgs e)
         {
-            var res = Settings.Default.KnownUsers.Remove(cmbKnownUsers.SelectedItem.ToString());
+            var usr = Settings.Default.KnownUsers2.Split('|').ToList();
+            var res = usr.Remove(cmbKnownUsers.SelectedItem.ToString());
+            Settings.Default.KnownUsers2 = string.Join("|", usr);
             Settings.Default.Save();
-            cmbKnown();
+            cmbKnown2();
             if (res)
                 MessageBox.Show($"Διαγραφή χρήστη {cmbKnownUsers.SelectedItem}");
         }
