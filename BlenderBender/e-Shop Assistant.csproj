@@ -213,10 +213,13 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Class\hwid.cs" />
+  <Compile Include="Form1.Designer.cs">
+    <DependentUpon>Form1.cs</DependentUpon>
+  </Compile>
+  <Compile Include="Form1.Helpers.cs">
+    <DependentUpon>Form1.cs</DependentUpon>
+  </Compile>
+  <Compile Include="Class\hwid.cs" />
     <Compile Include="PrintableForm.cs">
       <SubType>Form</SubType>
     </Compile>
