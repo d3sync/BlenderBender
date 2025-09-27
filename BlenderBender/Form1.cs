@@ -13,6 +13,7 @@ using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using BlenderBender.Properties;
+using BlenderBender.Services;
 using Microsoft.Win32;
 
 
@@ -26,6 +27,11 @@ namespace BlenderBender
         private readonly About about;
         public CultureInfo cCulture = CultureInfo.CurrentCulture;
         private readonly DateClass dtto = new DateClass();
+        
+        // New service instances for improved architecture
+        private readonly CurrencyService _currencyService;
+        private readonly MessageService _messageService;
+        private readonly ToolbarService _toolbarService;
 
         public string emailmsg =
             "\r\n\r\nΘα θέλαμε να σας ενημερώσουμε ότι η παραγγελία σας βρίσκεται στο κατάστημά μας.\r\nΜπορείτε να περάσετε να την παραλάβετε.\r\n";
@@ -47,6 +53,12 @@ namespace BlenderBender
         public Form1()
         {
             InitializeComponent();
+            
+            // Initialize services
+            _currencyService = new CurrencyService(cCulture, nStyles);
+            _messageService = new MessageService(new Class.UserClass(), dtto);
+            _toolbarService = new ToolbarService();
+            
             about = new About();
             fileSystemWatcher1.EnableRaisingEvents = filemonitor.Checked = Settings.Default.filemonitor;
             label40.Text = Settings.Default.monitorfolder;
@@ -104,6 +116,11 @@ namespace BlenderBender
 
         public int countdown { get; private set; }
 
+        /// <summary>
+        /// Gets the current user name from settings.
+        /// </summary>
+        /// <returns>Current user name or empty string if not set</returns>
+        [Obsolete("Use UserClass.CurrentUser() method instead for better separation of concerns.")]
         public string CurrentUser()
         {
             var _user = "";
@@ -111,6 +128,11 @@ namespace BlenderBender
             return _user;
         }
 
+        /// <summary>
+        /// Gets formatted date/time with current user information.
+        /// </summary>
+        /// <returns>Date/time string with user info in parentheses</returns>
+        [Obsolete("Use UserClass.DateTimeNUser() method instead for better separation of concerns.")]
         public string DateTimeNUser()
         {
             var _userc = CurrentUser();
@@ -118,6 +140,11 @@ namespace BlenderBender
             return $"{DateTime.Now.ToString("dd/MM HH:mm")}/({_userc})";
         }
 
+        /// <summary>
+        /// Gets formatted date with current user information.
+        /// </summary>
+        /// <returns>Date string with user info in parentheses</returns>
+        [Obsolete("Use UserClass.DateNUser() method instead for better separation of concerns.")]
         public string DateNUser()
         {
             var _userc = CurrentUser();
@@ -125,6 +152,12 @@ namespace BlenderBender
             return $"{DateTime.Now.ToString("dd/MM")}/({_userc})";
         }
 
+        /// <summary>
+        /// Gets the local machine's IP address.
+        /// </summary>
+        /// <returns>IP address string</returns>
+        /// <exception cref="Exception">Thrown when no IPv4 network adapter is found</exception>
+        [Obsolete("Use UserClass.GetLocalIPAddress() method instead for better separation of concerns.")]
         public static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -326,8 +359,129 @@ namespace BlenderBender
             hold = 0;
         }
 
+        /// <summary>
+        /// Improved currency calculation using CurrencyService.
+        /// Replaces the hardcoded approach in button8_Click.
+        /// </summary>
+        private void CalculateCurrencyTotals()
+        {
+            try
+            {
+                // Map textboxes to denominations for integer values
+                var integerCounts = new Dictionary<int, string>
+                {
+                    { 500, textBox9.Text },
+                    { 200, textBox10.Text },
+                    { 100, textBox11.Text },
+                    { 50, textBox12.Text },
+                    { 20, textBox13.Text },
+                    { 10, textBox14.Text },
+                    { 5, textBox15.Text },
+                    { 2, textBox16.Text },
+                    { 1, textBox17.Text }
+                };
+
+                // Map textboxes to denominations for decimal values (in cents)
+                var decimalCounts = new Dictionary<int, string>
+                {
+                    { 50, textBox18.Text }, // 0.50
+                    { 20, textBox19.Text }, // 0.20
+                    { 10, textBox20.Text }, // 0.10
+                    { 5, textBox21.Text },  // 0.05
+                    { 2, textBox22.Text },  // 0.02
+                    { 1, textBox23.Text }   // 0.01
+                };
+
+                // Calculate results using service
+                var integerResults = _currencyService.CalculateIntegerDenominations(integerCounts);
+                var decimalResults = _currencyService.CalculateDecimalDenominations(decimalCounts);
+
+                // Update result textboxes for integer denominations
+                var integerResultTextBoxes = new Dictionary<int, TextBox>
+                {
+                    { 500, textBox24 },
+                    { 200, textBox25 },
+                    { 100, textBox26 },
+                    { 50, textBox27 },
+                    { 20, textBox28 },
+                    { 10, textBox29 },
+                    { 5, textBox30 },
+                    { 2, textBox31 },
+                    { 1, textBox32 }
+                };
+
+                // Update result textboxes for decimal denominations
+                var decimalResultTextBoxes = new Dictionary<int, TextBox>
+                {
+                    { 50, textBox33 },
+                    { 20, textBox34 },
+                    { 10, textBox35 },
+                    { 5, textBox36 },
+                    { 2, textBox37 },
+                    { 1, textBox38 }
+                };
+
+                // Update UI with calculated results
+                foreach (var result in integerResults)
+                {
+                    if (integerResultTextBoxes.ContainsKey(result.Key))
+                        integerResultTextBoxes[result.Key].Text = result.Value;
+                }
+
+                foreach (var result in decimalResults)
+                {
+                    if (decimalResultTextBoxes.ContainsKey(result.Key))
+                        decimalResultTextBoxes[result.Key].Text = result.Value;
+                }
+
+                // Calculate and display grand total
+                sum = _currencyService.CalculateGrandTotal(integerResults, decimalResults);
+                if (sum != 0) 
+                    textBox80.Text = sum.ToString();
+
+                // Calculate final totals (existing business logic preserved)
+                CalculateFinalTotals();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in currency calculation: {ex.Message}");
+                MessageBox.Show("Error calculating currency totals. Please check your input values.", 
+                    "Calculation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// Calculates final totals including additional amounts and differences.
+        /// </summary>
+        private void CalculateFinalTotals()
+        {
+            try
+            {
+                var countit = double.Parse(textBox41.Text, nStyles, cCulture) +
+                              double.Parse(textBox44.Text, nStyles, cCulture) +
+                              double.Parse(textBox45.Text, nStyles, cCulture);
+                              
+                var difference = countit - double.Parse(textBox40.Text, nStyles, cCulture);
+                var finalTotal = double.Parse(textBox80.Text, nStyles, cCulture) - difference;
+                finalTotal = Math.Round(finalTotal, 2, MidpointRounding.ToEven);
+                textBox81.Text = finalTotal.ToString();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in final total calculation: {ex.Message}");
+            }
+        }
+
+        [Obsolete("Use CalculateCurrencyTotals() method instead. This method contains hardcoded values and poor error handling.")]
         private void button8_Click(object sender, EventArgs e)
         {
+        [Obsolete("Use CalculateCurrencyTotals() method instead. This method contains hardcoded values and poor error handling.")]
+        private void button8_Click(object sender, EventArgs e)
+        {
+            // Call the new improved method instead
+            CalculateCurrencyTotals();
+            
+            /* ORIGINAL IMPLEMENTATION - DEPRECATED
             if (textBox9.Text != "") textBox24.Text = "" + 500 * int.Parse(textBox9.Text);
             if (textBox10.Text != "") textBox25.Text = "" + 200 * int.Parse(textBox10.Text);
             if (textBox11.Text != "") textBox26.Text = "" + 100 * int.Parse(textBox11.Text);
@@ -367,6 +521,8 @@ namespace BlenderBender
             var lol1 = double.Parse(textBox80.Text, nStyles, cCulture) - lol;
             lol1 = Math.Round(lol1, 2, MidpointRounding.ToEven);
             textBox81.Text = "" + lol1;
+            */
+        }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -466,13 +622,15 @@ namespace BlenderBender
 
         private void button15_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Δεν απαντούσε {DateTimeNUser()}");
+            // Use MessageService for "did not answer" message
+            var message = _messageService.GenerateDidNotAnswerMessage();
             notifier("Δεν απαντούσε");
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Αδυναμία Επικοινωνίας {DateTimeNUser()}");
+            // Use MessageService for "inability to communicate" message
+            var message = _messageService.GenerateInabilityCommunicateMessage();
             notifier("Αδυναμία Επικοινωνίας");
         }
 
@@ -713,7 +871,8 @@ namespace BlenderBender
 
         private void button32_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText($"**Ζήτησε να παραλάβει απ το κατάστημα. {DateTimeNUser()}");
+            // Use MessageService for "pickup from store" message
+            var message = _messageService.GeneratePickupFromStoreMessage();
             notifier("Παραλαβή Επιτόπου");
         }
 
@@ -788,17 +947,9 @@ namespace BlenderBender
 
         private void button40_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ctrl + 1 : Selects Automated Messages Tab\n" +
-                            "Ctrl + 2 : Selects E-mail Tab\n" +
-                            "Ctrl + 3 : Selects Πιστωτικά Tab\n" +
-                            "Ctrl + 4 : Selects Υπολογισμός Χρημάτων Tab\n" +
-                            "Ctrl + C : Clears active tabs inputs" +
-                            "Alt + Δ : Δεν απαντούσε\n" +
-                            "Alt + E : 2ο Μήνυμα για επιτόπου\n" +
-                            "Alt + A : Αδυναμία επικοινωνίας\n" +
-                            "Alt + Ρ : Ημερομηνία και Ώρα τώρα\n" +
-                            "Alt + Τ : Τιμολογήθηκε από ....\n" +
-                            "Alt + Z : Ζήτησε κατάστημα\n", "Shortcuts");
+            // Use MessageService for help message
+            var helpMessage = _messageService.GenerateHelpMessage();
+            MessageBox.Show(helpMessage, "Shortcuts");
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)

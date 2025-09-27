@@ -1,64 +1,79 @@
 ﻿using System;
+using BlenderBender.Services;
 
 namespace BlenderBender
 {
-    public class DateClass
+    /// <summary>
+    /// Handles date calculations with Greek language formatting and business day logic.
+    /// </summary>
+    public class DateClass : IDateService
     {
+        /// <summary>
+        /// Calculates a future date with Greek formatting based on specified options.
+        /// </summary>
+        /// <param name="option">Date calculation option (excludeSunday, bookExcludeSunday, includeSunday)</param>
+        /// <param name="extraDays">Additional days to add</param>
+        /// <returns>Formatted Greek date string</returns>
         public string DateTo(string option, int extraDays)
         {
-            var nn = 2;
-            var meh = DateTime.Now;
-            switch (option)
+            var businessDaysToAdd = 2;
+            var targetDate = DateTime.Now;
+            
+            switch (option?.ToLowerInvariant())
             {
-                case "excludeSunday":
-                    if (meh.DayOfWeek == DayOfWeek.Saturday || meh.DayOfWeek == DayOfWeek.Friday) nn += 1;
-                    meh = meh.AddDays(nn);
+                case "excludesunday":
+                    // If it's Friday or Saturday, add extra day to skip Sunday
+                    if (targetDate.DayOfWeek == DayOfWeek.Saturday || targetDate.DayOfWeek == DayOfWeek.Friday) 
+                        businessDaysToAdd += 1;
+                    targetDate = targetDate.AddDays(businessDaysToAdd);
                     break;
-                case "bookExcludeSunday":
+                    
+                case "bookexcludesunday":
+                    // Add 6 days, skipping any Sundays encountered
                     for (var i = 1; i < 7; i++)
                     {
-                        meh = meh.AddDays(1);
-                        if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
+                        targetDate = targetDate.AddDays(1);
+                        if (targetDate.DayOfWeek == DayOfWeek.Sunday) 
+                            targetDate = targetDate.AddDays(1);
                     }
-
                     break;
-                case "includeSunday":
-                    meh = meh.AddDays(nn);
-                    break;
+                    
+                case "includesunday":
                 default:
-                    meh = meh.AddDays(nn);
+                    targetDate = targetDate.AddDays(businessDaysToAdd);
                     break;
             }
 
-            meh = meh.AddDays(extraDays);
-            if (meh.DayOfWeek == DayOfWeek.Sunday) meh = meh.AddDays(1);
+            // Add extra days if specified
+            targetDate = targetDate.AddDays(extraDays);
+            
+            // Skip Sunday if final date lands on it
+            if (targetDate.DayOfWeek == DayOfWeek.Sunday) 
+                targetDate = targetDate.AddDays(1);
 
+            return FormatDateInGreek(targetDate);
+        }
 
-            var dtp = meh.ToString("dddd dd/MM");
-            var ntay = meh.DayOfWeek.ToString();
-            switch (ntay)
+        /// <summary>
+        /// Formats a DateTime to Greek language day and date format.
+        /// </summary>
+        /// <param name="date">Date to format</param>
+        /// <returns>Greek formatted date string</returns>
+        private string FormatDateInGreek(DateTime date)
+        {
+            var dateFormatted = date.ToString("dddd dd/MM");
+            var dayOfWeek = date.DayOfWeek.ToString();
+            
+            return dayOfWeek switch
             {
-                case "Monday":
-                    return dtp.Replace(ntay, "ΤΗΝ ΔΕΥΤΕΡΑ");
-
-                case "Tuesday":
-                    return dtp.Replace(ntay, "ΤΗΝ ΤΡΙΤΗ");
-
-                case "Wednesday":
-                    return dtp.Replace(ntay, "ΤΗΝ ΤΕΤΑΡΤΗ");
-
-                case "Thursday":
-                    return dtp.Replace(ntay, "ΤΗΝ ΠΕΜΠΤΗ");
-
-                case "Friday":
-                    return dtp.Replace(ntay, "ΤΗΝ ΠΑΡΑΣΚΕΥΗ");
-
-                case "Saturday":
-                    return dtp.Replace(ntay, "ΤΟ ΣΑΒΒΑΤΟ");
-
-                default:
-                    return dtp;
-            }
+                "Monday" => dateFormatted.Replace(dayOfWeek, "ΤΗΝ ΔΕΥΤΕΡΑ"),
+                "Tuesday" => dateFormatted.Replace(dayOfWeek, "ΤΗΝ ΤΡΙΤΗ"),
+                "Wednesday" => dateFormatted.Replace(dayOfWeek, "ΤΗΝ ΤΕΤΑΡΤΗ"),
+                "Thursday" => dateFormatted.Replace(dayOfWeek, "ΤΗΝ ΠΕΜΠΤΗ"),
+                "Friday" => dateFormatted.Replace(dayOfWeek, "ΤΗΝ ΠΑΡΑΣΚΕΥΗ"),
+                "Saturday" => dateFormatted.Replace(dayOfWeek, "ΤΟ ΣΑΒΒΑΤΟ"),
+                _ => dateFormatted
+            };
         }
     }
 }
