@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using BlenderBender.Forms;
 using BlenderBender.Properties;
+using BlenderBender.Services;
 
 namespace BlenderBender
 {
@@ -16,48 +17,58 @@ namespace BlenderBender
         public FileMonitor fmonitor;
         public int hold;
         public MessagesForm mes;
+        private readonly ToolbarService _toolbarService;
 
         public MainWindow()
         {
             InitializeComponent();
             CreateDefaultTxtFile();
+            
+            _toolbarService = new ToolbarService();
             fmonitor = new FileMonitor(this);
+            
             Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
+            
+            // Initialize window positioning using ToolbarService
+            InitializeWindowLayout();
+        }
+
+        /// <summary>
+        /// Initializes the window layout based on BreakFree setting.
+        /// </summary>
+        private void InitializeWindowLayout()
+        {
             if (!Settings.Default.BreakFree)
             {
+                // Normal mode - centered with full height
                 this.Height = 632;
                 fmonitor.MdiParent = this;
-                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                _toolbarService.CenterFormOnScreen(this);
             }
             else
             {
+                // Toolbar mode - compact height positioned as toolbar
                 this.Height = 156;
-                this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-                int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width - 400;
-                int y = Screen.PrimaryScreen.WorkingArea.Height - this.Height - 20;
-                this.Location = new Point(x, y);
+                _toolbarService.PositionAsToolbar(this, ToolbarPosition.BottomRight);
             }
-
         }
         private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            // Check if the changed setting is the one you're interested in
+            // Check if the changed setting is the BreakFree (toolbar mode) setting
             if (e.PropertyName == "BreakFree")
             {
+                // Use ToolbarService to toggle between modes
+                _toolbarService.ToggleToolbarMode(this, Settings.Default.BreakFree, 
+                    toolbarHeight: 156, normalHeight: 632);
+                
+                // Update MDI parent setting for file monitor
                 if (Settings.Default.BreakFree)
                 {
-                    this.WindowState = FormWindowState.Normal;
-                    this.Height = 156;
-                    int x = Screen.PrimaryScreen.WorkingArea.Width - this.Width - 400;
-                    int y = Screen.PrimaryScreen.WorkingArea.Height - this.Height - 20;
-                    this.Location = new Point(x, y);
+                    fmonitor.MdiParent = null; // Remove MDI parent in toolbar mode
                 }
                 else
                 {
-                    this.Height = 632;
-                    int x = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
-                    int y = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
-                    this.Location = new Point(x, y);
+                    fmonitor.MdiParent = this; // Set MDI parent in normal mode
                 }
             }
         }
